@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+venv/
+ENV/
+.env
+
+# Django
+*.log
+db.sqlite3
+/static/
+/media/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# General
+*.swp
+*.bak
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Node
+node_modules/
+
+# Coverage
+htmlcov/
+.coverage
+coverage.xml
+
+# Other
+*.heic
+*.png
+*.jpg
+*.jpeg
+*.gif

@@ -1,4 +1,4 @@
-# CookBookr 🍳
+# CookBookr
 
 A social media-style recipe sharing website built with Django where users can create, share, and discover recipes while planning their weekly meals and generating shopping lists.
 
