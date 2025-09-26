@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', recipe_views.home, name='home'),
     path('recipes/', recipe_views.recipe_home, name='recipes_home'),
+    path('hello/', recipe_views.index, name='hello_index'),
 ]
