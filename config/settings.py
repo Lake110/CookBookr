@@ -28,9 +28,9 @@ except ImportError:
 SECRET_KEY = os.environ.get('SECRET_KEY', ENV_SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cookbookr-75c0f1b11cd0.herokuapp.com', '.herokuapp.com']
 
 
 # Application definition
@@ -79,12 +79,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-# Database configuration is imported from env.py
-
-DATABASES = {
-    'default': dj_database_url.parse(
-                       os.environ.get("DATABASE_URL"))
-}
+# Database configuration
+if ENV_DATABASES and not os.environ.get('DATABASE_URL'):
+    # Use local env.py database
+    DATABASES = ENV_DATABASES
+else:
+    # Use Heroku DATABASE_URL or fallback
+    DATABASE_URL = os.environ.get('DATABASE_URL')
+    if DATABASE_URL:
+        DATABASES = {
+            'default': dj_database_url.parse(DATABASE_URL)
+        }
+    else:
+        # Fallback for local development without env.py
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': BASE_DIR / 'db.sqlite3',
+            }
+        }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
