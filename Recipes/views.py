@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-import requests
 
 # Create your views here.
 def home(request):
@@ -14,6 +13,3 @@ def index(request):
         return HttpResponse("You must have POSTed something")
     else:
         return HttpResponse(request.method)
-
-response = requests.post('http://127.0.0.1:8001/hello/')
-print(response.text)
