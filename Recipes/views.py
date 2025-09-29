@@ -1,12 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from .models import Recipe
 
-# Create your views here.
 def home(request):
-    return HttpResponse("Welcome to the Recipe App!")
+    # Show recent 6 recipes on homepage
+    recent_recipes = Recipe.objects.all()[:6]
+    return render(request, 'recipes/home.html', {'recipes': recent_recipes})
 
 def recipe_home(request):
-    return HttpResponse("Welcome to the Recipes page")
+    # Show all recipes
+    recipes = Recipe.objects.all()
+    return render(request, 'recipes/recipe_list.html', {'recipes': recipes})
 
 def index(request):
     if request.method == 'POST':
