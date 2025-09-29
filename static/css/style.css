@@ -1,5 +1,26 @@
 /* Custom styles for CookBookr */
 
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header, main, and footer styles */
+/*header styles*/
+header {
+}
+/*main styles*/
+main {
+  /* make element fill the remaining space */
+    flex: 1 0 auto;
+}
+/*footer styles*/
+footer {
+}
+
+/* Card styles */
 .card {
     transition: transform 0.2s ease-in-out;
     border: none;
