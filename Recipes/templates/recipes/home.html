@@ -1,4 +1,4 @@
-{% extends 'recipes/base.html' %}
+{% extends "base.html" %}
 
 {% block title %}Home - CookBookr{% endblock %}
 
@@ -22,19 +22,27 @@
     </div>
 </div>
 
-<!-- User Dashboard Section for Authenticated Users -->
+<!-- User Dashboard Modal for Authenticated Users (Auto-trigger) -->
 {% if user.is_authenticated %}
-<div class="row mb-5">
-    <div class="col-12">
-        <div class="alert alert-info" role="alert">
-            <h4 class="alert-heading">Your CookBookr Dashboard</h4>
-            <p>Welcome back! Here's what you can do:</p>
-            <hr>
-            <ul class="mb-0">
-                <li>Browse all recipes below</li>
-                <li>Add your own recipes</li>
-                <li>Share your favorite recipes with the community</li>
-            </ul>
+<!-- Modal -->
+<div class="modal fade" id="dashboardModal" tabindex="-1" aria-labelledby="dashboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-info text-white">
+                <h4 class="modal-title" id="dashboardModalLabel">Your CookBookr Dashboard</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Welcome back! Here's what you can do:</p>
+                <ul>
+                    <li>Browse all recipes below</li>
+                    <li>Add your own recipes</li>
+                    <li>Share your favorite recipes with the community</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
         </div>
     </div>
 </div>
