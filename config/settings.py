@@ -31,8 +31,8 @@ if not SECRET_KEY:
     raise ValueError("SECRET_KEY must be set in environment variables or env.py")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Temporarily set to True for debugging
-DEBUG = False
+# Set to True for development
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cookbookr-75c0f1b11cd0.herokuapp.com', '.herokuapp.com']
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'widget_tweaks',
     'Recipes',
 ]
 

@@ -90,3 +90,22 @@ footer {
         margin-bottom: 1rem;
     }
 }
+
+/* Authentication form styling */
+.login, .signup {
+    max-width: 100%;
+}
+
+.btn.right {
+    float: right;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
