@@ -36,9 +36,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'recipes_home' %}">All Recipes</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/">Admin</a>
                     </li>
+                    {% endif %}
                     
                     <!-- Authentication Links -->
                     {% if user.is_authenticated %}

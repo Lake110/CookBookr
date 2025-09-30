@@ -7,16 +7,48 @@
 <div class="row mb-5">
     <div class="col-12">
         <div class="bg-primary text-white p-5 rounded text-center">
-            <h1 class="display-4">Welcome to CookBookr</h1>
-            <p class="lead">Discover amazing recipes and share your culinary creations</p>
+            {% if user.is_authenticated %}
+                <h1 class="display-4">Welcome back, {{ user.username }}!</h1>
+                <p class="lead">Ready to discover new recipes or share your own?</p>
+            {% else %}
+                <h1 class="display-4">Welcome to CookBookr</h1>
+                <p class="lead">Discover amazing recipes and share your culinary creations</p>
+                <div class="mt-4">
+                    <a href="{% url 'account_signup' %}" class="btn btn-light btn-lg me-3">Join Now</a>
+                    <a href="{% url 'account_login' %}" class="btn btn-outline-light btn-lg">Sign In</a>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
 
+<!-- User Dashboard Section for Authenticated Users -->
+{% if user.is_authenticated %}
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">Your CookBookr Dashboard</h4>
+            <p>Welcome back! Here's what you can do:</p>
+            <hr>
+            <ul class="mb-0">
+                <li>Browse all recipes below</li>
+                <li>Add your own recipes</li>
+                <li>Share your favorite recipes with the community</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endif %}
+
 <!-- Recent Recipes Section -->
 <div class="row mb-4">
     <div class="col-12">
-        <h2 class="mb-4">Recent Recipes</h2>
+        {% if user.is_authenticated %}
+            <h2 class="mb-4">Explore Recipes</h2>
+        {% else %}
+            <h2 class="mb-4">Featured Recipes</h2>
+            <p class="text-muted">Sign up to access all features and contribute your own recipes!</p>
+        {% endif %}
     </div>
 </div>
 
