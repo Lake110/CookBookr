@@ -32,7 +32,7 @@ if not SECRET_KEY:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Temporarily set to True for debugging
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cookbookr-75c0f1b11cd0.herokuapp.com', '.herokuapp.com']
 
