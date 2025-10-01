@@ -1,5 +1,19 @@
-/* Custom styles for CookBookr */
+/* CookBookr - Enhanced styles with animations, responsive design, and accessibility features */
 
+/* Custom CSS Variables for consistent theming */
+:root {
+    --cookbookr-primary: #007bff;
+    --cookbookr-primary-dark: #0056b3;
+    --cookbookr-primary-darker: #004085;
+    --cookbookr-hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --cookbookr-primary-gradient: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    --cookbookr-shadow-light: 0 2px 10px rgba(0,0,0,0.1);
+    --cookbookr-shadow-medium: 0 4px 20px rgba(0,0,0,0.15);
+    --cookbookr-shadow-heavy: 0 8px 25px rgba(0,0,0,0.15);
+    --cookbookr-border-radius: 8px;
+    --cookbookr-border-radius-large: 12px;
+    --cookbookr-transition: all 0.2s ease-in-out;
+}
 
 body {
     min-height: 100vh;
@@ -7,36 +21,29 @@ body {
     flex-direction: column;
 }
 
-/* Header, main, and footer styles */
-/*header styles*/
-header {
-}
-/*main styles*/
+/* Main layout using flexbox for sticky footer */
 main {
     flex: 1 0 auto;
 }
-/*footer styles*/
-footer {
-}
 
-/* Hero Section Styling */
+/* Hero Section with gradient background and centered content */
 .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--cookbookr-hero-gradient);
     min-height: 400px;
     display: flex;
     align-items: center;
 }
 
-/* Card styles */
+/* Enhanced card styling with hover effects and shadows */
 .card {
-    transition: transform 0.2s ease-in-out;
+    transition: var(--cookbookr-transition);
     border: none;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: var(--cookbookr-shadow-light);
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    box-shadow: var(--cookbookr-shadow-medium);
 }
 
 /* Recipe Carousel Styling */
@@ -111,9 +118,10 @@ footer {
     }
 }
 
-/* Card Text Expansion */
+/* Card Text Expansion - allows full text display when expanded */
 .card-text.expanded {
     -webkit-line-clamp: unset !important;
+    line-clamp: unset !important;
     overflow: visible !important;
 }
 
@@ -153,15 +161,15 @@ footer {
     border-color: #adb5bd;
 }
 
-/* Button Styling */
+/* Enhanced button styling with gradients and hover effects */
 .btn-primary {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    background: var(--cookbookr-primary-gradient);
     border: none;
-    transition: all 0.2s ease;
+    transition: var(--cookbookr-transition);
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    background: linear-gradient(135deg, var(--cookbookr-primary-dark) 0%, var(--cookbookr-primary-darker) 100%);
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
 }
@@ -287,12 +295,6 @@ footer {
 .navbar-brand {
     font-weight: 700;
     color: #007bff !important;
-}
-
-/* Form Styling */
-.form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 /* Toast Notifications */
@@ -469,27 +471,6 @@ footer {
 
 /* Base pagination styling */
 .pagination {
-    --bs-pagination-padding-x: 0.75rem;
-    --bs-pagination-padding-y: 0.5rem;
-    --bs-pagination-font-size: 1rem;
-    --bs-pagination-color: #6c757d;
-    --bs-pagination-bg: #fff;
-    --bs-pagination-border-width: 1px;
-    --bs-pagination-border-color: #dee2e6;
-    --bs-pagination-border-radius: 0.375rem;
-    --bs-pagination-hover-color: #0a58ca;
-    --bs-pagination-hover-bg: #e9ecef;
-    --bs-pagination-hover-border-color: #dee2e6;
-    --bs-pagination-focus-color: #0a58ca;
-    --bs-pagination-focus-bg: #e9ecef;
-    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
-    --bs-pagination-active-color: #fff;
-    --bs-pagination-active-bg: #0d6efd;
-    --bs-pagination-active-border-color: #0d6efd;
-    --bs-pagination-disabled-color: #6c757d;
-    --bs-pagination-disabled-bg: #fff;
-    --bs-pagination-disabled-border-color: #dee2e6;
-    
     margin-bottom: 0;
     flex-wrap: wrap;
     justify-content: center;

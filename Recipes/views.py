@@ -41,11 +41,6 @@ class RecipeListView(ListView):
         return context
 
 
-def recipe_home(request):
-    """Legacy function view - redirects to class-based view"""
-    from django.shortcuts import redirect
-    return redirect('recipes_list')
-
 def index(request):
     if request.method == 'POST':
         return HttpResponse("You must have POSTed something")

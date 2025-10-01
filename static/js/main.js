@@ -1,4 +1,4 @@
-// Custom JavaScript for CookBookr
+// CookBookr Interactive Features - Recipe cards, search, modals, and notifications
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('CookBookr loaded successfully!');
@@ -72,12 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Bootstrap tooltip initialization
-    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-    
     // Modal enhancements
     const modals = document.querySelectorAll('.modal');
     modals.forEach(modal => {
@@ -146,33 +140,6 @@ function initializeRecipeDetailPage() {
         shareButton.addEventListener('click', shareRecipe);
     }
 }
-
-/*function shareRecipe() {
-    // Get recipe data from the page
-    const title = document.querySelector('.card-header h1, .card-header .h3')?.textContent || 'Recipe';
-    const description = document.querySelector('.lead')?.textContent || 'Check out this recipe!';
-    
-    if (navigator.share) {
-        navigator.share({
-            title: title,
-            text: description,
-            url: window.location.href,
-        }).catch(err => console.log('Error sharing:', err));
-    } else {
-        // Fallback - copy URL to clipboard
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(window.location.href)
-                .then(() => {
-                    showNotification('Recipe URL copied to clipboard!', 'success');
-                })
-                .catch(() => {
-                    fallbackCopyToClipboard(window.location.href);
-                });
-        } else {
-            fallbackCopyToClipboard(window.location.href);
-        }
-    }
-}*/
 
 function fallbackCopyToClipboard(text) {
     // Easiest fallback: prompt user to copy manually
