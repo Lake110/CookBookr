@@ -168,12 +168,12 @@
                                     {% if user.is_authenticated and user == comment.author %}
                                         <div class="btn-group btn-group-sm" role="group">
                                             <button class="btn btn-edit btn-outline-warning btn-sm"
-                                                    comment_id="{{ comment.id }}" 
+                                                    data-comment-id="{{ comment.id }}" 
                                                     title="Edit comment">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button class="btn btn-delete btn-outline-danger btn-sm"
-                                                    comment_id="{{ comment.id }}" 
+                                                    data-comment-id="{{ comment.id }}" 
                                                     title="Delete comment">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
@@ -184,18 +184,6 @@
                             <div class="comment-body">
                                 <p class="mb-0" id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</p>
                             </div>
-                            {% if user.is_authenticated and comment.author == user %}
-                            <div class="comment-actions mt-2">
-                                <button class="btn btn-sm btn-outline-danger btn-delete" 
-                                        comment_id="{{ comment.id }}">
-                                    <i class="fas fa-trash me-1"></i>Delete
-                                </button>
-                                <button class="btn btn-sm btn-outline-primary btn-edit" 
-                                        comment_id="{{ comment.id }}">
-                                    <i class="fas fa-edit me-1"></i>Edit
-                                </button>
-                            </div>
-                            {% endif %}
                         </div>
                         {% endfor %}
                     {% else %}
@@ -310,7 +298,7 @@
                         data-bs-dismiss="modal">
                     <i class="fas fa-times me-1"></i>Cancel
                 </button>
-                <a id="deleteConfirm" href="#" class="btn btn-danger">
+                <a id="deleteConfirm" href="javascript:void(0)" class="btn btn-danger">
                     <i class="fas fa-trash me-1"></i>Delete
                 </a>
             </div>

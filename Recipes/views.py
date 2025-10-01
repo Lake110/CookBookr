@@ -133,9 +133,11 @@ def comment_edit(request, recipe_id, comment_id):
             comment.recipe = recipe
             comment.approved = False  # Reset approval when edited
             comment.save()
-            messages.success(request, 'Comment updated!')
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.error(request, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!'
+            )
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
 
@@ -148,8 +150,10 @@ def comment_delete(request, recipe_id, comment_id):
 
     if comment.author == request.user:
         comment.delete()
-        messages.success(request, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.error(request, 'You can only delete your own comments!')
+        messages.add_message(
+            request, messages.ERROR, 'You can only delete your own comments!'
+        )
 
     return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
