@@ -22,22 +22,30 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">CookBookr</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+                <i class="fas fa-book-open me-2"></i>CookBookr
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'recipes_home' %}">All Recipes</a>
+                        <a class="nav-link" href="{% url 'recipes_home' %}">
+                            <i class="fas fa-utensils me-1"></i>All Recipes
+                        </a>
                     </li>
-                    
-                    <!-- Add Recipe Link - Only for authenticated users -->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add_recipe' %}">
@@ -45,22 +53,32 @@
                         </a>
                     </li>
                     {% endif %}
-                    
-                    <!-- Authentication Links -->
+                </ul>
+                
+                <ul class="navbar-nav">
                     {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <span class="navbar-text me-3">Hello, {{ user.username }}!</span>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                        </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user me-1"></i>{{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">
+                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                            </a></li>
+                        </ul>
+                    </li>
                     {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-primary btn-sm ms-2" href="{% url 'account_signup' %}">
+                            <i class="fas fa-user-plus me-1"></i>Sign Up
+                        </a>
+                    </li>
                     {% endif %}
                 </ul>
             </div>
@@ -74,9 +92,50 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-muted py-3 mt-5">
-        <div class="container">
-            <p>&copy; 2025 CookBookr. Made by Michael</p>
+    <footer class="bg-dark text-white mt-5">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mb-3">
+                        <i class="fas fa-book-open me-2"></i>CookBookr
+                    </h5>
+                    <p class="text-muted mb-0">
+                        Share your favorite recipes with food lovers around the world.
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="{% url 'home' %}" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="{% url 'recipes_home' %}" class="text-muted text-decoration-none">All Recipes</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'add_recipe' %}" class="text-muted text-decoration-none">Add Recipe</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h6 class="mb-3">Community</h6>
+                    <ul class="list-unstyled">
+                        {% if not user.is_authenticated %}
+                        <li><a href="{% url 'account_signup' %}" class="text-muted text-decoration-none">Join Us</a></li>
+                        <li><a href="{% url 'account_login' %}" class="text-muted text-decoration-none">Login</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">
+                        &copy; 2025 CookBookr. Made by Michael.
+                    </p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <small class="text-muted">
+                        Built with Django & Bootstrap
+                    </small>
+                </div>
+            </div>
         </div>
     </footer>
 

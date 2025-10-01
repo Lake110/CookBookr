@@ -8,13 +8,17 @@ from .forms import RecipeForm
 
 def home(request):
     """Home page showing featured recipes and site overview"""
-    # Show 5 newest recipes for carousel (displays 3 at a time)
-    featured_recipes = Recipe.objects.all().order_by('-created_at')[:5]
+    # Get 4 random recipes for featured section
+    featured_recipes = Recipe.objects.all().order_by('?')[:4]  # Random order, limit 4
+    
+    # Get totals for stats
+    total_recipes = Recipe.objects.count()
+    total_users = User.objects.count()
     
     context = {
         'featured_recipes': featured_recipes,
-        'total_recipes': Recipe.objects.count(),
-        'total_users': User.objects.count(),
+        'total_recipes': total_recipes,
+        'total_users': total_users,
     }
     return render(request, 'recipes/home.html', context)
 
