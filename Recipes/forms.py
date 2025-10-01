@@ -12,8 +12,7 @@ class RecipeForm(forms.ModelForm):
             'instructions', 
             'prep_time', 
             'cook_time', 
-            'servings', 
-            'featured_image'
+            'servings'
         ]
         widgets = {
             'title': forms.TextInput(attrs={
@@ -46,9 +45,5 @@ class RecipeForm(forms.ModelForm):
             'servings': forms.NumberInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Number of servings'
-            }),
-            'featured_image': forms.FileInput(attrs={
-                'class': 'form-control',
-                'accept': 'image/*'
             })
         }
