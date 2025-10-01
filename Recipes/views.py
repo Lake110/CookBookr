@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User  
+from django.views.generic import ListView
 from .models import Recipe
 from .forms import RecipeForm
 
@@ -22,13 +23,28 @@ def home(request):
     }
     return render(request, 'recipes/home.html', context)
 
+class RecipeListView(ListView):
+    """
+    Display all recipes with pagination
+    Class-based view that automatically handles pagination
+    """
+    model = Recipe
+    template_name = 'recipes/all_recipes.html'
+    context_object_name = 'recipes'
+    paginate_by = 6  # Show 6 recipes per page
+    ordering = ['-created_at']  # Show newest first
+    
+    def get_context_data(self, **kwargs):
+        """Add extra context data to the template"""
+        context = super().get_context_data(**kwargs)
+        context['total_recipes'] = Recipe.objects.count()
+        return context
+
+
 def recipe_home(request):
-    """Display all recipes on the recipes page"""
-    recipes = Recipe.objects.all().order_by('-created_at')  # Show newest first
-    context = {
-        'recipes': recipes
-    }
-    return render(request, 'recipes/all_recipes.html', context)
+    """Legacy function view - redirects to class-based view"""
+    from django.shortcuts import redirect
+    return redirect('recipes_list')
 
 def index(request):
     if request.method == 'POST':

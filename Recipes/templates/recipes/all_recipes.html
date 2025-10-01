@@ -98,5 +98,160 @@
         </div>
         {% endfor %}
     </div>
+    
+    <!-- Pagination Controls -->
+    {% if is_paginated %}
+    <div class="row mt-5">
+        <div class="col-12">
+            <nav aria-label="Recipe pagination">
+                <ul class="pagination justify-content-center">
+                    
+                    <!-- Previous Button -->
+                    {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" 
+                               aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="d-none d-sm-inline ms-1">Previous</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="d-none d-sm-inline ms-1">Previous</span>
+                            </span>
+                        </li>
+                    {% endif %}
+                    
+                    <!-- Numbered Page Links -->
+                    {% if page_obj.num_pages <= 7 %}
+                        <!-- Simple: Show all pages if 7 or fewer -->
+                        {% for page_num in page_obj.paginator.page_range %}
+                            {% if page_num == page_obj.number %}
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">{{ page_num }}</span>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <!-- Complex: Smart pagination with ellipsis for 8+ pages -->
+                        
+                        <!-- Always show page 1 -->
+                        {% if page_obj.number == 1 %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">1</span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page=1">1</a>
+                            </li>
+                        {% endif %}
+                        
+                        <!-- Left ellipsis if needed -->
+                        {% if page_obj.number > 4 %}
+                            <li class="page-item disabled">
+                                <span class="page-link">...</span>
+                            </li>
+                        {% endif %}
+                        
+                        <!-- Pages around current page -->
+                        {% for page_num in page_obj.paginator.page_range %}
+                            {% if page_num != 1 and page_num != page_obj.num_pages %}
+                                {% if page_num >= page_obj.number|add:'-1' and page_num <= page_obj.number|add:'1' %}
+                                    {% if page_num == page_obj.number %}
+                                        <li class="page-item active" aria-current="page">
+                                            <span class="page-link">{{ page_num }}</span>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <!-- Right ellipsis if needed -->
+                        {% if page_obj.number < page_obj.num_pages|add:'-3' %}
+                            <li class="page-item disabled">
+                                <span class="page-link">...</span>
+                            </li>
+                        {% endif %}
+                        
+                        <!-- Always show last page -->
+                        {% if page_obj.number == page_obj.num_pages %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">{{ page_obj.num_pages }}</span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.num_pages }}">{{ page_obj.num_pages }}</a>
+                            </li>
+                        {% endif %}
+                        
+                    {% endif %}
+                    
+                    <!-- Next Button -->
+                    {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" 
+                               aria-label="Next">
+                                <span class="d-none d-sm-inline me-1">Next</span>
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li class="page-item disabled">
+                            <span class="page-link" aria-label="Next">
+                                <span class="d-none d-sm-inline me-1">Next</span>
+                                <span aria-hidden="true">&raquo;</span>
+                            </span>
+                        </li>
+                    {% endif %}
+                    
+                </ul>
+            </nav>
+            
+            <!-- Results Info -->
+            <div class="text-center text-muted mt-3">
+                <small>
+                    <strong>Page {{ page_obj.number }} of {{ page_obj.num_pages }}</strong> • 
+                    Showing {{ recipes|length }} of {{ page_obj.paginator.count }} recipes
+                </small>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Debug: Pagination Variables (Remove this after testing) -->
+    {% if is_paginated %}
+    <div class="alert alert-info mt-4">
+        <h6>🔍 Pagination Debug Info:</h6>
+        <ul class="mb-0">
+            <li><strong>is_paginated:</strong> {{ is_paginated }}</li>
+            <li><strong>Current page:</strong> {{ page_obj.number }}</li>
+            <li><strong>Total pages:</strong> {{ page_obj.num_pages }}</li>
+            <li><strong>Total recipes:</strong> {{ page_obj.paginator.count }}</li>
+            <li><strong>Has previous:</strong> {{ page_obj.has_previous }}</li>
+            <li><strong>Has next:</strong> {{ page_obj.has_next }}</li>
+            {% if page_obj.has_previous %}
+            <li><strong>Previous page #:</strong> {{ page_obj.previous_page_number }}</li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li><strong>Next page #:</strong> {{ page_obj.next_page_number }}</li>
+            {% endif %}
+        </ul>
+    </div>
+    {% else %}
+    <div class="alert alert-warning mt-4">
+        <strong>Not paginated</strong> - All recipes fit on one page!
+    </div>
+    {% endif %}
+    
 </div>
 {% endblock %}
