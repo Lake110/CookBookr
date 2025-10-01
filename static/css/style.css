@@ -370,6 +370,59 @@ main {
     border-left: 4px solid #dc3545;
 }
 
+/* Footer styling */
+footer {
+    flex-shrink: 0;
+}
+
+footer h6 {
+    color: #fff !important;
+    font-weight: 600;
+}
+
+footer .text-muted {
+    color: #adb5bd !important;
+}
+
+footer .text-muted:hover {
+    color: #fff !important;
+    transition: var(--cookbookr-transition);
+}
+
+/* Social media icons styling */
+footer .d-flex a {
+    transition: var(--cookbookr-transition);
+    padding: 0.25rem;
+    border-radius: 50%;
+}
+
+footer .d-flex a:hover {
+    color: var(--cookbookr-primary) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Specific social media brand colors on hover */
+footer .fab.fa-facebook-f:hover {
+    color: #1877f2 !important;
+}
+
+footer .fab.fa-twitter:hover {
+    color: #1da1f2 !important;
+}
+
+footer .fab.fa-instagram:hover {
+    color: #e4405f !important;
+}
+
+footer .fab.fa-youtube:hover {
+    color: #ff0000 !important;
+}
+
+footer .fab.fa-pinterest:hover {
+    color: #bd081c !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .hero-section {
