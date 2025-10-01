@@ -181,34 +181,3 @@ function filterRecipes(searchTerm) {
         showNotification(`No recipes found for "${searchTerm}"`, 'warning');
     }
 }
-
-// Add fade-in animation CSS dynamically
-const style = document.createElement('style');
-style.textContent = `
-    .fade-in {
-        opacity: 0;
-        animation: fadeInUp 0.6s ease-out forwards;
-    }
-    
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-        overflow: visible !important;
-    }card-text.expanded {
-        -webkit-line-clamp: unset !important;
-    .card:focus { visible !important;
-        outline: 2px solid #007bff;
-        outline-offset: 2px;
-    }card:focus {
-`;      outline: 2px solid #007bff;
-document.head.appendChild(style);
-    }
-`;
-document.head.appendChild(style);
