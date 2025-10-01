@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.contrib.auth.models import User  
+from django.contrib.auth.models import User
 from django.views.generic import ListView
-from .models import Recipe
-from .forms import RecipeForm
+from django.urls import reverse
+from .models import Recipe, Comment
+from .forms import RecipeForm, CommentForm
 
 def home(request):
     """Home page showing featured recipes and site overview"""
@@ -67,18 +68,88 @@ def add_recipe(request):
 
 def recipe_detail(request, recipe_id):
     """
-    Display detailed view of a single recipe
-    Available to all users (no login required)
+    Display detailed view of a single recipe with comment functionality
+    GET: Display recipe and approved comments
+    POST: Handle comment submission (logged-in users only)
     """
     recipe = get_object_or_404(Recipe, id=recipe_id)
     
-    # Potential Future additions: Track recipe views (for future analytics)
-    # You could add a views counter field to the Recipe model later
+    # Get approved comments only, ordered by newest first
+    comments = recipe.comments.filter(approved=True).order_by('-created_on')
+    
+    # Handle comment form submission
+    comment_form = CommentForm()
+    comment_submitted = False
+    
+    if request.method == 'POST' and request.user.is_authenticated:
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.author = request.user
+            comment.save()
+            
+            messages.success(
+                request,
+                'Your comment has been submitted and is awaiting approval.'
+            )
+            comment_submitted = True
+            # Create a new blank form after successful submission
+            comment_form = CommentForm()
+    
+    # Split ingredients and instructions into lists for display
+    ingredients_list = []
+    if recipe.ingredients:
+        ingredients_list = recipe.ingredients.split('\n')
+    
+    instructions_list = []
+    if recipe.instructions:
+        instructions_list = recipe.instructions.split('\n')
     
     context = {
         'recipe': recipe,
-        'ingredients_list': recipe.ingredients.split('\n') if recipe.ingredients else [],
-        'instructions_list': recipe.instructions.split('\n') if recipe.instructions else [],
+        'ingredients_list': ingredients_list,
+        'instructions_list': instructions_list,
+        'comments': comments,
+        'comment_form': comment_form,
+        'comment_submitted': comment_submitted,
+        'comments_count': comments.count(),
     }
     
     return render(request, 'recipes/recipe_detail.html', context)
+
+
+def comment_edit(request, recipe_id, comment_id):
+    """
+    View to edit comments
+    """
+    if request.method == "POST":
+        recipe = get_object_or_404(Recipe, id=recipe_id)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.recipe = recipe
+            comment.approved = False  # Reset approval when edited
+            comment.save()
+            messages.success(request, 'Comment updated!')
+        else:
+            messages.error(request, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
+
+
+def comment_delete(request, recipe_id, comment_id):
+    """
+    View to delete comment
+    """
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.success(request, 'Comment deleted!')
+    else:
+        messages.error(request, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))

@@ -1,5 +1,7 @@
 from django import forms
-from .models import Recipe
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Field, Submit
+from .models import Recipe, Comment
 
 
 class RecipeForm(forms.ModelForm):
@@ -47,4 +49,30 @@ class RecipeForm(forms.ModelForm):
                 'placeholder': 'Number of servings'
             })
         }
+
+
+class CommentForm(forms.ModelForm):
+    """Form for users to submit comments on recipes"""
+    
+    class Meta:
+        model = Comment
+        fields = ['body']
+        widgets = {
+            'body': forms.Textarea(attrs={
+                'rows': 4,
+                'placeholder': 'Share your thoughts about this recipe...'
+            })
+        }
+        labels = {
+            'body': 'Your Comment'
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Field('body', css_class='form-control'),
+            Submit('submit', 'Post Comment', css_class='btn btn-primary mt-2')
+        )
+        self.helper.form_method = 'post'
 

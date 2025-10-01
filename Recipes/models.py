@@ -30,3 +30,28 @@ class Recipe(models.Model):
 
     def get_total_time(self):
         return self.prep_time + self.cook_time
+
+
+class Comment(models.Model):
+    """Comment model for recipe reviews and feedback"""
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='comments'
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
+    body = models.TextField(
+        max_length=1000,
+        help_text="Share your thoughts about this recipe"
+    )
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return f'Comment by {self.author.username} on {self.recipe.title}'
