@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block title %}{{ recipe.title }} - CookBookr{% endblock %}
+
+{% block content %}
+<div class="container mt-4 recipe-detail-page">
+    <div class="row">
+        <!-- Main Recipe Content -->
+        <div class="col-lg-8">
+            <!-- Recipe Header -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-primary text-white">
+                    <h1 class="h3 mb-0">{{ recipe.title }}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="lead">{{ recipe.description }}</p>
+                    
+                    <!-- Recipe Meta Information -->
+                    <div class="row text-center mb-3">
+                        {% if recipe.prep_time %}
+                        <div class="col-md-3">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fas fa-clock text-primary mb-1"></i>
+                                <small class="text-muted">Prep Time</small>
+                                <strong>{{ recipe.prep_time }} min</strong>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if recipe.cook_time %}
+                        <div class="col-md-3">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fas fa-fire text-danger mb-1"></i>
+                                <small class="text-muted">Cook Time</small>
+                                <strong>{{ recipe.cook_time }} min</strong>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if recipe.servings %}
+                        <div class="col-md-3">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fas fa-users text-success mb-1"></i>
+                                <small class="text-muted">Servings</small>
+                                <strong>{{ recipe.servings }}</strong>
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if recipe.prep_time and recipe.cook_time %}
+                        <div class="col-md-3">
+                            <div class="d-flex flex-column align-items-center">
+                                <i class="fas fa-stopwatch text-warning mb-1"></i>
+                                <small class="text-muted">Total Time</small>
+                                <strong>{{ recipe.prep_time|add:recipe.cook_time }} min</strong>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Author and Date -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <small class="text-muted">
+                            <i class="fas fa-user me-1"></i>
+                            By <strong>{{ recipe.author.username }}</strong>
+                        </small>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>
+                            {{ recipe.created_at|date:"F d, Y" }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Ingredients -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-success text-white">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-list-ul me-2"></i>Ingredients
+                    </h3>
+                </div>
+                <div class="card-body">
+                    {% if ingredients_list %}
+                        <ul class="list-unstyled mb-0">
+                            {% for ingredient in ingredients_list %}
+                                {% if ingredient.strip %}
+                                <li class="mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    {{ ingredient|linebreaks }}
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p class="text-muted mb-0">No ingredients listed.</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Instructions -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header bg-warning text-dark">
+                    <h3 class="h5 mb-0">
+                        <i class="fas fa-utensils me-2"></i>Instructions
+                    </h3>
+                </div>
+                <div class="card-body">
+                    {% if instructions_list %}
+                        <ol class="mb-0">
+                            {% for instruction in instructions_list %}
+                                {% if instruction.strip %}
+                                <li class="mb-3">
+                                    {{ instruction|linebreaks }}
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ol>
+                    {% else %}
+                        <p class="text-muted mb-0">No instructions provided.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Quick Actions -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h4 class="h6 mb-0">Recipe Actions</h4>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-primary" onclick="window.print()">
+                            <i class="fas fa-print me-1"></i>Print Recipe
+                        </button>
+                        <button class="btn btn-outline-success" id="shareRecipeBtn">
+                            <i class="fas fa-share-alt me-1"></i>Share Recipe
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+    <!-- Back to Recipes Button -->
+    <div class="row mt-4">
+        <div class="col-12">
+            <a href="{% url 'recipes_home' %}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left me-1"></i>Back to All Recipes
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

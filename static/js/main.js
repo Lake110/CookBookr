@@ -126,7 +126,63 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('returningUser', 'true');
         }, 2000);
     }
+    
+    // Recipe detail page functionality
+    initializeRecipeDetailPage();
 });
+
+// Recipe Detail Page Functions
+function initializeRecipeDetailPage() {
+    // Only run on recipe detail pages
+    if (document.querySelector('.recipe-detail-page')) {
+        // Add a class to identify recipe detail pages in your template
+        // Or check URL pattern
+        setupRecipeActions();
+    }
+    
+    // Alternative: check if share button exists
+    const shareButton = document.querySelector('[onclick="shareRecipe()"]');
+    if (shareButton) {
+        // Remove the inline onclick and add proper event listener
+        shareButton.removeAttribute('onclick');
+        shareButton.addEventListener('click', shareRecipe);
+    }
+}
+
+function shareRecipe() {
+    // Get recipe data from the page
+    const title = document.querySelector('.card-header h1, .card-header .h3')?.textContent || 'Recipe';
+    const description = document.querySelector('.lead')?.textContent || 'Check out this recipe!';
+    
+    if (navigator.share) {
+        navigator.share({
+            title: title,
+            text: description,
+            url: window.location.href,
+        }).catch(err => console.log('Error sharing:', err));
+    } else {
+        // Fallback - copy URL to clipboard
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(window.location.href)
+                .then(() => {
+                    showNotification('Recipe URL copied to clipboard!', 'success');
+                })
+                .catch(() => {
+                    fallbackCopyToClipboard(window.location.href);
+                });
+        } else {
+            fallbackCopyToClipboard(window.location.href);
+        }
+    }
+}
+
+function fallbackCopyToClipboard(text) {
+    // Easiest fallback: prompt user to copy manually
+    window.prompt('Copy this link:', text);
+}
+
+// Make shareRecipe available globally for any remaining inline calls
+window.shareRecipe = shareRecipe;
 
 // Utility function for notifications
 function showNotification(message, type = 'info') {
