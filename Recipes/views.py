@@ -38,3 +38,21 @@ def add_recipe(request):
         form = RecipeForm()
     
     return render(request, 'recipes/add_recipe.html', {'form': form})
+
+def recipe_detail(request, recipe_id):
+    """
+    Display detailed view of a single recipe
+    Available to all users (no login required)
+    """
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    
+    # Potential Future additions: Track recipe views (for future analytics)
+    # You could add a views counter field to the Recipe model later
+    
+    context = {
+        'recipe': recipe,
+        'ingredients_list': recipe.ingredients.split('\n') if recipe.ingredients else [],
+        'instructions_list': recipe.instructions.split('\n') if recipe.instructions else [],
+    }
+    
+    return render(request, 'recipes/recipe_detail.html', context)
