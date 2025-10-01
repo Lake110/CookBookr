@@ -56,9 +56,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Add loading state for recipe view buttons
+        // Add loading state for recipe view buttons (but NOT form submit buttons)
         const viewButton = card.querySelector('.btn-primary');
-        if (viewButton) {
+        if (viewButton && !viewButton.closest('form')) { // Only if not inside a form
             viewButton.addEventListener('click', function(e) {
                 // Only add loading state if it's a real link (not just #)
                 if (this.getAttribute('href') !== '#') {
@@ -200,15 +200,15 @@ style.textContent = `
             transform: translateY(0);
         }
     }
-    
-    .card-text.expanded {
-        -webkit-line-clamp: unset !important;
         overflow: visible !important;
-    }
-    
-    .card:focus {
+    }card-text.expanded {
+        -webkit-line-clamp: unset !important;
+    .card:focus { visible !important;
         outline: 2px solid #007bff;
         outline-offset: 2px;
+    }card:focus {
+`;      outline: 2px solid #007bff;
+document.head.appendChild(style);
     }
 `;
 document.head.appendChild(style);
