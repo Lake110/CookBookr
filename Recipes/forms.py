@@ -47,3 +47,4 @@ class RecipeForm(forms.ModelForm):
                 'placeholder': 'Number of servings'
             })
         }
+

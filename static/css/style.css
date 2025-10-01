@@ -161,6 +161,45 @@ main {
     border-color: #adb5bd;
 }
 
+/* Ensure consistent form field width and alignment */
+.login .form-control, .signup .form-control, .logout .form-control {
+    width: 100%;
+    max-width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+}
+
+/* Form group consistency */
+.login .mb-3, .signup .mb-3, .logout .mb-3,
+.login .mb-4, .signup .mb-4, .logout .mb-4 {
+    width: 100%;
+}
+
+/* Label alignment */
+.login .form-label, .signup .form-label, .logout .form-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+/* Input field alignment and spacing */
+.login input, .signup input, .logout input,
+.login select, .signup select, .logout select,
+.login textarea, .signup textarea, .logout textarea {
+    width: 100% !important;
+    display: block;
+    margin: 0;
+}
+
+/* Prevent any width inconsistencies from Django form rendering */
+.login form, .signup form, .logout form {
+    width: 100%;
+}
+
+.login form > div, .signup form > div, .logout form > div {
+    width: 100%;
+}
+
 /* Enhanced button styling with gradients and hover effects */
 .btn-primary {
     background: var(--cookbookr-primary-gradient);
@@ -774,3 +813,145 @@ footer .fab.fa-pinterest:hover {
     color: var(--cookbookr-primary-dark);
     text-decoration: underline;
 }
+
+/* Enhanced form field styling for authentication pages - Django rendered fields */
+.login input, .signup input, .logout input,
+.login select, .signup select, .logout select,
+.login textarea, .signup textarea, .logout textarea {
+    border: 2px solid #e9ecef !important;
+    border-radius: var(--cookbookr-border-radius) !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+    transition: var(--cookbookr-transition) !important;
+    background-color: #fff !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 48px !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+/* Focus states for Django rendered fields */
+.login input:focus, .signup input:focus, .logout input:focus,
+.login select:focus, .signup select:focus, .logout select:focus,
+.login textarea:focus, .signup textarea:focus, .logout textarea:focus {
+    border-color: var(--cookbookr-primary) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15) !important;
+    outline: none !important;
+    background-color: #fff !important;
+}
+
+/* Hover states for Django rendered fields */
+.login input:hover, .signup input:hover, .logout input:hover,
+.login select:hover, .signup select:hover, .logout select:hover,
+.login textarea:hover, .signup textarea:hover, .logout textarea:hover {
+    border-color: #adb5bd !important;
+}
+
+/* Form group consistency */
+.login .mb-3, .signup .mb-3, .logout .mb-3,
+.login .mb-4, .signup .mb-4, .logout .mb-4 {
+    width: 100%;
+}
+
+/* Label alignment */
+.login .form-label, .signup .form-label, .logout .form-label {
+    display: block;
+    width: 100%;
+    text-align: left;
+}
+
+/* Input field alignment and spacing */
+.login input, .signup input, .logout input,
+.login select, .signup select, .logout select,
+.login textarea, .signup textarea, .logout textarea {
+    width: 100% !important;
+    display: block;
+    margin: 0;
+}
+
+/* Prevent any width inconsistencies from Django form rendering */
+.login form, .signup form, .logout form {
+    width: 100%;
+}
+
+.login form > div, .signup form > div, .logout form > div {
+    width: 100%;
+}
+
+.login .form-control:focus, .signup .form-control:focus, .logout .form-control:focus {
+    border-color: var(--cookbookr-primary);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15);
+    outline: none;
+    background-color: #fff;
+}
+
+.login .form-control:hover, .signup .form-control:hover, .logout .form-control:hover {
+    border-color: #adb5bd;
+}
+
+/* Form labels styling */
+.login .form-label, .signup .form-label, .logout .form-label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Form text and help text */
+.login .form-text, .signup .form-text, .logout .form-text {
+    font-size: 0.85rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+    line-height: 1.4;
+}
+
+/* Error message styling */
+.login .text-danger, .signup .text-danger, .logout .text-danger {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* Password help text styling */
+.signup .form-text ul {
+    margin: 0.5rem 0;
+    padding-left: 1.2rem;
+}
+
+.signup .form-text li {
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+/* Card styling for auth forms */
+.login .card, .signup .card, .logout .card {
+    border: none;
+    box-shadow: var(--cookbookr-shadow-medium);
+    border-radius: var(--cookbookr-border-radius-large);
+}
+
+.login .card-body, .signup .card-body, .logout .card-body {
+    padding: 2.5rem;
+}
+
+/* Responsive adjustments for auth forms */
+@media (max-width: 768px) {
+    .login .card-body, .signup .card-body, .logout .card-body {
+        padding: 1.5rem;
+    }
+    
+    .login .form-control, .signup .form-control, .logout .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    /* Simple remember me checkbox styling */
+    input[type="checkbox"] {
+        margin-right: 8px;
+        width: 4px;
+        height: 4px;
+    }
+}
+
