@@ -2,18 +2,29 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.contrib.auth.models import User  
 from .models import Recipe
 from .forms import RecipeForm
 
 def home(request):
-    # Show recent 6 recipes on homepage
-    recent_recipes = Recipe.objects.all()[:6]
-    return render(request, 'recipes/home.html', {'recipes': recent_recipes})
+    """Home page showing featured recipes and site overview"""
+    # Show 5 newest recipes for carousel (displays 3 at a time)
+    featured_recipes = Recipe.objects.all().order_by('-created_at')[:5]
+    
+    context = {
+        'featured_recipes': featured_recipes,
+        'total_recipes': Recipe.objects.count(),
+        'total_users': User.objects.count(),
+    }
+    return render(request, 'recipes/home.html', context)
 
 def recipe_home(request):
-    # Show all recipes
-    recipes = Recipe.objects.all()
-    return render(request, 'recipes/recipe_list.html', {'recipes': recipes})
+    """Display all recipes on the recipes page"""
+    recipes = Recipe.objects.all().order_by('-created_at')  # Show newest first
+    context = {
+        'recipes': recipes
+    }
+    return render(request, 'recipes/all_recipes.html', context)
 
 def index(request):
     if request.method == 'POST':

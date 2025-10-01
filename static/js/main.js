@@ -135,21 +135,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeRecipeDetailPage() {
     // Only run on recipe detail pages
     if (document.querySelector('.recipe-detail-page')) {
-        // Add a class to identify recipe detail pages in your template
-        // Or check URL pattern
-        setupRecipeActions();
+        // Add specific recipe page functionality here directly
+        console.log('Recipe detail page detected');
     }
     
     // Alternative: check if share button exists
     const shareButton = document.querySelector('[onclick="shareRecipe()"]');
     if (shareButton) {
-        // Remove the inline onclick and add proper event listener
         shareButton.removeAttribute('onclick');
         shareButton.addEventListener('click', shareRecipe);
     }
 }
 
-function shareRecipe() {
+/*function shareRecipe() {
     // Get recipe data from the page
     const title = document.querySelector('.card-header h1, .card-header .h3')?.textContent || 'Recipe';
     const description = document.querySelector('.lead')?.textContent || 'Check out this recipe!';
@@ -174,7 +172,7 @@ function shareRecipe() {
             fallbackCopyToClipboard(window.location.href);
         }
     }
-}
+}*/
 
 function fallbackCopyToClipboard(text) {
     // Easiest fallback: prompt user to copy manually

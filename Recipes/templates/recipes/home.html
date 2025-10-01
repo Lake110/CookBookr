@@ -1,112 +1,236 @@
 {% extends "base.html" %}
 
-{% block title %}Home - CookBookr{% endblock %}
+{% block title %}CookBookr - Share Your Favorite Recipes{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
-<div class="row mb-5">
-    <div class="col-12">
-        <div class="bg-primary text-white p-5 rounded text-center">
-            {% if user.is_authenticated %}
-                <h1 class="display-4">Welcome back, {{ user.username }}!</h1>
-                <p class="lead">Ready to discover new recipes or share your own?</p>
-            {% else %}
-                <h1 class="display-4">Welcome to CookBookr</h1>
-                <p class="lead">Discover amazing recipes and share your culinary creations</p>
-                <div class="mt-4">
-                    <a href="{% url 'account_signup' %}" class="btn btn-light btn-lg me-3">Join Now</a>
-                    <a href="{% url 'account_login' %}" class="btn btn-outline-light btn-lg">Sign In</a>
+<div class="hero-section text-white py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h1 class="display-5 mb-4">Welcome to CookBookr</h1>
+                <p class="lead mb-4">
+                    Discover, share, and save your favorite recipes with our community of food lovers.
+                </p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="{% url 'recipes_home' %}" class="btn btn-light btn-lg">
+                        <i class="fas fa-utensils me-2"></i>Browse Recipes
+                    </a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'add_recipe' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-plus me-2"></i>Share Recipe
+                    </a>
+                    {% else %}
+                    <a href="{% url 'account_signup' %}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Join Community
+                    </a>
+                    {% endif %}
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="container py-5">
+    <div class="row text-center">
+        <div class="col-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <i class="fas fa-utensils fa-3x text-primary mb-3"></i>
+                    <h3 class="text-primary">{{ total_recipes }}</h3>
+                    <p class="text-muted mb-0">Delicious Recipes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 mb-4">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body">
+                    <i class="fas fa-users fa-3x text-success mb-3"></i>
+                    <h3 class="text-success">{{ total_users }}</h3>
+                    <p class="text-muted mb-0">Community Members</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Recipes Section -->
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="h3 mb-3">Featured Recipes</h2>
+                <p class="text-muted">
+                    Check out these latest additions to our recipe collection
+                </p>
+            </div>
+        </div>
+        
+        {% if featured_recipes %}
+        <!-- Recipe Carousel -->
+        <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First slide - always active -->
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        {% for recipe in featured_recipes|slice:":3" %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm recipe-card-square">
+                                <!-- Square Recipe Image -->
+                                <div class="card-img-top bg-white d-flex align-items-center justify-content-center recipe-card-image">
+                                    <i class="fas fa-utensils fa-2x text-muted"></i>
+                                </div>
+                                
+                                <div class="card-body d-flex flex-column p-3">
+                                    <h6 class="card-title mb-2">{{ recipe.title }}</h6>
+                                    <p class="card-text flex-grow-1 small text-muted">
+                                        {{ recipe.description|truncatewords:8 }}
+                                    </p>
+                                    
+                                    <!-- Recipe quick info -->
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        {% if recipe.prep_time %}
+                                        <span><i class="fas fa-clock me-1"></i>{{ recipe.prep_time }}m</span>
+                                        {% endif %}
+                                        {% if recipe.servings %}
+                                        <span><i class="fas fa-users me-1"></i>{{ recipe.servings }}</span>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <!-- View Recipe Button -->
+                                    <div class="mt-auto">
+                                        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary btn-sm w-100">
+                                            <i class="fas fa-eye me-1"></i>View Recipe
+                                        </a>
+                                        <small class="text-muted d-block mt-1 text-center">
+                                            By {{ recipe.author.username }}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <!-- Second slide if we have more than 3 recipes -->
+                {% if featured_recipes|length > 3 %}
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        {% for recipe in featured_recipes|slice:"3:" %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm recipe-card-square">
+                                <!-- Square Recipe Image -->
+                                <div class="card-img-top bg-white d-flex align-items-center justify-content-center recipe-card-image">
+                                    <i class="fas fa-utensils fa-2x text-muted"></i>
+                                </div>
+                                
+                                <div class="card-body d-flex flex-column p-3">
+                                    <h6 class="card-title mb-2">{{ recipe.title }}</h6>
+                                    <p class="card-text flex-grow-1 small text-muted">
+                                        {{ recipe.description|truncatewords:8 }}
+                                    </p>
+                                    
+                                    <!-- Recipe quick info -->
+                                    <div class="d-flex justify-content-between text-muted small mb-2">
+                                        {% if recipe.prep_time %}
+                                        <span><i class="fas fa-clock me-1"></i>{{ recipe.prep_time }}m</span>
+                                        {% endif %}
+                                        {% if recipe.servings %}
+                                        <span><i class="fas fa-users me-1"></i>{{ recipe.servings }}</span>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <!-- View Recipe Button -->
+                                    <div class="mt-auto">
+                                        <a href="{% url 'recipe_detail' recipe.id %}" class="btn btn-primary btn-sm w-100">
+                                            <i class="fas fa-eye me-1"></i>View Recipe
+                                        </a>
+                                        <small class="text-muted d-block mt-1 text-center">
+                                            By {{ recipe.author.username }}
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- Carousel Controls -->
+            {% if featured_recipes|length > 3 %}
+            <button class="carousel-control-prev" type="button" data-bs-target="#recipeCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#recipeCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+            <!-- Carousel Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#recipeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            </div>
             {% endif %}
         </div>
-    </div>
-</div>
-
-<!-- User Dashboard Modal for Authenticated Users (Auto-trigger) -->
-{% if user.is_authenticated %}
-<!-- Modal -->
-<div class="modal fade" id="dashboardModal" tabindex="-1" aria-labelledby="dashboardModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header bg-info text-white">
-                <h4 class="modal-title" id="dashboardModalLabel">Your CookBookr Dashboard</h4>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Welcome back! Here's what you can do:</p>
-                <ul>
-                    <li>Browse all recipes below</li>
-                    <li>Add your own recipes</li>
-                    <li>Share your favorite recipes with the community</li>
-                </ul>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+        <!-- View All Recipes Button -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <a href="{% url 'recipes_home' %}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-utensils me-2"></i>View All {{ total_recipes }} Recipes
+                </a>
             </div>
         </div>
-    </div>
-</div>
-{% endif %}
-
-<!-- Recent Recipes Section -->
-<div class="row mb-4">
-    <div class="col-12">
-        {% if user.is_authenticated %}
-            <h2 class="mb-4">Explore Recipes</h2>
+        
         {% else %}
-            <h2 class="mb-4">Featured Recipes</h2>
-            <p class="text-muted">Sign up to access all features and contribute your own recipes!</p>
+        <!-- Empty state for no recipes -->
+        <div class="row">
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-utensils fa-4x text-muted mb-4"></i>
+                <h3 class="text-muted mb-3">No Recipes Yet</h3>
+                <p class="text-muted mb-4">Be the first to share a delicious recipe with our community!</p>
+                {% if user.is_authenticated %}
+                <a href="{% url 'add_recipe' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-plus me-2"></i>Add Your First Recipe
+                </a>
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg me-3">
+                    <i class="fas fa-user-plus me-2"></i>Join to Share Recipes
+                </a>
+                <a href="{% url 'account_login' %}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-sign-in-alt me-2"></i>Login
+                </a>
+                {% endif %}
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>
 
-{% if recipes %}
-<div class="row">
-    {% for recipe in recipes %}
-    <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm">
-            <div class="card-body">
-                <h5 class="card-title">{{ recipe.title }}</h5>
-                <p class="card-text">
-                    {% if recipe.description %}
-                        {{ recipe.description|truncatewords:20 }}
-                    {% else %}
-                        A delicious recipe by {{ recipe.author.username }}
-                    {% endif %}
-                </p>
-                
-                <!-- Recipe Info -->
-                <div class="row text-muted small mb-3">
-                    <div class="col-6">
-                        <i class="bi bi-clock"></i> {{ recipe.get_total_time }} mins
-                    </div>
-                    <div class="col-6">
-                        <i class="bi bi-people"></i> {{ recipe.servings }} serving{{ recipe.servings|pluralize }}
-                    </div>
-                </div>
-                
-                <!-- Author and Date -->
-                <div class="d-flex justify-content-between align-items-center">
-                    <small class="text-muted">By {{ recipe.author.username }}</small>
-                    <small class="text-muted">{{ recipe.created_at|date:"M d, Y" }}</small>
-                </div>
+<!-- Call to Action Section -->
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <h2 class="fw-bold mb-4">Ready to Start Cooking?</h2>
+            <p class="lead text-muted mb-4">
+                Join thousands of home cooks sharing their favorite recipes. 
+                Whether you're a beginner or a seasoned chef, there's a place for you here.
+            </p>
+            {% if not user.is_authenticated %}
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{% url 'account_signup' %}" class="btn btn-primary btn-lg">
+                    <i class="fas fa-user-plus me-2"></i>Create Account
+                </a>
+                <a href="{% url 'recipes_home' %}" class="btn btn-outline-secondary btn-lg">
+                    <i class="fas fa-search me-2"></i>Browse Recipes
+                </a>
             </div>
-            <div class="card-footer bg-transparent">
-                <a href="#" class="btn btn-primary btn-sm">View Recipe</a>
-                <span class="text-muted small">{{ recipe.created_at|timesince }} ago</span>
-            </div>
-        </div>
-    </div>
-    {% endfor %}
-</div>
-{% else %}
-<div class="row">
-    <div class="col-12">
-        <div class="alert alert-info text-center">
-            <h4>No recipes yet!</h4>
-            <p>Be the first to add a recipe through the <a href="/admin/" class="alert-link">admin panel</a>.</p>
-        </div>
-    </div>
-</div>
-{% endif %}
+            {% endif %}
+        </div</div>
 {% endblock %}
