@@ -103,7 +103,8 @@
     {% if is_paginated %}
     <div class="row mt-5">
         <div class="col-12">
-            <nav aria-label="Recipe pagination">
+            <div class="pagination-container">
+                <nav aria-label="Recipe pagination">
                 <ul class="pagination justify-content-center">
                     
                     <!-- Previous Button -->
@@ -224,34 +225,11 @@
                     Showing {{ recipes|length }} of {{ page_obj.paginator.count }} recipes
                 </small>
             </div>
+            </div>
         </div>
     </div>
     {% endif %}
-    
-    <!-- Debug: Pagination Variables (Remove this after testing) -->
-    {% if is_paginated %}
-    <div class="alert alert-info mt-4">
-        <h6>🔍 Pagination Debug Info:</h6>
-        <ul class="mb-0">
-            <li><strong>is_paginated:</strong> {{ is_paginated }}</li>
-            <li><strong>Current page:</strong> {{ page_obj.number }}</li>
-            <li><strong>Total pages:</strong> {{ page_obj.num_pages }}</li>
-            <li><strong>Total recipes:</strong> {{ page_obj.paginator.count }}</li>
-            <li><strong>Has previous:</strong> {{ page_obj.has_previous }}</li>
-            <li><strong>Has next:</strong> {{ page_obj.has_next }}</li>
-            {% if page_obj.has_previous %}
-            <li><strong>Previous page #:</strong> {{ page_obj.previous_page_number }}</li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><strong>Next page #:</strong> {{ page_obj.next_page_number }}</li>
-            {% endif %}
-        </ul>
-    </div>
-    {% else %}
-    <div class="alert alert-warning mt-4">
-        <strong>Not paginated</strong> - All recipes fit on one page!
-    </div>
-    {% endif %}
+
     
 </div>
 {% endblock %}
