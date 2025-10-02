@@ -74,7 +74,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Ingredients -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-success text-white">
@@ -119,22 +119,39 @@
         
         <!-- Sidebar -->
         <div class="col-lg-4">
-            <!-- Quick Actions -->
+            <!-- Recipe Actions -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header">
                     <h4 class="h6 mb-0">Recipe Actions</h4>
                 </div>
                 <div class="card-body">
                     <div class="d-grid gap-2">
+                        <!-- Always available actions -->
                         <button class="btn btn-outline-primary" onclick="window.print()">
                             <i class="fas fa-print me-1"></i>Print Recipe
                         </button>
                         <button class="btn btn-outline-success" id="shareRecipeBtn">
                             <i class="fas fa-share-alt me-1"></i>Share Recipe
                         </button>
+                        
+                        <!-- Author-only actions -->
+                        {% if user == recipe.author %}
+                        <hr class="my-2">
+                        <small class="text-muted mb-1 d-block">
+                            <i class="fas fa-user-edit me-1"></i>Author Options
+                        </small>
+                        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editRecipeModal">
+                            <i class="fas fa-edit me-1"></i>Edit Recipe
+                        </button>
+                        <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteRecipeModal">
+                            <i class="fas fa-trash me-1"></i>Delete Recipe
+                        </button>
+                        {% endif %}
                     </div>
                 </div>
             </div>
+            
+            <!-- Keep any other sidebar content you have -->
         </div>
     </div>
     
@@ -301,6 +318,66 @@
                 <a id="deleteConfirm" href="javascript:void(0)" class="btn btn-danger">
                     <i class="fas fa-trash me-1"></i>Delete
                 </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Recipe Modal -->
+<div class="modal fade" id="editRecipeModal" tabindex="-1" aria-labelledby="editRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editRecipeModalLabel">
+                    <i class="fas fa-edit me-2"></i>Edit Recipe
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to edit "<strong>{{ recipe.title }}</strong>"?</p>
+                <p class="text-muted">You'll be taken to the edit form where you can make changes to your recipe.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Cancel
+                </button>
+                <a href="{% url 'recipe_edit' recipe.id %}" class="btn btn-primary">
+                    <i class="fas fa-edit me-1"></i>Yes, Edit Recipe
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteRecipeModalLabel">
+                    <i class="fas fa-exclamation-triangle me-2"></i>Delete Recipe
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to permanently delete "<strong>{{ recipe.title }}</strong>"?</p>
+                <div class="alert alert-warning d-flex align-items-center" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    <div>
+                        <strong>Warning:</strong> This action cannot be undone. All comments on this recipe will also be deleted.
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <i class="fas fa-times me-1"></i>Cancel
+                </button>
+                <form method="post" action="{% url 'recipe_delete' recipe.id %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>Yes, Delete Forever
+                    </button>
+                </form>
             </div>
         </div>
     </div>
