@@ -67,53 +67,39 @@ def add_recipe(request):
     return render(request, 'recipes/add_recipe.html', {'form': form})
 
 def recipe_detail(request, recipe_id):
-    """
-    Display detailed view of a single recipe with comment functionality
-    GET: Display recipe and approved comments
-    POST: Handle comment submission (logged-in users only)
-    """
+    """Display recipe details with comments"""
     recipe = get_object_or_404(Recipe, id=recipe_id)
     
-    # Get approved comments only, ordered by newest first
+    # Get approved comments (newest first by default)
     comments = recipe.comments.filter(approved=True).order_by('-created_on')
+    comments_count = comments.count()
     
-    # Handle comment form submission
-    comment_form = CommentForm()
+    # Handle comment submission
     comment_submitted = False
-    
-    if request.method == 'POST' and request.user.is_authenticated:
+    if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
-            comment.recipe = recipe
             comment.author = request.user
+            comment.recipe = recipe
             comment.save()
-            
-            messages.success(
-                request,
-                'Your comment has been submitted and is awaiting approval.'
-            )
+            messages.success(request, 'Your comment has been submitted for approval!')
             comment_submitted = True
-            # Create a new blank form after successful submission
-            comment_form = CommentForm()
-    
-    # Split ingredients and instructions into lists for display
-    ingredients_list = []
-    if recipe.ingredients:
-        ingredients_list = recipe.ingredients.split('\n')
-    
-    instructions_list = []
-    if recipe.instructions:
-        instructions_list = recipe.instructions.split('\n')
-    
+            # Redirect to prevent double submission
+            return redirect('recipe_detail', recipe_id=recipe_id)
+    else:
+        comment_form = CommentForm()
+
+    # Split ingredients into list
+    ingredients_list = recipe.ingredients.split('\n') if recipe.ingredients else []
+
     context = {
         'recipe': recipe,
-        'ingredients_list': ingredients_list,
-        'instructions_list': instructions_list,
         'comments': comments,
+        'comments_count': comments_count,
         'comment_form': comment_form,
         'comment_submitted': comment_submitted,
-        'comments_count': comments.count(),
+        'ingredients_list': ingredients_list,
     }
     
     return render(request, 'recipes/recipe_detail.html', context)

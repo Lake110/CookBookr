@@ -150,3 +150,92 @@ for (let button of deleteButtons) {
         deleteModal.show();
     });
 }
+
+// Comment sorting functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const sortNewest = document.getElementById('sortNewest');
+    const sortOldest = document.getElementById('sortOldest');
+    
+    if (sortNewest && sortOldest) {
+        // Get the comments container
+        const commentsContainer = document.querySelector('.card-body');
+        const commentElements = Array.from(document.querySelectorAll('.comment'));
+        
+        // Sort by newest (default)
+        sortNewest.addEventListener('click', function() {
+            sortComments('newest');
+            updateActiveButton('newest');
+        });
+        
+        // Sort by oldest
+        sortOldest.addEventListener('click', function() {
+            sortComments('oldest');
+            updateActiveButton('oldest');
+        });
+        
+        function sortComments(order) {
+            // Extract comment data with timestamps
+            const commentData = commentElements.map(comment => {
+                const timeElement = comment.querySelector('.text-muted .fas.fa-clock').parentNode;
+                const timeText = timeElement.textContent.trim();
+                
+                // Extract date from text like "Dec 15, 2024 at 2:30 PM"
+                const dateMatch = timeText.match(/([A-Za-z]{3}\s+\d{1,2},\s+\d{4}\s+at\s+\d{1,2}:\d{2}\s+[AP]M)/);
+                const dateStr = dateMatch ? dateMatch[1] : timeText;
+                const timestamp = new Date(dateStr).getTime();
+                
+                return {
+                    element: comment,
+                    timestamp: timestamp || 0
+                };
+            });
+            
+            // Sort based on order
+            commentData.sort((a, b) => {
+                if (order === 'newest') {
+                    return b.timestamp - a.timestamp; // Newest first
+                } else {
+                    return a.timestamp - b.timestamp; // Oldest first
+                }
+            });
+            
+            // Get the comment form element (to preserve its position)
+            const commentForm = commentsContainer.querySelector('#commentForm')?.closest('.mt-4');
+            const loginPrompt = commentsContainer.querySelector('.text-center.py-4');
+            const noCommentsMsg = commentsContainer.querySelector('.text-center.py-4');
+            
+            // Clear the container but keep non-comment elements
+            const nonCommentElements = [];
+            if (commentForm) nonCommentElements.push(commentForm);
+            if (loginPrompt && !loginPrompt.querySelector('#commentForm')) nonCommentElements.push(loginPrompt);
+            if (noCommentsMsg && !noCommentsMsg.querySelector('#commentForm')) nonCommentElements.push(noCommentsMsg);
+            
+            // Remove only comment elements
+            commentElements.forEach(comment => comment.remove());
+            
+            // Re-append sorted comments
+            const insertPosition = nonCommentElements.length > 0 ? nonCommentElements[0] : null;
+            
+            commentData.forEach(item => {
+                if (insertPosition) {
+                    commentsContainer.insertBefore(item.element, insertPosition);
+                } else {
+                    commentsContainer.appendChild(item.element);
+                }
+            });
+        }
+        
+        function updateActiveButton(active) {
+            // Remove active class from both buttons
+            sortNewest.classList.remove('active');
+            sortOldest.classList.remove('active');
+            
+            // Add active class to clicked button
+            if (active === 'newest') {
+                sortNewest.classList.add('active');
+            } else {
+                sortOldest.classList.add('active');
+            }
+        }
+    }
+});
