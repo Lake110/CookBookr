@@ -1,1019 +1,289 @@
 # Code Citations
 
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{
-```
-
-
 ## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
+https://github.com/TinaChuang/HS2020Summer_JS/blob/33b102b2eb2a43cf1f212421171350bc74cecfef/week3/week3.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
+## License: unknown
+https://github.com/aditeyabaral/doc2sim/blob/2ec7d20f483c92874c2e17e6f9ebf4907a84999d/app/templates/index.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
+https://github.com/mariogusman/MS3-Irish-Recipes/blob/c5b72a8a85c261c4a7da3a1edc17b360e578bb2c/templates/edit_recipe.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
+https://github.com/YounesAbady/Exercise-6-AlpineJs-With-API/blob/fbd72e1af88e43ee064db185f781a2060d31e7fd/Client/Client/Pages/Index.cshtml
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
+https://github.com/aditeyabaral/doc2sim/blob/2ec7d20f483c92874c2e17e6f9ebf4907a84999d/app/templates/index.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
+https://github.com/mariogusman/MS3-Irish-Recipes/blob/c5b72a8a85c261c4a7da3a1edc17b360e578bb2c/templates/edit_recipe.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
+https://github.com/YounesAbady/Exercise-6-AlpineJs-With-API/blob/fbd72e1af88e43ee064db185f781a2060d31e7fd/Client/Client/Pages/Index.cshtml
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link"
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li
-```
-
-
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    
-```
-
-
-## License: unknown
-https://github.com/bsadd/buet-club/blob/6b26955c23367012fc350dfaa7982cd63fd4f48f/buetian/buetian/templates/partials/topbar.html
-
-```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/altonode/tango_with_django/blob/73980f5f821544770198fc93e0ecbfdcca8f7112/tango_with_django/templates/rango/base.html
+https://github.com/TinaChuang/HS2020Summer_JS/blob/33b102b2eb2a43cf1f212421171350bc74cecfef/week3/week3.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/biswanathsingh1991/BlueLight/blob/6a39e7987a2455b4c6f36197b4ace74c805b6f5c/core/templates/core_base.html
+https://github.com/TinaChuang/HS2020Summer_JS/blob/33b102b2eb2a43cf1f212421171350bc74cecfef/week3/week3.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/manas-anarov/django_cars_classified/blob/4edac152162df36e801a279889be5e2f1612bd77/templates/base.html
+https://github.com/aditeyabaral/doc2sim/blob/2ec7d20f483c92874c2e17e6f9ebf4907a84999d/app/templates/index.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
 ## License: unknown
-https://github.com/DiegoVilela/internalize/blob/d34d850f98c408974d10633bf7aaddcf23feb313/templates/_navbar.html
+https://github.com/mariogusman/MS3-Irish-Recipes/blob/c5b72a8a85c261c4a7da3a1edc17b360e578bb2c/templates/edit_recipe.html
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
 
-## License: MIT
-https://github.com/gbozee/pyconng/blob/1394b079074ae57c89f61d5c7adfbdcb3939ff91/python_nigeria/templates/includes/nav_pre-launch.html
+## License: unknown
+https://github.com/YounesAbady/Exercise-6-AlpineJs-With-API/blob/fbd72e1af88e43ee064db185f781a2060d31e7fd/Client/Client/Pages/Index.cshtml
 
 ```
-</span>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-            </li>
-        {% else %}
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-            </li>
-        {% endif %}
-    </ul>
+/div>
+        </div>
+    </div>
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
+```
+
+
+## License: unknown
+https://github.com/aditeyabaral/doc2sim/blob/2ec7d20f483c92874c2e17e6f9ebf4907a84999d/app/templates/index.html
+
+```
+/div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
+```
+
+
+## License: unknown
+https://github.com/mariogusman/MS3-Irish-Recipes/blob/c5b72a8a85c261c4a7da3a1edc17b360e578bb2c/templates/edit_recipe.html
+
+```
+/div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
+```
+
+
+## License: unknown
+https://github.com/YounesAbady/Exercise-6-AlpineJs-With-API/blob/fbd72e1af88e43ee064db185f781a2060d31e7fd/Client/Client/Pages/Index.cshtml
+
+```
+/div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
+```
+
+
+## License: unknown
+https://github.com/TinaChuang/HS2020Summer_JS/blob/33b102b2eb2a43cf1f212421171350bc74cecfef/week3/week3.html
+
+```
+/div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-labelledby="deleteRecipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id=
 ```
 
