@@ -163,3 +163,62 @@ def comment_delete(request, recipe_id, comment_id):
     else:
         messages.error(request, 'You can only delete your own comments!')
     return redirect('recipe_detail', recipe_id=recipe_id)
+
+@login_required
+def recipe_edit(request, recipe_id):
+    """
+    Edit a recipe - only by the recipe author
+    
+    This view handles both GET requests (show the edit form) and 
+    POST requests (process the form submission)
+    """
+    # Get the recipe or return 404 if it doesn't exist
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    
+    # Security check: only the author can edit their recipe
+    if recipe.author != request.user:
+        messages.error(request, 'You can only edit your own recipes!')
+        return redirect('recipe_detail', recipe_id=recipe_id)
+    
+    if request.method == 'POST':
+        # User submitted the edit form
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Recipe "{recipe.title}" updated successfully!')
+            return redirect('recipe_detail', recipe_id=recipe_id)
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        # User wants to see the edit form (GET request)
+        form = RecipeForm(instance=recipe)
+    
+    return render(request, 'recipes/edit_recipe.html', {
+        'form': form,
+        'recipe': recipe
+    })
+
+@login_required
+def recipe_delete(request, recipe_id):
+    """
+    Delete a recipe - only by the recipe author
+    
+    This view only handles POST requests from the confirmation modal
+    """
+    # Get the recipe or return 404 if it doesn't exist
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    
+    # Security check: only the author can delete their recipe
+    if recipe.author != request.user:
+        messages.error(request, 'You can only delete your own recipes!')
+        return redirect('recipe_detail', recipe_id=recipe_id)
+    
+    if request.method == 'POST':
+        # User confirmed deletion from the modal
+        recipe_title = recipe.title  # Store title before deletion
+        recipe.delete()  # This also deletes all related comments (CASCADE)
+        messages.success(request, f'Recipe "{recipe_title}" has been deleted successfully!')
+        return redirect('recipes_home')
+    
+    # If someone tries to access this via GET, redirect back to detail page
+    return redirect('recipe_detail', recipe_id=recipe_id)
