@@ -1,6 +1,6 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Field, Submit
+from crispy_forms.layout import Layout, Field
 from .models import Recipe, Comment
 
 
@@ -72,7 +72,7 @@ class CommentForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Field('body', css_class='form-control'),
-            Submit('submit', 'Post Comment', css_class='btn btn-primary mt-2')
         )
         self.helper.form_method = 'post'
+        self.helper.form_show_labels = True
 

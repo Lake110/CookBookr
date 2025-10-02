@@ -165,15 +165,15 @@
                                         <i class="fas fa-clock me-1"></i>
                                         {{ comment.created_on|date:"M d, Y \a\t g:i A" }}
                                     </small>
-                                    {% if user.is_authenticated and user == comment.author %}
+                                    {% if user.is_authenticated and comment.author == user %}
                                         <div class="btn-group btn-group-sm" role="group">
                                             <button class="btn btn-edit btn-outline-warning btn-sm"
-                                                    data-comment-id="{{ comment.id }}" 
+                                                    comment_id="{{ comment.id }}" 
                                                     title="Edit comment">
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                             <button class="btn btn-delete btn-outline-danger btn-sm"
-                                                    data-comment-id="{{ comment.id }}" 
+                                                    comment_id="{{ comment.id }}" 
                                                     title="Delete comment">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
@@ -182,7 +182,10 @@
                                 </div>
                             </div>
                             <div class="comment-body">
-                                <p class="mb-0" id="comment{{ comment.id }}">{{ comment.body|linebreaks }}</p>
+                                <p class="mb-0" id="comment{{ comment.id }}" 
+                                   data-original-text="{{ comment.body|escape }}">
+                                    {{ comment.body|linebreaks }}
+                                </p>
                             </div>
                         </div>
                         {% endfor %}
@@ -210,18 +213,15 @@
                             
                             <form method="post" id="commentForm">
                                 {% csrf_token %}
-                                {% for field in comment_form %}
-                                    <div class="mb-3">
-                                        {{ field.label_tag }}
-                                        {{ field }}
-                                        {% if field.errors %}
-                                            <div class="text-danger small">{{ field.errors.0 }}</div>
-                                        {% endif %}
-                                    </div>
-                                {% endfor %}
-                                <button type="submit" class="btn btn-primary" id="submitButton">
-                                    <i class="fas fa-comment me-1"></i>Post Comment
-                                </button>
+                                {{ comment_form|crispy }}
+                                <div class="d-flex gap-2">
+                                    <button type="submit" class="btn btn-primary" id="submitButton">
+                                        <i class="fas fa-comment me-1"></i>Post Comment
+                                    </button>
+                                    <button type="button" class="btn btn-secondary d-none" id="cancelButton">
+                                        <i class="fas fa-times me-1"></i>Cancel
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     {% else %}

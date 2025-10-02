@@ -119,6 +119,7 @@ def recipe_detail(request, recipe_id):
     return render(request, 'recipes/recipe_detail.html', context)
 
 
+@login_required
 def comment_edit(request, recipe_id, comment_id):
     """
     View to edit comments
@@ -142,6 +143,7 @@ def comment_edit(request, recipe_id, comment_id):
     return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
 
 
+@login_required
 def comment_delete(request, recipe_id, comment_id):
     """
     View to delete comment
