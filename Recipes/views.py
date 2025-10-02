@@ -122,40 +122,44 @@ def recipe_detail(request, recipe_id):
 @login_required
 def comment_edit(request, recipe_id, comment_id):
     """
-    View to edit comments
+    Edit a comment. Shows form on GET, updates on POST.
     """
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    comment = get_object_or_404(Comment, pk=comment_id, recipe=recipe)
+
+    if comment.author != request.user:
+        messages.error(request, 'You can only edit your own comments!')
+        return redirect('recipe_detail', recipe_id=recipe_id)
+
     if request.method == "POST":
-        recipe = get_object_or_404(Recipe, id=recipe_id)
-        comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.recipe = recipe
-            comment.approved = False  # Reset approval when edited
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            # Don't reset approval status for edits - keep existing approval state
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.success(request, 'Comment updated!')
+            return redirect('recipe_detail', recipe_id=recipe_id)
         else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating comment!'
-            )
+            messages.error(request, 'Error updating comment!')
+    else:
+        form = CommentForm(instance=comment)
 
-    return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
+    return render(request, 'recipes/edit_comment.html', {
+        'form': form,
+        'recipe': recipe,
+        'comment': comment,
+    })
 
 
 @login_required
 def comment_delete(request, recipe_id, comment_id):
     """
-    View to delete comment
+    Delete a comment.
     """
-    comment = get_object_or_404(Comment, pk=comment_id)
-
+    comment = get_object_or_404(Comment, pk=comment_id, recipe_id=recipe_id)
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.success(request, 'Comment deleted!')
     else:
-        messages.add_message(
-            request, messages.ERROR, 'You can only delete your own comments!'
-        )
-
-    return HttpResponseRedirect(reverse('recipe_detail', args=[recipe_id]))
+        messages.error(request, 'You can only delete your own comments!')
+    return redirect('recipe_detail', recipe_id=recipe_id)
