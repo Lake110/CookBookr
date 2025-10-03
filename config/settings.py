@@ -28,25 +28,26 @@ except ImportError:
     ENV_SECRET_KEY = None
     ENV_DATABASES = None
 
-# Cloudinary Settings
+# Cloudinary Settings - Temporarily disabled for debugging
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 if CLOUDINARY_URL:
     # Cloudinary will automatically parse the URL and configure itself
     cloudinary.config(secure=True)
+    # Use Cloudinary for media files
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
     # Fallback configuration (should not be used in production)
     print("Warning: CLOUDINARY_URL not found in environment variables")
-
-# Media Files Configuration
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    # Use default file storage for debugging
+    # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
 
+# Temporarily use fallback SECRET_KEY for debugging
 if not SECRET_KEY:
-    raise ValueError(
-        "SECRET_KEY must be set in environment variables or env.py"
-    )
+    SECRET_KEY = 'django-insecure-fallback-key-for-debugging-only'
+    print("WARNING: Using fallback SECRET_KEY - this is not secure!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set to True for development
