@@ -13,9 +13,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+# Temporarily disabled for debugging
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,17 +30,20 @@ except ImportError:
     ENV_DATABASES = None
 
 # Cloudinary Settings - Temporarily disabled for debugging
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-if CLOUDINARY_URL:
-    # Cloudinary will automatically parse the URL and configure itself
-    cloudinary.config(secure=True)
-    # Use Cloudinary for media files
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-else:
-    # Fallback configuration (should not be used in production)
-    print("Warning: CLOUDINARY_URL not found in environment variables")
-    # Use default file storage for debugging
-    # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+# CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+# if CLOUDINARY_URL:
+#     # Cloudinary will automatically parse the URL and configure itself
+#     cloudinary.config(secure=True)
+#     # Use Cloudinary for media files
+#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# else:
+#     # Fallback configuration (should not be used in production)
+#     print("Warning: CLOUDINARY_URL not found in environment variables")
+#     # Use default file storage for debugging
+#     # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+# Use default file storage for debugging
+print("Using default Django file storage for debugging")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
@@ -69,15 +73,16 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
-    'cloudinary',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'widget_tweaks',
+    # Temporarily disabled for debugging
+    # 'cloudinary_storage',
+    # 'cloudinary',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'crispy_forms',
+    # 'crispy_bootstrap5',
+    # 'widget_tweaks',
     'recipes',
 ]
 
