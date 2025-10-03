@@ -1,6 +1,6 @@
 [
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 1,
         "fields": {
             "title": "Classic Spaghetti Carbonara",
@@ -16,7 +16,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 2,
         "fields": {
             "title": "Thai Green Curry",
@@ -32,7 +32,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 3,
         "fields": {
             "title": "Perfect Chocolate Chip Cookies",
@@ -48,7 +48,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 4,
         "fields": {
             "title": "Beef Tacos with Homemade Salsa",
@@ -64,7 +64,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 5,
         "fields": {
             "title": "Mediterranean Quinoa Salad",
@@ -80,7 +80,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 6,
         "fields": {
             "title": "Japanese Chicken Teriyaki",
@@ -96,7 +96,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 7,
         "fields": {
             "title": "Classic French Onion Soup",
@@ -112,7 +112,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 8,
         "fields": {
             "title": "Indian Butter Chicken",
@@ -128,7 +128,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 9,
         "fields": {
             "title": "Homemade Margherita Pizza",
@@ -144,7 +144,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 10,
         "fields": {
             "title": "New York Style Cheesecake",
@@ -160,7 +160,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 11,
         "fields": {
             "title": "Korean Bibimbap",
@@ -176,7 +176,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 12,
         "fields": {
             "title": "Mexican Street Corn Salad",
@@ -192,7 +192,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 13,
         "fields": {
             "title": "Moroccan Lamb Tagine",
@@ -208,7 +208,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 14,
         "fields": {
             "title": "Brazilian Feijoada",
@@ -224,7 +224,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 15,
         "fields": {
             "title": "Greek Moussaka",
@@ -240,7 +240,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 16,
         "fields": {
             "title": "Vietnamese Pho Bo",
@@ -256,7 +256,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 17,
         "fields": {
             "title": "Spanish Paella Valenciana",
@@ -272,7 +272,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 18,
         "fields": {
             "title": "Russian Beef Stroganoff",
@@ -288,7 +288,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 19,
         "fields": {
             "title": "Lebanese Hummus",
@@ -304,7 +304,7 @@
         }
     },
     {
-        "model": "Recipes.recipe",
+        "model": "recipes.recipe",
         "pk": 20,
         "fields": {
             "title": "British Fish and Chips",

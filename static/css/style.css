@@ -290,6 +290,51 @@ main {
 }
 
 /* ============================================================================
+    Icons
+   ============================================================================ */
+.fas {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    color: var(--brass);
+}
+
+.navbar-nav {
+    color: var(--brass);
+}
+
+#social-icons {
+    color: var(--brass);
+}
+
+#social-icons a:hover {
+    color: var(--burnt-sienna);
+}
+
+footer #social-icons a:hover {
+    color: var(--olive);
+}
+
+footer a:hover {
+    color: var(--olive) !important;
+}
+
+/* Simple footer styling - all text and icons brass */
+footer,
+footer * {
+    color: var(--brass) !important;
+}
+
+/* Override Bootstrap's text-muted class in footer */
+footer .text-muted {
+    color: var(--brass) !important;
+}
+
+footer .footer-header {
+    color: var(--cream) !important;
+}
+
+/* ============================================================================
    ACCESSIBILITY IMPROVEMENTS
    ============================================================================ */
 .btn:focus-visible,

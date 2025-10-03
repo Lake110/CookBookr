@@ -28,6 +28,23 @@ except ImportError:
     ENV_SECRET_KEY = None
     ENV_DATABASES = None
 
+# Cloudinary Settings - UPDATED
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+if CLOUDINARY_URL:
+    # Cloudinary will automatically parse the URL
+    cloudinary.config(secure=True)
+else:
+    # Fallback configuration
+    cloudinary.config(
+        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dwkobvao2'),
+        api_key=os.environ.get('CLOUDINARY_API_KEY', '197846758669373'),
+        api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'jzXlxYLbme7tvpJyE43fro-Tcws'),
+        secure=True
+    )
+
+# Media Files Configuration
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
 
@@ -49,9 +66,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
-    'django.contrib.sites',
+    'django.contrib.staticfiles',
     'cloudinary',
     'allauth',
     'allauth.account',
@@ -59,7 +75,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'widget_tweaks',
-    'Recipes',
+    'recipes',  
 ]
 
 SITE_ID = 1
@@ -168,14 +184,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Media Files (for Cloudinary)
 MEDIA_URL = '/media/'
 
-# Cloudinary Settings
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-if CLOUDINARY_URL:
-    cloudinary.config(
-        secure=True
-    )
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
