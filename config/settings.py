@@ -50,8 +50,8 @@ if not SECRET_KEY:
     print("WARNING: Using fallback SECRET_KEY - this is not secure!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Set to True for development
-DEBUG = False
+# Set to True for development, False for production
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -59,6 +59,10 @@ ALLOWED_HOSTS = [
     'cookbookr-75c0f1b11cd0.herokuapp.com',
     '.herokuapp.com'
 ]
+
+# Security settings for production
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = False  # Set to True when ready for HTTPS only
 
 
 # Application definition
@@ -197,7 +201,7 @@ STATICFILES_DIRS = [
 ]
 
 # Use WhiteNoise for static files
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # Media Files (for Cloudinary)
 MEDIA_URL = '/media/'
