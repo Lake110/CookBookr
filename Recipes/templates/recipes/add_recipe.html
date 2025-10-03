@@ -41,6 +41,21 @@
                             {% endif %}
                         </div>
 
+                        <div class="mb-3">
+                            <label for="{{ form.image.id_for_label }}" class="form-label">
+                                Recipe Image
+                            </label>
+                            {{ form.image }}
+                            <small class="form-text text-muted">
+                                Upload an appetizing photo of your dish (optional)
+                            </small>
+                            {% if form.image.errors %}
+                                <div class="text-danger small mt-1">
+                                    {{ form.image.errors }}
+                                </div>
+                            {% endif %}
+                        </div>
+
                         <div class="row mb-3">
                             <div class="col-md-4">
                                 <label for="{{ form.prep_time.id_for_label }}" class="form-label">

@@ -9,7 +9,8 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = [
             'title', 
-            'description', 
+            'description',
+            'image',  
             'ingredients', 
             'instructions', 
             'prep_time', 
@@ -25,6 +26,11 @@ class RecipeForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 3,
                 'placeholder': 'Brief description of your recipe'
+            }),
+            'image': forms.FileInput(attrs={
+                'class': 'form-control',
+                'accept': 'image/*',
+                'placeholder': 'Upload an image of the dish'
             }),
             'ingredients': forms.Textarea(attrs={
                 'class': 'form-control',
