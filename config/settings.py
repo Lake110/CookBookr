@@ -48,8 +48,8 @@ if not SECRET_KEY:
     print("WARNING: Using fallback SECRET_KEY - this is not secure!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Set to True for development, False for production
-DEBUG = False
+# Temporarily set to True to debug production issues
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
@@ -61,6 +61,15 @@ ALLOWED_HOSTS = [
 # Security settings for production
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = False  # Set to True when ready for HTTPS only
+
+# Additional production settings
+USE_TZ = True
+APPEND_SLASH = True
+
+# WhiteNoise configuration for static files
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_STATIC_PREFIX = '/static/'
 
 
 # Application definition
@@ -190,7 +199,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-# Static Files Configuration (Enhanced)
+# Static Files Configuration
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -198,7 +207,13 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Use WhiteNoise for static files - updated for newer Django versions
+# Static file finders
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+
+# Use modern STORAGES setting for Django 4.2+
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
