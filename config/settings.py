@@ -83,7 +83,7 @@ INSTALLED_APPS = [
     # 'crispy_forms',
     # 'crispy_bootstrap5',
     # 'widget_tweaks',
-    'recipes',
+    # 'recipes',  # Temporarily disabled to test basic Django
 ]
 
 SITE_ID = 1
@@ -99,7 +99,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'allauth.account.middleware.AccountMiddleware',
+    # Temporarily disabled for debugging
+    # 'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
