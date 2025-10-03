@@ -74,7 +74,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Temporarily disabled for debugging
+    # Gradually adding back apps for testing
+    'recipes',  # Adding back recipes app
+    # Still disabled for now
     # 'cloudinary_storage',
     # 'cloudinary',
     # 'allauth',
@@ -83,7 +85,6 @@ INSTALLED_APPS = [
     # 'crispy_forms',
     # 'crispy_bootstrap5',
     # 'widget_tweaks',
-    # 'recipes',  # Temporarily disabled to test basic Django
 ]
 
 SITE_ID = 1
