@@ -77,7 +77,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'widget_tweaks',
-    'recipes.apps.RecipesConfig',
+    'recipes',
 ]
 
 SITE_ID = 1
