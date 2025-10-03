@@ -74,17 +74,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Gradually adding back apps for testing
-    'recipes',  # Adding back recipes app
+    # Authentication and forms
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'widget_tweaks',
+    # Our apps
+    'recipes',
     # Still disabled for now
     # 'cloudinary_storage',
     # 'cloudinary',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
-    # 'crispy_forms',
-    # 'crispy_bootstrap5',
-    # 'widget_tweaks',
 ]
 
 SITE_ID = 1
@@ -100,8 +101,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Temporarily disabled for debugging
-    # 'allauth.account.middleware.AccountMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'

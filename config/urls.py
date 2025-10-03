@@ -21,9 +21,7 @@ from recipes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # Adding back recipes URLs
+    path('accounts/', include('allauth.urls')),
     path('', views.home, name='home'),
     path('recipes/', include('recipes.urls')),
-    # Still disabled for now
-    # path('accounts/', include('allauth.urls')),
 ]
