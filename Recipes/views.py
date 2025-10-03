@@ -10,17 +10,13 @@ from .forms import RecipeForm, CommentForm
 
 def home(request):
     """Home page showing featured recipes and site overview"""
-    # Get 4 random recipes for featured section
-    featured_recipes = Recipe.objects.all().order_by('?')[:4]  # Random order, limit 4
-    
-    # Get totals for stats
-    total_recipes = Recipe.objects.count()
-    total_users = User.objects.count()
-    
+    # Make sure you're getting recipes with images
+    featured_recipes = Recipe.objects.all()[:4]  # Get first 4 recipes
+
     context = {
-        'featured_recipes': featured_recipes,
-        'total_recipes': total_recipes,
-        'total_users': total_users,
+        'total_users': User.objects.count(),
+        'featured_recipes': featured_recipes,  # Add this line
+        'total_recipes': Recipe.objects.count(),
     }
     return render(request, 'recipes/home.html', context)
 
@@ -163,7 +159,7 @@ def recipe_edit(request, recipe_id):
     
     if request.method == 'POST':
         # User submitted the edit form
-        form = RecipeForm(request.POST, instance=recipe)
+        form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if form.is_valid():
             form.save()
             messages.success(request, f'Recipe "{recipe.title}" updated successfully!')

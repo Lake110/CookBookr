@@ -169,24 +169,155 @@ main {
     border: 1px solid var(--gray-300);
 }
 
-.recipe-meta-item {
-    text-align: center;
-    padding: 0.25rem;
-}
-
-.recipe-meta-item i {
+.recipe-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
     display: block;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
 }
 
-.recipe-meta-item .fw-bold {
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: fit-content;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.recipe-card-content {
+    padding: 20px;
+}
+
+.recipe-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #2d3748;
+}
+
+.recipe-card p {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #a0aec0;
+    margin-bottom: 16px;
+}
+
+.recipe-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Home page rectangular recipe cards */
+.recipe-card-rectangular .recipe-image {
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 8px 0 0 8px;
+    display: block;
+}
+
+.recipe-card-image-rect {
+    overflow: hidden;
+    border-radius: 8px 0 0 8px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Force consistent card heights */
+.recipe-card-rectangular .card {
+    height: 200px !important;
+}
+
+/* Ensure card images are consistent */
+.recipe-card-rectangular {
+    height: 200px;
+}
+
+.recipe-card-rectangular .row {
+    height: 100%;
+}
+
+.recipe-card-rectangular .col-5,
+.recipe-card-rectangular .col-7 {
+    height: 100%;
+}
+
+.recipe-card-rectangular .card-body {
+    padding: 1rem;
+}
+
+/* Recipe meta styling in cards */
+.recipe-card-rectangular .bg-light {
+    background-color: var(--gray-100) !important;
+}
+
+/* Button styling in recipe cards */
+.recipe-card-rectangular .btn-primary {
+    background: var(--primary-gradient);
+    border: none;
     font-size: 0.875rem;
-    color: var(--text-primary);
 }
 
-.recipe-meta-item small {
-    font-size: 0.75rem;
+.recipe-card-rectangular .btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Handle broken images gracefully */
+.recipe-card-rectangular .recipe-image {
+    background: var(--gray-200);
+}
+
+.recipe-card-rectangular .recipe-image[alt]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gray-200);
+    display: none;
+}
+
+.recipe-card-rectangular .recipe-image[alt][src=""]:after,
+.recipe-card-rectangular .recipe-image[alt]:not([src]):after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "🍳";
+    font-size: 3rem;
 }
 
 /* ============================================================================
