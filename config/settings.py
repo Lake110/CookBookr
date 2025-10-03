@@ -66,6 +66,10 @@ SECURE_SSL_REDIRECT = False  # Set to True when ready for HTTPS only
 USE_TZ = True
 APPEND_SLASH = True
 
+# WhiteNoise configuration for static files
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_AUTOREFRESH = True
+WHITENOISE_STATIC_PREFIX = '/static/'
 
 # Application definition
 
