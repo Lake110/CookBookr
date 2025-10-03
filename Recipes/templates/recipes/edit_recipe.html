@@ -44,11 +44,11 @@
                         </div>
 
                         <!-- Current Image Display -->
-                        {% if recipe.image %}
+                        {% if recipe.image and recipe.image != 'placeholder' %}
                         <div class="mb-3">
                             <label class="form-label">Current Image:</label>
                             <div class="current-image-preview">
-                                <img src="{{ recipe.image }}" alt="{{ recipe.title }}" 
+                                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" 
                                      class="img-thumbnail" style="max-height: 200px; max-width: 300px; object-fit: cover;">
                             </div>
                         </div>

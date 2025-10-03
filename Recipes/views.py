@@ -10,12 +10,12 @@ from .forms import RecipeForm, CommentForm
 
 def home(request):
     """Home page showing featured recipes and site overview"""
-    # Make sure you're getting recipes with images
-    featured_recipes = Recipe.objects.all()[:4]  # Get first 4 recipes
-
+    # Get 4 random recipes for featured section
+    featured_recipes = Recipe.objects.order_by('?')[:4]  # Random order
+    
     context = {
         'total_users': User.objects.count(),
-        'featured_recipes': featured_recipes,  # Add this line
+        'featured_recipes': featured_recipes,
         'total_recipes': Recipe.objects.count(),
     }
     return render(request, 'recipes/home.html', context)

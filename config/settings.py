@@ -28,19 +28,14 @@ except ImportError:
     ENV_SECRET_KEY = None
     ENV_DATABASES = None
 
-# Cloudinary Settings - UPDATED
+# Cloudinary Settings
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 if CLOUDINARY_URL:
-    # Cloudinary will automatically parse the URL
+    # Cloudinary will automatically parse the URL and configure itself
     cloudinary.config(secure=True)
 else:
-    # Fallback configuration
-    cloudinary.config(
-        cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME', 'dwkobvao2'),
-        api_key=os.environ.get('CLOUDINARY_API_KEY', '197846758669373'),
-        api_secret=os.environ.get('CLOUDINARY_API_SECRET', 'jzXlxYLbme7tvpJyE43fro-Tcws'),
-        secure=True
-    )
+    # Fallback configuration (should not be used in production)
+    print("Warning: CLOUDINARY_URL not found in environment variables")
 
 # Media Files Configuration
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
@@ -49,13 +44,20 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
 
 if not SECRET_KEY:
-    raise ValueError("SECRET_KEY must be set in environment variables or env.py")
+    raise ValueError(
+        "SECRET_KEY must be set in environment variables or env.py"
+    )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set to True for development
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'cookbookr-75c0f1b11cd0.herokuapp.com', '.herokuapp.com']
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'cookbookr-75c0f1b11cd0.herokuapp.com',
+    '.herokuapp.com'
+]
 
 
 # Application definition
@@ -75,7 +77,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'widget_tweaks',
-    'recipes',  
+    'recipes',
 ]
 
 SITE_ID = 1
@@ -141,16 +143,28 @@ else:
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
 

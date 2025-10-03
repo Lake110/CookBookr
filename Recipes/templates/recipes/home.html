@@ -78,7 +78,14 @@
                         <div class="col-5">
                             <div class="recipe-card-image-rect h-100 d-flex align-items-center justify-content-center">
                                 <!-- Recipe Image -->
-                                <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-image">
+                                {% if recipe.image and recipe.image != 'placeholder' %}
+                                    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="recipe-image" 
+                                         onerror="this.onerror=null; this.src='https://via.placeholder.com/400x300?text=No+Image';">
+                                {% else %}
+                                    <div class="d-flex align-items-center justify-content-center h-100 bg-light">
+                                        <i class="fas fa-utensils fa-2x text-muted"></i>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                         
