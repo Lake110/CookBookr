@@ -13,10 +13,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
-# Temporarily disabled for debugging
-# import cloudinary
-# import cloudinary.uploader
-# import cloudinary.api
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,21 +28,18 @@ except ImportError:
     ENV_SECRET_KEY = None
     ENV_DATABASES = None
 
-# Cloudinary Settings - Temporarily disabled for debugging
-# CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-# if CLOUDINARY_URL:
-#     # Cloudinary will automatically parse the URL and configure itself
-#     cloudinary.config(secure=True)
-#     # Use Cloudinary for media files
-#     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-# else:
-#     # Fallback configuration (should not be used in production)
-#     print("Warning: CLOUDINARY_URL not found in environment variables")
-#     # Use default file storage for debugging
-#     # DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
-# Use default file storage for debugging
-print("Using default Django file storage for debugging")
+# Cloudinary Settings - Secure Configuration
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+if CLOUDINARY_URL:
+    # Cloudinary will automatically parse the URL and configure itself
+    cloudinary.config(secure=True)
+    # Use Cloudinary for media files
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    print("Using Cloudinary for media file storage")
+else:
+    # Fallback configuration (should not be used in production)
+    print("Warning: CLOUDINARY_URL not found in environment variables")
+    print("Using default Django file storage as fallback")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
@@ -81,11 +77,11 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'widget_tweaks',
+    # Cloudinary for image storage
+    'cloudinary_storage',
+    'cloudinary',
     # Our apps
     'recipes',
-    # Still disabled for now
-    # 'cloudinary_storage',
-    # 'cloudinary',
 ]
 
 SITE_ID = 1
