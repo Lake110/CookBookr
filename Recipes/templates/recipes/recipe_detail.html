@@ -75,6 +75,25 @@
                 </div>
             </div>
 
+            <!-- Recipe Image Section -->
+            <div class="card shadow-sm mb-4">
+                <div class="recipe-image-container" style="height: 300px; overflow: hidden;">
+                    {% if "placeholder" in recipe.image.url %}
+                        <div class="bg-light d-flex align-items-center justify-content-center h-100">
+                            <div class="text-center">
+                                <i class="fas fa-utensils fa-3x text-muted mb-3"></i>
+                                <p class="text-muted mb-0">No image available</p>
+                            </div>
+                        </div>
+                    {% else %}
+                        <img src="{{ recipe.image.url }}" 
+                             alt="{{ recipe.title }}" 
+                             class="w-100 h-100"
+                             style="object-fit: cover;">
+                    {% endif %}
+                </div>
+            </div>
+
             <!-- Ingredients -->
             <div class="card shadow-sm mb-4">
                 <div class="card-header bg-success text-white">

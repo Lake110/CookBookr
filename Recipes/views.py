@@ -50,20 +50,15 @@ def index(request):
 
 @login_required
 def add_recipe(request):
-    """View for adding a new recipe - requires user authentication"""
     if request.method == 'POST':
-        # Process form submission
         form = RecipeForm(request.POST, request.FILES)
         if form.is_valid():
             recipe = form.save(commit=False)
-            recipe.author = request.user  # Set the logged-in user as author
+            recipe.author = request.user
             recipe.save()
-            messages.success(request, 'Recipe added successfully!')
-            return redirect('home')  # Redirect to home page for now
+            return redirect('recipe_detail', recipe.id)
     else:
-        # Display empty form for GET request
         form = RecipeForm()
-    
     return render(request, 'recipes/add_recipe.html', {'form': form})
 
 def recipe_detail(request, recipe_id):

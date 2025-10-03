@@ -3,7 +3,7 @@
    ============================================================================ */
 
 /* ============================================================================
-   CSS VARIABLES - Streamlined Design System
+   CSS VARIABLES - STREAMLINED DEFINITIONS
    ============================================================================ */
 :root {
     /* Brand Color Palette */
@@ -16,6 +16,7 @@
     --cream: #FAF3E0;
     --charcoal: #1C1C1C;
     --Linen: #FFF5E1;
+    --white: #ffffff;
     
     /* Semantic Colors */
     --primary: var(--dark-cyan);
@@ -34,60 +35,37 @@
     --bg-section: var(--eggplant);
     --bg-secondary: var(--secondary);
     
-    /* Grays (Bootstrap-compatible) */
+    /* Gradients */
+    --hero-gradient: linear-gradient(45deg, var(--cta) 0%, var(--accent) 100%);
+    --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    
+    /* Transitions */
+    --transition: all 0.2s ease-in-out;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --primary-shadow: 0 4px 12px rgba(41, 86, 87, 0.3);
+    
+    /* Border Radius */
+    --radius: 6px;
+    --radius-lg: 12px;
+    
+    /* Status colors */
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    
+    /* Gray scale */
     --gray-100: #f8f9fa;
     --gray-200: #e9ecef;
     --gray-300: #dee2e6;
-    --gray-500: #adb5bd;
-    --gray-600: #6c757d;
-    --gray-700: #495057;
+    --gray-500: #6c757d;
     
-    /* Status Colors */
-    --success: #155724;
-    --success-bg: #d4edda;
-    --info: #0c5460;
-    --info-bg: #d1ecf1;
-    --warning: #856404;
-    --warning-bg: #fff3cd;
-    --danger: #721c24;
-    --danger-bg: #f8d7da;
-    
-    /* Interactive States */
+    /* Focus and interaction */
     --focus-ring: rgba(67, 115, 144, 0.25);
-    --hover-overlay: rgba(255, 255, 255, 0.1);
-    
-    /* Effects */
-    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 20px rgba(0,0,0,0.15);
-    --shadow-lg: 0 8px 25px rgba(0,0,0,0.15);
-    --shadow-primary: 0 4px 12px rgba(41, 86, 87, 0.3);
-    --shadow-accent: 0 2px 4px rgba(67, 115, 144, 0.3);
-    --shadow-danger: 0 4px 12px rgba(220, 53, 69, 0.3);
-    --gradient-hero: linear-gradient(45deg, var(--cta) 0%, var(--accent) 100%);
-    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-    
-    /* Layout Tokens */
-    --radius: 8px;
-    --radius-lg: 12px;
-    --transition: all 0.2s ease-in-out;
-    
-    /* Legacy Compatibility (mapped to new system) */
-    --border-light: var(--gray-300);
-    --border-medium: var(--gray-500);
-    --gray-light: var(--gray-100);
-    --gray-medium: var(--gray-200);
-    --gray-dark: var(--gray-700);
-    --gray-darker: var(--gray-700);
-    --shadow-light: var(--shadow-sm);
-    --shadow-medium: var(--shadow-md);
-    --shadow-heavy: var(--shadow-lg);
-    --border-radius: var(--radius);
-    --border-radius-large: var(--radius-lg);
-    --neutral-bg: var(--bg-primary);
-    --success-border: var(--success);
-    --info-border: var(--info);
-    --warning-border: var(--warning);
-    --danger-border: var(--danger);
 }
 
 /* ============================================================================
@@ -102,7 +80,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Main layout using flexbox for sticky footer */
 main {
     flex: 1 0 auto;
 }
@@ -121,54 +98,46 @@ main {
 /* ============================================================================
    CARD COMPONENTS
    ============================================================================ */
-/* Enhanced card styling with hover effects and shadows */
 .card {
-    transition: var(--cookbookr-transition);
     border: none;
-    box-shadow: var(--cookbookr-shadow-light);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    overflow: hidden;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--cookbookr-shadow-medium);
+    transform: translate3d(0, -2px, 0);
+    box-shadow: var(--shadow-md);
 }
 
-/* Card Focus Styles for Accessibility */
-.card:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+.card-header {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: none;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
 }
 
-/* Card Text Expansion - allows full text display when expanded */
-.card-text.expanded {
-    -webkit-line-clamp: unset !important;
-    line-clamp: unset !important;
-    overflow: visible !important;
-}
-
-/* Card Header Enhancement */
 .card-header.bg-primary {
-    background: var(--primary-gradient) !important;
-    border-radius: 8px 8px 0 0;
+    background: var(--primary-gradient);
     color: var(--text-light);
 }
 
 .card-header.bg-info {
-    background: var(--accent-color) !important;
+    background: var(--accent);
     color: var(--text-light);
 }
 
 .card-header.bg-success {
-    background: var(--secondary-bg) !important;
+    background: var(--secondary);
     color: var(--text-primary);
 }
 
 .card-header.bg-warning {
-    background: var(--cta-color) !important;
+    background: var(--cta);
     color: var(--text-light);
 }
 
-/* Stats Cards */
 .stats-section .card {
     border: none;
     transition: transform 0.2s ease;
@@ -181,7 +150,6 @@ main {
 /* ============================================================================
    RECIPE CARDS & GRID
    ============================================================================ */
-/* Square Recipe Cards */
 .recipe-card-square {
     max-width: 280px;
     margin: 0 auto;
@@ -201,7 +169,6 @@ main {
     border: 1px solid var(--gray-300);
 }
 
-/* Recipe Meta Items Styling */
 .recipe-meta-item {
     text-align: center;
     padding: 0.25rem;
@@ -225,7 +192,6 @@ main {
 /* ============================================================================
    ANIMATIONS & KEYFRAMES
    ============================================================================ */
-/* JavaScript Animation Classes */
 .fade-in {
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
@@ -234,11 +200,11 @@ main {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translate3d(0, 20px, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
@@ -251,879 +217,102 @@ main {
 /* ============================================================================
    FORMS & INPUT ELEMENTS
    ============================================================================ */
-/* Recipe Form Styling */
-.recipe-form {
-    background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: var(--cookbookr-shadow-light);
-}
-
-.form-label {
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-}
-
 .form-control {
     border: 1px solid var(--gray-300);
-    border-radius: 6px;
+    border-radius: var(--radius);
     padding: 0.75rem;
-    transition: var(--cookbookr-transition);
+    transition: var(--transition);
+    font-size: 1rem;
 }
 
 .form-control:focus {
-    border-color: var(--accent-color);
+    border-color: var(--primary);
     box-shadow: 0 0 0 0.2rem var(--focus-ring);
     outline: none;
 }
 
-.form-control:hover {
-    border-color: var(--border-medium);
+.form-control:hover:not(:focus) {
+    border-color: var(--gray-500);
 }
 
-/* File Input Styling */
 .form-control[type="file"] {
-    padding: 0.375rem 0.75rem;
-    height: auto;
+    border: 2px dashed var(--gray-300);
+    background: var(--gray-100);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
 }
 
-/* Required Field Indicator */
-.text-danger {
-    font-size: 0.875rem;
+.form-control[type="file"]:hover {
+    border-color: var(--primary);
+    background: var(--gray-200);
 }
 
-/* Form Helper Text */
-.form-text {
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+.django-form-control {
+    background-color: var(--white);
 }
-
-
 
 /* ============================================================================
    BUTTONS & INTERACTIVE ELEMENTS
    ============================================================================ */
-/* Enhanced button styling with gradients and hover effects */
 .btn-primary {
     background: var(--primary-gradient);
     border: none;
-    transition: var(--cookbookr-transition);
     color: var(--text-light);
+    transition: var(--transition);
+    border-radius: var(--radius);
+    font-weight: 500;
 }
 
 .btn-primary:hover {
-    background: var(--primary-color);
-    transform: translateY(-1px);
+    background: var(--primary);
+    transform: translate3d(0, -1px, 0);
     box-shadow: var(--primary-shadow);
-}
-
-/* Call-to-action buttons */
-.btn-cta, .btn-warning {
-    background-color: var(--cta-color);
-    border-color: var(--cta-color);
     color: var(--text-light);
 }
 
-.btn-cta:hover, .btn-warning:hover {
-    background-color: var(--burnt-sienna);
-    border-color: var(--burnt-sienna);
-    filter: brightness(0.9);
-}
-
-.btn-secondary {
-    background-color: var(--gray-dark);
-    border-color: var(--gray-dark);
-    padding: 0.75rem 1.5rem;
-    font-weight: 500;
-    border-radius: 6px;
-    transition: var(--cookbookr-transition);
-}
-
-.btn-secondary:hover {
-    background-color: var(--gray-darker);
-    border-color: var(--gray-darker);
-    transform: translateY(-1px);
-}
-
-/* Loading States */
-.btn.loading {
-    position: relative;
-    color: transparent;
-}
-
-.btn.loading::after {
-    content: "";
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 50%;
-    left: 50%;
-    margin-left: -8px;
-    margin-top: -8px;
-    border: 2px solid var(--white);
-    border-radius: 50%;
-    border-top-color: transparent;
-    animation: spin 1s linear infinite;
-}
-
-/* File Input Styling */
-.form-control[type="file"] {
-    padding: 0.375rem 0.75rem;
-    height: auto;
-}
-
-/* Required Field Indicator */
-.text-danger {
-    font-size: 0.875rem;
-}
-
-/* Form Helper Text */
-.form-text {
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-}
-
-/* Card Header Enhancement */
-.card-header.bg-primary {
-    background: var(--primary-gradient) !important;
-    border-radius: 8px 8px 0 0;
-    color: var(--text-light);
-}
-
-.card-header.bg-info {
-    background: var(--accent-color) !important;
-    color: var(--text-light);
-}
-
-.card-header.bg-success {
-    background: var(--secondary-bg) !important;
-    color: var(--text-primary);
-}
-
-.card-header.bg-warning {
-    background: var(--cta-color) !important;
-    color: var(--text-light);
-}
-
-/* Recipe Meta Items Styling */
-.recipe-meta-item {
-    text-align: center;
-    padding: 0.25rem;
-}
-
-.recipe-meta-item i {
-    display: block;
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
-
-.recipe-meta-item .fw-bold {
-    font-size: 0.875rem;
-    color: var(--text-primary);
-}
-
-.recipe-meta-item small {
-    font-size: 0.75rem;
-}
-
-/* ============================================================================
-   NAVIGATION & LINKS
-   ============================================================================ */
-/* Navigation Improvements */
-.navbar-brand {
-    font-weight: 700;
-    color: var(--primary-color) !important;
-}
-
-/* Link styling */
-a {
-    color: var(--accent-color);
-    transition: var(--cookbookr-transition);
-}
-
-a:hover {
-    color: var(--primary-color);
-}
-
-/* ============================================================================
-   SECTIONS & LAYOUT
-   ============================================================================ */
-/* Section backgrounds */
-.section-primary {
-    background-color: var(--section-bg);
-    color: var(--text-light);
-}
-
-.section-secondary {
-    background-color: var(--secondary-bg);
-    color: var(--text-primary);
-}
-
-.section-accent {
-    background-color: var(--accent-color);
-    color: var(--text-light);
-}
-
-/* ============================================================================
-   ICONS & TYPOGRAPHY
-   ============================================================================ */
-/* Icon styling */
-.icon, i.fas, i.far, i.fab {
-    color: var(--icon-color);
-}
-
-.icon-primary, .text-primary i {
-    color: var(--primary-color);
-}
-
-/* ============================================================================
-   NOTIFICATIONS & ALERTS
-   ============================================================================ */
-/* Toast Notifications */
-.toast-container {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    z-index: 1050;
-}
-
-.toast {
-    background-color: var(--white);
-    border: 1px solid var(--border-light);
-    box-shadow: var(--cookbookr-shadow-medium);
-}
-
-/* Success Message Styling */
-.alert-success {
-    background-color: var(--success-bg);
-    border-color: var(--success-border);
-    color: var(--success-text);
-    border-radius: 6px;
-}
-
-/* Additional Notification Styles */
-.alert.position-fixed {
-    border-radius: 8px;
-    border: none;
-}
-
-.alert-info {
-    background-color: var(--info-bg);
-    color: var(--info-text);
-    border-left: 4px solid var(--info-border);
-}
-
-.alert-warning {
-    background-color: var(--warning-bg);
-    color: var(--warning-text);
-    border-left: 4px solid var(--warning-border);
-}
-
-.alert-danger {
-    background-color: var(--danger-bg);
-    color: var(--danger-text);
-    border-left: 4px solid var(--danger-border);
-}
-
-/* ============================================================================
-   FOOTER & SOCIAL MEDIA
-   ============================================================================ */
-/* Footer styling */
-footer {
-    flex-shrink: 0;
-}
-
-footer h6 {
-    color: var(--white) !important;
-    font-weight: 600;
-}
-
-footer .text-muted {
-    color: var(--border-medium) !important;
-}
-
-footer .text-muted:hover {
-    color: var(--white) !important;
-    transition: var(--cookbookr-transition);
-}
-
-/* Social media icons styling */
-footer .d-flex a {
-    transition: var(--cookbookr-transition);
-    padding: 0.25rem;
-    border-radius: 50%;
-}
-
-footer .d-flex a:hover {
-    color: var(--primary-color) !important;
-    background-color: var(--hover-overlay);
-    transform: translateY(-2px);
-}
-
-/* Specific social media brand colors on hover */
-footer .fab.fa-facebook-f:hover {
-    color: #1877f2 !important;
-}
-
-footer .fab.fa-twitter:hover {
-    color: #1da1f2 !important;
-}
-
-footer .fab.fa-instagram:hover {
-    color: #e4405f !important;
-}
-
-footer .fab.fa-youtube:hover {
-    color: #ff0000 !important;
-}
-
-footer .fab.fa-pinterest:hover {
-    color: #bd081c !important;
-}
-
-
-
-/* ============================================================================
-   PAGINATION
-   ============================================================================ */
-/* Base pagination styling */
-.pagination {
-    margin-bottom: 0;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-/* Page link styling with better touch targets */
-.page-link {
-    position: relative;
-    display: block;
-    padding: var(--bs-pagination-padding-y) var(--bs-pagination-padding-x);
-    margin-left: -1px;
-    font-size: var(--bs-pagination-font-size);
-    color: var(--bs-pagination-color);
-    text-decoration: none;
-    background-color: var(--bs-pagination-bg);
-    border: var(--bs-pagination-border-width) solid var(--bs-pagination-border-color);
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    
-    /* Minimum touch target size for mobile */
-    min-width: 44px;
-    min-height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Hover effects */
-.page-link:hover {
-    z-index: 2;
-    color: var(--bs-pagination-hover-color);
-    background-color: var(--bs-pagination-hover-bg);
-    border-color: var(--bs-pagination-hover-border-color);
-    transform: translateY(-1px);
-    box-shadow: var(--cookbookr-shadow-light);
-}
-
-/* Focus states for accessibility */
-.page-link:focus {
-    z-index: 3;
-    color: var(--bs-pagination-focus-color);
-    background-color: var(--bs-pagination-focus-bg);
-    outline: 0;
-    box-shadow: var(--bs-pagination-focus-box-shadow);
-}
-
-/* Active page styling */
-.page-item.active .page-link {
-    z-index: 3;
-    color: var(--bs-pagination-active-color);
-    background-color: var(--bs-pagination-active-bg);
-    border-color: var(--bs-pagination-active-border-color);
-    font-weight: 600;
-    box-shadow: var(--accent-shadow);
-}
-
-/* Disabled state */
-.page-item.disabled .page-link {
-    color: var(--bs-pagination-disabled-color);
-    pointer-events: none;
-    background-color: var(--bs-pagination-disabled-bg);
-    border-color: var(--bs-pagination-disabled-border-color);
-    opacity: 0.6;
-}
-
-/* Results info styling */
-.pagination + .text-center {
-    margin-top: 1rem;
-}
-
-/* Custom pagination container spacing */
-.pagination-container {
-    padding: 2rem 0;
-}
-
-
-
-/* ============================================================================
-   AUTHENTICATION FORMS - Login, Signup, Logout
-   ============================================================================ */
-/* Authentication pages styling - login, signup, logout */
-.login, .signup, .logout {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--cookbookr-border-radius);
-    box-shadow: var(--cookbookr-shadow-light);
-    margin-bottom: 2rem;
-    border: 1px solid var(--border-light);
-}
-
-/* Ensure consistent form field width and alignment */
-.login .form-control, .signup .form-control, .logout .form-control {
-    width: 100%;
-    max-width: 100%;
-    min-height: 48px;
-    box-sizing: border-box;
-}
-
-/* Form group consistency */
-.login .mb-3, .signup .mb-3, .logout .mb-3,
-.login .mb-4, .signup .mb-4, .logout .mb-4 {
-    width: 100%;
-}
-
-/* Label alignment */
-.login .form-label, .signup .form-label, .logout .form-label {
-    display: block;
-    width: 100%;
-    text-align: left;
-}
-
-/* Input field alignment and spacing */
-.login input, .signup input, .logout input,
-.login select, .signup select, .logout select,
-.login textarea, .signup textarea, .logout textarea {
-    width: 100% !important;
-    display: block;
-    margin: 0;
-}
-
-/* Prevent any width inconsistencies from Django form rendering */
-.login form, .signup form, .logout form {
-    width: 100%;
-}
-
-.login form > div, .signup form > div, .logout form > div {
-    width: 100%;
-}
-
-/* Logout page - center everything in the box */
-.logout {
-    text-align: center;
-    max-width: 100%;
-    margin: 2rem auto;
-}
-
-/* Logout page specific styling */
-.logout .btn-danger {
-    background: linear-gradient(135deg, var(--danger-border) 0%, #c82333 100%);
-    border: none;
-    transition: var(--cookbookr-transition);
-    padding: 0.75rem 2rem;
-    font-weight: 500;
-}
-
-.logout .btn-danger:hover {
-    background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
-    transform: translateY(-1px);
-    box-shadow: var(--danger-shadow);
-}
-
-.logout .btn-secondary {
-    padding: 0.75rem 2rem;
-    font-weight: 500;
-}
-
-/* Logout form button container */
-.logout .d-grid {
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-/* Authentication form enhancements */
-.login h3, .signup h3, .logout h3 {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-}
-
-.login p, .signup p, .logout p {
-    margin-bottom: 1rem;
-}
-
-/* Login and signup specific centering */
-.login h3, .signup h3 {
-    text-align: center;
-}
-
-.login p, .signup p {
-    text-align: center;
-}
-
-/* Link styling in auth forms */
-.login .link, .signup .link {
-    color: var(--accent-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.login .link:hover, .signup .link:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
-
-/* Enhanced form field styling for authentication pages - Django rendered fields */
-.login input, .signup input, .logout input,
-.login select, .signup select, .logout select,
-.login textarea, .signup textarea, .logout textarea {
-    border: 2px solid var(--gray-medium) !important;
-    border-radius: var(--cookbookr-border-radius) !important;
-    padding: 0.75rem 1rem !important;
-    font-size: 1rem !important;
-    transition: var(--cookbookr-transition) !important;
-    background-color: var(--white) !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-height: 48px !important;
-    box-sizing: border-box !important;
-    display: block !important;
-    margin: 0 !important;
-}
-
-/* Focus states for Django rendered fields */
-.login input:focus, .signup input:focus, .logout input:focus,
-.login select:focus, .signup select:focus, .logout select:focus,
-.login textarea:focus, .signup textarea:focus, .logout textarea:focus {
-    border-color: var(--primary-color) !important;
-    box-shadow: 0 0 0 0.2rem var(--focus-ring) !important;
-    outline: none !important;
-    background-color: var(--white) !important;
-}
-
-/* Hover states for Django rendered fields */
-.login input:hover, .signup input:hover, .logout input:hover,
-.login select:hover, .signup select:hover, .logout select:hover,
-.login textarea:hover, .signup textarea:hover, .logout textarea:hover {
-    border-color: var(--border-medium) !important;
-}
-
-/* Form group consistency */
-.login .mb-3, .signup .mb-3, .logout .mb-3,
-.login .mb-4, .signup .mb-4, .logout .mb-4 {
-    width: 100%;
-}
-
-/* Label alignment */
-.login .form-label, .signup .form-label, .logout .form-label {
-    display: block;
-    width: 100%;
-    text-align: left;
-}
-
-/* Input field alignment and spacing */
-.login input, .signup input, .logout input,
-.login select, .signup select, .logout select,
-.login textarea, .signup textarea, .logout textarea {
-    width: 100% !important;
-    display: block;
-    margin: 0;
-}
-
-/* Prevent any width inconsistencies from Django form rendering */
-.login form, .signup form, .logout form {
-    width: 100%;
-}
-
-.login form > div, .signup form > div, .logout form > div {
-    width: 100%;
-}
-
-.login .form-control:focus, .signup .form-control:focus, .logout .form-control:focus {
-    border-color: var(--primary-color);
+.btn-primary:focus {
     box-shadow: 0 0 0 0.2rem var(--focus-ring);
     outline: none;
-    background-color: var(--white);
 }
 
-.login .form-control:hover, .signup .form-control:hover, .logout .form-control:hover {
-    border-color: var(--border-medium);
+.btn-cta {
+    background-color: var(--cta);
+    border-color: var(--cta);
+    color: var(--text-light);
+    border-radius: var(--radius);
 }
 
-/* Form labels styling */
-.login .form-label, .signup .form-label, .logout .form-label {
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
-}
-
-/* Form text and help text */
-.login .form-text, .signup .form-text, .logout .form-text {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-top: 0.25rem;
-    line-height: 1.4;
-}
-
-/* Error message styling */
-.login .text-danger, .signup .text-danger, .logout .text-danger {
-    font-size: 0.85rem;
-    margin-top: 0.25rem;
-    font-weight: 500;
-}
-
-/* Password help text styling */
-.signup .form-text ul {
-    margin: 0.5rem 0;
-    padding-left: 1.2rem;
-}
-
-.signup .form-text li {
-    margin-bottom: 0.25rem;
-    font-size: 0.85rem;
-    line-height: 1.3;
-}
-
-/* Card styling for auth forms */
-.login .card, .signup .card, .logout .card {
-    border: none;
-    box-shadow: var(--cookbookr-shadow-medium);
-    border-radius: var(--cookbookr-border-radius-large);
-}
-
-.login .card-body, .signup .card-body, .logout .card-body {
-    padding: 2.5rem;
+.btn-cta:hover {
+    background-color: var(--burnt-sienna);
+    border-color: var(--burnt-sienna);
+    transform: translateY(-1px);
 }
 
 /* ============================================================================
-   RESPONSIVE DESIGN - MEDIA QUERIES
+   ACCESSIBILITY IMPROVEMENTS
    ============================================================================ */
-
-/* ============================================================================
-   TABLET & DESKTOP BREAKPOINTS
-   ============================================================================ */
-/* Tablet adjustments */
-@media (min-width: 768px) and (max-width: 991px) {
-    .pagination {
-        --bs-pagination-padding-x: 0.75rem;
-        --bs-pagination-padding-y: 0.5rem;
-    }
+.btn:focus-visible,
+.form-control:focus-visible,
+.card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
-/* Desktop enhancements */
-@media (min-width: 992px) {
-    .page-link {
-        min-width: 48px;
-        min-height: 48px;
-    }
-    
-    /* Add subtle animations on desktop */
-    .pagination .page-item {
-        margin: 0 2px;
-    }
-    
-    .page-link {
-        border-radius: 8px;
-        margin: 0;
-        border: 1px solid var(--border-light);
-    }
-    
-    .page-item:first-child .page-link,
-    .page-item:last-child .page-link {
-        border-radius: 8px;
-    }
-}
-
-/* ============================================================================
-   MOBILE BREAKPOINTS
-   ============================================================================ */
-/* Tablet and smaller devices */
-@media (max-width: 768px) {
-    .hero-section {
-        min-height: 300px;
-        padding: 2rem 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 2rem;
-    }
-    
-    .recipe-card-square {
-        max-width: 100%;
-    }
-    
-    .recipe-card-image {
-        height: 180px;
-    }
-    
-    .stats-section .col-6 {
-        margin-bottom: 1rem;
-    }
-
-    /* Authentication forms on tablets */
-    .login .card-body, .signup .card-body, .logout .card-body {
-        padding: 1.5rem;
-    }
-    
-    .login .form-control, .signup .form-control, .logout .form-control {
-        font-size: 16px; /* Prevents zoom on iOS */
-    }
-
-    /* Simple remember me checkbox styling */
-    input[type="checkbox"] {
-        margin-right: 8px;
-        width: 4px;
-        height: 4px;
-    }
-}
-
-/* Mobile devices */
-@media (max-width: 576px) {
-    .hero-section .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 0.5rem;
-    }
-    
-    .recipe-card-image {
-        height: 160px;
-    }
-    
-    .recipe-meta-item {
-        padding: 0.25rem;
-    }
-    
-    .recipe-meta-item i {
-        font-size: 1.5rem !important;
-    }
-
-    /* Pagination on mobile */
-    .pagination {
-        --bs-pagination-padding-x: 0.5rem;
-        --bs-pagination-padding-y: 0.375rem;
-        --bs-pagination-font-size: 0.875rem;
-    }
-    
-    /* Smaller page links on mobile */
-    .page-link {
-        min-width: 38px;
-        min-height: 38px;
-        font-size: 0.875rem;
-    }
-    
-    /* Hide page numbers on very small screens, keep only prev/next */
-    .pagination .page-item:not(.page-item:first-child):not(.page-item:last-child) .page-link {
-        display: none;
-    }
-    
-    /* Show only first 3 and last 3 page items on mobile */
-    .pagination .page-item:nth-child(-n+4),
-    .pagination .page-item:nth-last-child(-n+4) {
-        display: flex;
-    }
-    
-    .pagination .page-item:nth-child(-n+4) .page-link,
-    .pagination .page-item:nth-last-child(-n+4) .page-link {
-        display: flex;
-    }
-}
-
-/* Extra small screens - minimal pagination */
-@media (max-width: 400px) {
-    /* Show only prev/next/current on very small screens */
-    .pagination .page-item:not(.page-item:first-child):not(.page-item:last-child):not(.active) {
-        display: none;
-    }
-    
-    .pagination .page-item.active,
-    .pagination .page-item:first-child,
-    .pagination .page-item:last-child {
-        display: flex;
-    }
-}
-
-/* ============================================================================
-   ACCESSIBILITY & PREFERENCE MEDIA QUERIES
-   ============================================================================ */
-/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-    .page-link {
-        transition: none;
-    }
-    
-    .page-link:hover {
-        transform: none;
-    }
-
-    .card {
-        transition: none;
-    }
-
-    .card:hover {
-        transform: none;
-    }
-
-    .recipe-card-square,
-    .recipe-card-rectangular {
-        transition: none;
-    }
-
-    .recipe-card-square:hover,
-    .recipe-card-rectangular:hover {
-        transform: none;
-    }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-cta,
-    .btn-warning {
-        transition: none;
-    }
-
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .btn-cta:hover,
-    .btn-warning:hover {
-        transform: none;
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
-    .page-link {
-        border-width: 2px;
+    .card {
+        border: 2px solid var(--gray-500);
     }
     
-    .page-item.active .page-link {
-        background-color: var(--charcoal);
-        border-color: var(--charcoal);
-        color: var(--white);
-    }
-
-    .card {
-        border: 2px solid var(--border-light);
-    }
-
-    .form-control {
-        border-width: 2px;
-    }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-cta,
-    .btn-warning {
-        border-width: 2px;
+    .btn {
+        border: 2px solid currentColor;
     }
 }
-
-
-
