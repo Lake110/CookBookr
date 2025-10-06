@@ -28,27 +28,24 @@ except ImportError:
     ENV_SECRET_KEY = None
     ENV_DATABASES = None
 
-# Cloudinary Settings - Secure Configuration
+# Cloudinary configuration
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 if CLOUDINARY_URL:
-    # Cloudinary will automatically parse the URL and configure itself
     cloudinary.config(secure=True)
     print("Using Cloudinary for media file storage")
 else:
-    # Fallback configuration (should not be used in production)
     print("Warning: CLOUDINARY_URL not found in environment variables")
     print("Using default Django file storage as fallback")
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY') or ENV_SECRET_KEY
 
-# Temporarily use fallback SECRET_KEY for debugging
+# Fallback SECRET_KEY for debugging (not secure for production)
 if not SECRET_KEY:
     SECRET_KEY = 'django-insecure-fallback-key-for-debugging-only'
     print("WARNING: Using fallback SECRET_KEY - this is not secure!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# Temporarily set to True to debug production issues
 DEBUG = False
 
 ALLOWED_HOSTS = [
@@ -62,17 +59,7 @@ ALLOWED_HOSTS = [
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = False  # Set to True when ready for HTTPS only
 
-# Additional production settings
-USE_TZ = True
-APPEND_SLASH = True
-
-# WhiteNoise configuration for static files
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_AUTOREFRESH = True
-WHITENOISE_STATIC_PREFIX = '/static/'
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -90,7 +77,7 @@ INSTALLED_APPS = [
     # Cloudinary for image storage
     'cloudinary_storage',
     'cloudinary',
-    # Our apps
+    # My apps
     'recipes',
 ]
 
@@ -129,10 +116,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 # Database configuration
 DATABASE_URL = os.environ.get('DATABASE_URL')
 if DATABASE_URL:
@@ -153,50 +136,28 @@ else:
     }
 
 # Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'UserAttributeSimilarityValidator'
-        ),
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'MinimumLengthValidator'
-        ),
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
     {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'CommonPasswordValidator'
-        ),
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-        'NAME': (
-            'django.contrib.auth.password_validation.'
-            'NumericPasswordValidator'
-        ),
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
 
 # Static Files Configuration
 STATIC_URL = '/static/'
@@ -206,13 +167,12 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-# Static file finders
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-# Use modern STORAGES setting for Django 4.2+
+# Storage configuration for Django 4.2+
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
@@ -222,9 +182,8 @@ STORAGES = {
     },
 }
 
-# Media Files (for Cloudinary)
+# Media Files
 MEDIA_URL = '/media/'
-
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -233,7 +192,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# Logging configuration for production debugging
+# Logging configuration
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
