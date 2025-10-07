@@ -378,5 +378,119 @@
             "meal_type": "dinner",
             "recipe_tags": "american,fish,fried,comfort_food"
         }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 21,
+        "fields": {
+            "title": "Fluffy Buttermilk Pancakes",
+            "description": "Light, fluffy pancakes with a golden exterior and tender interior. Perfect weekend breakfast treat.",
+            "prep_time": 10,
+            "cook_time": 15,
+            "servings": 4,
+            "ingredients": "2 cups all-purpose flour\n2 tbsp sugar\n2 tsp baking powder\n1 tsp salt\n2 large eggs\n1 3/4 cups buttermilk\n1/4 cup melted butter\n1 tsp vanilla extract\nButter for cooking\nMaple syrup for serving\nFresh berries for serving",
+            "instructions": "1. In large bowl, whisk together flour, sugar, baking powder, and salt.\n2. In separate bowl, beat eggs, then whisk in buttermilk, melted butter, and vanilla.\n3. Pour wet ingredients into dry ingredients and stir until just combined - don't overmix.\n4. Heat griddle or large skillet over medium heat and lightly butter.\n5. Pour 1/4 cup batter for each pancake onto hot griddle.\n6. Cook until bubbles form on surface and edges look set, about 2-3 minutes.\n7. Flip and cook until golden brown on other side, 1-2 minutes more.\n8. Serve immediately with maple syrup and fresh berries.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/buttermilk-pancakes-h.jpg_b4wybt.webp",
+            "author": 1,
+            "created_at": "2025-02-20T08:00:00Z",
+            "updated_at": "2025-02-20T08:00:00Z",
+            "meal_type": "breakfast",
+            "recipe_tags": "american,quick,easy,kid_friendly,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 22,
+        "fields": {
+            "title": "Overnight Oats with Berries",
+            "description": "Healthy, no-cook breakfast that's ready when you wake up. Creamy oats with fresh berries and honey.",
+            "prep_time": 5,
+            "cook_time": 0,
+            "servings": 1,
+            "ingredients": "1/2 cup rolled oats\n1/2 cup milk of choice\n1 tbsp chia seeds\n1 tbsp honey or maple syrup\n1/4 tsp vanilla extract\nPinch of salt\n1/4 cup mixed berries\n2 tbsp chopped nuts\n1 tbsp coconut flakes (optional)",
+            "instructions": "1. In a jar or container, combine oats, milk, chia seeds, honey, vanilla, and salt.\n2. Stir well to combine all ingredients.\n3. Cover and refrigerate overnight or at least 4 hours.\n4. In the morning, stir the oats and add more liquid if desired consistency.\n5. Top with fresh berries, chopped nuts, and coconut flakes.\n6. Enjoy cold or warm in microwave for 30 seconds if preferred.\n7. Can be made 2-3 days ahead for meal prep.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/Berry-Overnight-Oats-Recipe_d3pp3q.webp",
+            "author": 2,
+            "created_at": "2025-02-21T07:30:00Z",
+            "updated_at": "2025-02-21T07:30:00Z",
+            "meal_type": "breakfast",
+            "recipe_tags": "healthy,no_cook,meal_prep,vegetarian,quick"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 23,
+        "fields": {
+            "title": "Classic Caesar Salad",
+            "description": "Crisp romaine lettuce with homemade Caesar dressing, parmesan cheese, and crunchy croutons.",
+            "prep_time": 15,
+            "cook_time": 10,
+            "servings": 4,
+            "ingredients": "2 large heads romaine lettuce, chopped\n1 cup homemade croutons\n1/2 cup fresh parmesan cheese, grated\n\nFor dressing:\n3 garlic cloves, minced\n2 anchovy fillets, minced\n1 egg yolk\n2 tbsp lemon juice\n1 tsp Dijon mustard\n1/2 cup olive oil\n1/4 cup parmesan cheese, grated\nSalt and black pepper to taste",
+            "instructions": "1. For croutons: cube day-old bread, toss with olive oil and seasonings, bake at 200°C for 8-10 minutes.\n2. For dressing: in small bowl, mash garlic and anchovies into paste.\n3. Whisk in egg yolk, lemon juice, and Dijon mustard.\n4. Slowly drizzle in olive oil while whisking constantly until emulsified.\n5. Stir in grated parmesan and season with salt and pepper.\n6. In large bowl, toss chopped romaine with dressing until well coated.\n7. Top with croutons and additional parmesan cheese.\n8. Serve immediately while lettuce is crisp.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/classic-caesar-salad-recipe_zill8s.jpg",
+            "author": 3,
+            "created_at": "2025-02-22T12:15:00Z",
+            "updated_at": "2025-02-22T12:15:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,salad,classic,vegetarian,quick"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 24,
+        "fields": {
+            "title": "Grilled Cheese & Tomato Soup",
+            "description": "The perfect comfort food combo - crispy grilled cheese sandwich with creamy homemade tomato soup.",
+            "prep_time": 10,
+            "cook_time": 25,
+            "servings": 4,
+            "ingredients": "For grilled cheese:\n8 slices bread\n8 slices sharp cheddar cheese\n4 tbsp butter\n\nFor tomato soup:\n2 tbsp olive oil\n1 onion, diced\n3 cloves garlic, minced\n800g canned tomatoes\n2 cups vegetable broth\n1/4 cup heavy cream\n1 tsp sugar\n1 tsp dried basil\nSalt and pepper to taste\nFresh basil for garnish",
+            "instructions": "1. For soup: heat olive oil in large pot, sauté onion until softened, about 5 minutes.\n2. Add garlic and cook 1 minute more.\n3. Add canned tomatoes, broth, sugar, and basil. Bring to boil.\n4. Simmer 15 minutes, then blend until smooth.\n5. Stir in cream and season with salt and pepper.\n6. For sandwiches: butter bread slices on one side.\n7. Place cheese between bread, buttered sides out.\n8. Cook in skillet over medium heat until golden and cheese melts, 3-4 minutes per side.\n9. Serve hot sandwiches with warm soup, garnished with fresh basil.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/veggie-grilled-cheese-tomato-soup-8d8143fc0c1b48d8b3ac6456b89be11f_ir5kse.jpg",
+            "author": 4,
+            "created_at": "2025-02-23T12:45:00Z",
+            "updated_at": "2025-02-23T12:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,comfort_food,vegetarian,quick,classic"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 25,
+        "fields": {
+            "title": "No-Bake Energy Balls",
+            "description": "Healthy, portable snacks packed with oats, dates, and nuts. Perfect for on-the-go energy boost.",
+            "prep_time": 15,
+            "cook_time": 0,
+            "servings": 12,
+            "ingredients": "1 cup rolled oats\n1/2 cup pitted dates, chopped\n1/2 cup almond butter\n1/4 cup honey\n1/4 cup mini chocolate chips\n1/4 cup shredded coconut\n2 tbsp chia seeds\n1 tsp vanilla extract\n1/4 tsp salt\nCoconut flakes for rolling (optional)",
+            "instructions": "1. In large bowl, combine oats, chopped dates, and chia seeds.\n2. Add almond butter, honey, and vanilla extract.\n3. Mix until well combined and mixture holds together when pressed.\n4. Fold in chocolate chips and shredded coconut.\n5. If mixture is too dry, add more almond butter or honey.\n6. If too wet, add more oats.\n7. Roll mixture into 1-inch balls using your hands.\n8. Optional: roll balls in coconut flakes for extra coating.\n9. Place on parchment-lined tray and refrigerate 30 minutes to firm up.\n10. Store in refrigerator for up to 1 week.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/AR-239969-no-bake-energy-bites-Beauty-4x3-f64cb80523be4d2280df2d442d160dce_o5b7xt.jpg",
+            "author": 5,
+            "created_at": "2025-02-24T15:20:00Z",
+            "updated_at": "2025-02-24T15:20:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "healthy,no_bake,vegetarian,meal_prep,kid_friendly"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 26,
+        "fields": {
+            "title": "Spinach Artichoke Dip",
+            "description": "Creamy, cheesy hot dip loaded with spinach and artichokes. Perfect party appetizer served with chips or bread.",
+            "prep_time": 15,
+            "cook_time": 25,
+            "servings": 8,
+            "ingredients": "300g frozen spinach, thawed and drained\n400g canned artichoke hearts, drained and chopped\n225g cream cheese, softened\n1/2 cup mayonnaise\n1/2 cup sour cream\n3 cloves garlic, minced\n1 cup mozzarella cheese, shredded\n1/2 cup parmesan cheese, grated\nSalt and pepper to taste\nTortilla chips or crusty bread for serving",
+            "instructions": "1. Preheat oven to 190°C (170°C fan).\n2. Squeeze excess water from thawed spinach using clean kitchen towel.\n3. In large bowl, mix cream cheese, mayonnaise, and sour cream until smooth.\n4. Stir in minced garlic, salt, and pepper.\n5. Fold in drained spinach, chopped artichokes, and half the mozzarella.\n6. Transfer mixture to greased baking dish.\n7. Top with remaining mozzarella and all the parmesan cheese.\n8. Bake 20-25 minutes until hot and bubbly with golden top.\n9. Let cool 5 minutes before serving.\n10. Serve warm with tortilla chips, crackers, or sliced baguette.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/Spinach_Artichoke_Dip_ducxbe.jpg",
+            "author": 6,
+            "created_at": "2025-02-25T16:30:00Z",
+            "updated_at": "2025-02-25T16:30:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "american,vegetarian,party_food,baked,comfort_food"
+        }
     }
 ]
