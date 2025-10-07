@@ -170,6 +170,69 @@
                 </div>
             </div>
             
+            <!-- Recipe Categories -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-header">
+                    <h4 class="h6 mb-0">
+                        <i class="fas fa-tags me-1"></i>Recipe Categories
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <!-- Meal Type -->
+                    {% if recipe.meal_type %}
+                    <div class="mb-3">
+                        <small class="text-muted d-block mb-1">Meal Type</small>
+                        <span class="badge bg-primary rounded-pill px-3 py-2">
+                            <i class="fas fa-utensils me-1"></i>
+                            {{ recipe.get_meal_type_display }}
+                        </span>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Recipe Tags -->
+                    {% if recipe.recipe_tags %}
+                    <div class="mb-2">
+                        <small class="text-muted d-block mb-2">Tags</small>
+                        <div class="d-flex flex-wrap gap-1">
+                            {% for tag in recipe.recipe_tags|split:"," %}
+                                {% if tag.strip %}
+                                <span class="badge bg-secondary rounded-pill px-2 py-1" style="font-size: 0.75rem;">
+                                    <i class="fas fa-tag me-1"></i>
+                                    {{ tag.strip|title }}
+                                </span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Quick filters based on categories -->
+                    {% if recipe.meal_type or recipe.recipe_tags %}
+                    <hr class="my-3">
+                    <small class="text-muted d-block mb-2">Find Similar Recipes</small>
+                    <div class="d-grid gap-1">
+                        {% if recipe.meal_type %}
+                        <a href="{% url 'recipes_list' %}?category={{ recipe.meal_type }}" 
+                           class="btn btn-outline-primary btn-sm">
+                            <i class="fas fa-search me-1"></i>More {{ recipe.get_meal_type_display }} Recipes
+                        </a>
+                        {% endif %}
+                        
+                        {% if recipe.recipe_tags %}
+                        {% with recipe.recipe_tags|split:","|first as first_tag %}
+                            {% if first_tag.strip %}
+                            <a href="{% url 'recipes_list' %}?tags={{ first_tag.strip }}" 
+                               class="btn btn-outline-secondary btn-sm">
+                                <i class="fas fa-tag me-1"></i>More {{ first_tag.strip|title }} Recipes
+                            </a>
+                            {% endif %}
+                        {% endwith %}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            
             <!-- Keep any other sidebar content you have -->
         </div>
     </div>

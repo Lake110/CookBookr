@@ -13,7 +13,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/spaghetti-carbonara-1200_azn3jy.jpg",
             "author": 1,
             "created_at": "2025-01-01T12:00:00Z",
-            "updated_at": "2025-01-01T12:00:00Z"
+            "updated_at": "2025-01-01T12:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "italian,pasta,quick,comfort_food,pork"
         }
     },
     {
@@ -30,7 +32,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502252/Thai-green-curry-bb9f6ae_poh9dn.jpg",
             "author": 1,
             "created_at": "2025-01-02T14:30:00Z",
-            "updated_at": "2025-01-02T14:30:00Z"
+            "updated_at": "2025-01-02T14:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "thai,asian,chicken,spicy,healthy"
         }
     },
     {
@@ -47,7 +51,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/master_cookie_dough_22386_16x9_wssvlo.jpg",
             "author": 1,
             "created_at": "2025-01-03T10:15:00Z",
-            "updated_at": "2025-01-03T10:15:00Z"
+            "updated_at": "2025-01-03T10:15:00Z",
+            "meal_type": "dessert",
+            "recipe_tags": "american,baked,easy,kid_friendly,comfort_food"
         }
     },
     {
@@ -64,7 +70,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/simple-chili-beef-tacos-with-fresh-tomato-salsa-recipe_hero_px2dph.webp",
             "author": 1,
             "created_at": "2025-01-04T18:00:00Z",
-            "updated_at": "2025-01-04T18:00:00Z"
+            "updated_at": "2025-01-04T18:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mexican,beef,quick,easy,spicy"
         }
     },
     {
@@ -81,7 +89,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/169583-mediterranean-quinoa-salad-VAT-003-4x3-1-b4584933a15842c7a860315dbfa98199_ay8xyb.jpg",
             "author": 1,
             "created_at": "2025-01-05T13:20:00Z",
-            "updated_at": "2025-01-05T13:20:00Z"
+            "updated_at": "2025-01-05T13:20:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "mediterranean,salad,vegetarian,healthy,meal_prep"
         }
     },
     {
@@ -98,7 +108,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/k_Photo_Recipes_2024-05-chicken-teriyaki-190_chicken-teriyaki-190-171-horizontal_sl2vzq.jpg",
             "author": 1,
             "created_at": "2025-01-06T19:30:00Z",
-            "updated_at": "2025-01-06T19:30:00Z"
+            "updated_at": "2025-01-06T19:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "japanese,asian,chicken,quick,easy"
         }
     },
     {
@@ -115,7 +127,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/french_onion_soup_with_02884_16x9_cdbdoi.jpg",
             "author": 1,
             "created_at": "2025-01-07T16:45:00Z",
-            "updated_at": "2025-01-07T16:45:00Z"
+            "updated_at": "2025-01-07T16:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "french,soup,comfort_food,slow_cooked"
         }
     },
     {
@@ -132,7 +146,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/AR-141169-Easy-Indian-Butter-Chicken-DDMFS-4x3-beauty-588ff54d1e0f4a0788906e851e27d540_jng31u.jpg",
             "author": 1,
             "created_at": "2025-01-08T20:00:00Z",
-            "updated_at": "2025-01-08T20:00:00Z"
+            "updated_at": "2025-01-08T20:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "indian,chicken,comfort_food,spicy"
         }
     },
     {
@@ -149,7 +165,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/pizza_xoia78.jpg",
             "author": 1,
             "created_at": "2025-01-09T15:30:00Z",
-            "updated_at": "2025-01-09T15:30:00Z"
+            "updated_at": "2025-01-09T15:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "italian,pizza,baked,comfort_food"
         }
     },
     {
@@ -166,7 +184,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502250/MSL-865202-new-york-cheesecake-hero-horiz-0723-84e3c796119d408581d1ef4d02d801cd_jqpzq9.jpg",
             "author": 1,
             "created_at": "2025-01-10T11:00:00Z",
-            "updated_at": "2025-01-10T11:00:00Z"
+            "updated_at": "2025-01-10T11:00:00Z",
+            "meal_type": "dessert",
+            "recipe_tags": "mediterranean,vegetarian,no_cook,healthy,easy"
         }
     },
     {
@@ -183,7 +203,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/1200px-Dolsot-bibimbap_hs0kyb.jpg",
             "author": 2,
             "created_at": "2025-01-15T14:20:00Z",
-            "updated_at": "2025-01-15T14:20:00Z"
+            "updated_at": "2025-01-15T14:20:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,salad,healthy,budget_friendly,easy"
         }
     },
     {
@@ -200,7 +222,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502247/mexican-street-corn-salad-10-1200_aokyia.jpg",
             "author": 3,
             "created_at": "2025-01-18T16:45:00Z",
-            "updated_at": "2025-01-18T16:45:00Z"
+            "updated_at": "2025-01-18T16:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "mexican,vegetarian,salad,healthy,easy"
         }
     },
     {
@@ -217,7 +241,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502247/moroccanlambtagine_6696_16x9.jpg_l4qvie.webp",
             "author": 4,
             "created_at": "2025-01-22T19:30:00Z",
-            "updated_at": "2025-01-22T19:30:00Z"
+            "updated_at": "2025-01-22T19:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mediterranean,lamb,slow_cooked,comfort_food"
         }
     },
     {
@@ -234,7 +260,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/Brazilian-Feijoada-Black-Bean-Stew.450_crmsy1.jpg",
             "author": 5,
             "created_at": "2025-01-25T13:15:00Z",
-            "updated_at": "2025-01-25T13:15:00Z"
+            "updated_at": "2025-01-25T13:15:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,beef,comfort_food,slow_cooked,one_pot"
         }
     },
     {
@@ -251,7 +279,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759503013/Eggplant-Moussaka-square-min_ezf9dc.jpg",
             "author": 6,
             "created_at": "2025-01-28T17:00:00Z",
-            "updated_at": "2025-01-28T17:00:00Z"
+            "updated_at": "2025-01-28T17:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mediterranean,lamb,baked,casserole,comfort_food"
         }
     },
     {
@@ -268,7 +298,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/Beef-Pho-Vietnamese-Pho-Bo-Best-Recipe-750_l6lnho.jpg",
             "author": 7,
             "created_at": "2025-02-02T12:30:00Z",
-            "updated_at": "2025-02-02T12:30:00Z"
+            "updated_at": "2025-02-02T12:30:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "asian,soup,beef,healthy,slow_cooked"
         }
     },
     {
@@ -285,7 +317,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/fresh-paella-in-pan-on-wooden-table-556668991-5843564b5f9b5851e5745d5a_h2tups.jpg",
             "author": 8,
             "created_at": "2025-02-05T15:45:00Z",
-            "updated_at": "2025-02-05T15:45:00Z"
+            "updated_at": "2025-02-05T15:45:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "spanish,chicken,comfort_food,one_pot"
         }
     },
     {
@@ -302,7 +336,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/Russian-Beef-Stroganoff-Recipe-Retro-Classic-from-Russian-Nobles-Copyright-2021-Terence-Carter-Grantourismo_ndxd8x.jpg",
             "author": 9,
             "created_at": "2025-02-08T18:20:00Z",
-            "updated_at": "2025-02-08T18:20:00Z"
+            "updated_at": "2025-02-08T18:20:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,beef,comfort_food,quick,easy"
         }
     },
     {
@@ -319,7 +355,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/authentic-homemade-hummus-22_gvhnu5.jpg",
             "author": 10,
             "created_at": "2025-02-12T11:10:00Z",
-            "updated_at": "2025-02-12T11:10:00Z"
+            "updated_at": "2025-02-12T11:10:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "mediterranean,vegetarian,no_cook,healthy,easy"
         }
     },
     {
@@ -336,7 +374,9 @@
             "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/fish_and_chips_zhnjo7.jpg",
             "author": 11,
             "created_at": "2025-02-15T20:00:00Z",
-            "updated_at": "2025-02-15T20:00:00Z"
+            "updated_at": "2025-02-15T20:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,fish,fried,comfort_food"
         }
     }
 ]

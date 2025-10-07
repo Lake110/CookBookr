@@ -28,3 +28,12 @@ def clean_instructions(value):
             cleaned_lines.append(cleaned_line)
     
     return cleaned_lines
+
+
+@register.filter
+def split(value, delimiter=','):
+    """Split a string by delimiter and return as list"""
+    if not value:
+        return []
+    items = str(value).split(delimiter)
+    return [item.strip() for item in items if item.strip()]
