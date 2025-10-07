@@ -12,4 +12,7 @@ urlpatterns = [
          views.comment_delete, name='comment_delete'),
     path('recipe/<int:recipe_id>/edit/', views.recipe_edit, name='recipe_edit'),
     path('recipe/<int:recipe_id>/delete/', views.recipe_delete, name='recipe_delete'),
+    
+    # Category helper URLs (optional - main search is integrated into recipes_home)
+    path('categories/', views.categories_list, name='categories_list'),
 ]

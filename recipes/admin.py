@@ -4,74 +4,74 @@ from .models import Recipe, Comment
 
 @admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
+    """Enhanced admin interface for Recipe model"""
     list_display = [
         'title', 
+        'get_category_display_name', 
         'author', 
         'prep_time', 
         'cook_time', 
-        'servings', 
+        'servings',
         'created_at'
     ]
-    list_filter = ['created_at', 'author', 'prep_time', 'cook_time']
-    search_fields = ['title', 'ingredients', 'description']
+    list_filter = [
+        'category', 
+        'author', 
+        'created_at',
+        'prep_time',
+        'cook_time'
+    ]
+    search_fields = [
+        'title', 
+        'description', 
+        'ingredients', 
+        'author__username'
+    ]
+    ordering = ['-created_at']
     readonly_fields = ['created_at', 'updated_at']
     
-    # Organize the admin form into sections
     fieldsets = (
         ('Basic Information', {
-            'fields': ('title', 'description', 'author')
+            'fields': ('title', 'description', 'image', 'category')
         }),
         ('Recipe Details', {
-            'fields': ('ingredients', 'instructions', 'servings')
+            'fields': ('ingredients', 'instructions', 'prep_time', 'cook_time', 'servings')
         }),
-        ('Timing', {
-            'fields': ('prep_time', 'cook_time')
-        }),
-        ('Timestamps', {
-            'fields': ('created_at', 'updated_at'),
+        ('Metadata', {
+            'fields': ('author', 'created_at', 'updated_at'),
             'classes': ('collapse',)
-        }),
+        })
     )
 
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
-    """Admin interface for managing comments with approval functionality"""
-    
+    """Admin interface for Comment model"""
     list_display = [
-        'recipe',
-        'author',
-        'body_preview',
-        'created_on',
+        'recipe', 
+        'author', 
+        'body_preview', 
+        'created_on', 
         'approved'
     ]
-    list_filter = ['approved', 'created_on', 'recipe']
-    search_fields = ['body', 'author__username', 'recipe__title']
-    readonly_fields = ['created_on']
-    actions = ['approve_comments', 'disapprove_comments']
-    
-    # Order by newest first
-    ordering = ['-created_on']
-    
+    list_filter = [
+        'approved', 
+        'created_on', 
+        'recipe'
+    ]
+    search_fields = [
+        'body', 
+        'author__username', 
+        'recipe__title'
+    ]
+    actions = ['approve_comments']
+
     def body_preview(self, obj):
         """Show first 50 characters of comment body"""
-        return obj.body[:50] + '...' if len(obj.body) > 50 else obj.body
+        return obj.body[:50] + "..." if len(obj.body) > 50 else obj.body
     body_preview.short_description = 'Comment Preview'
-    
+
     def approve_comments(self, request, queryset):
-        """Bulk action to approve selected comments"""
-        updated = queryset.update(approved=True)
-        self.message_user(
-            request,
-            f'{updated} comment(s) were successfully approved.'
-        )
-    approve_comments.short_description = 'Approve selected comments'
-    
-    def disapprove_comments(self, request, queryset):
-        """Bulk action to disapprove selected comments"""
-        updated = queryset.update(approved=False)
-        self.message_user(
-            request,
-            f'{updated} comment(s) were disapproved.'
-        )
-    disapprove_comments.short_description = 'Disapprove selected comments'
+        """Bulk approve comments"""
+        queryset.update(approved=True)
+    approve_comments.short_description = "Approve selected comments"
