@@ -7,7 +7,8 @@ class RecipeAdmin(admin.ModelAdmin):
     """Enhanced admin interface for Recipe model"""
     list_display = [
         'title', 
-        'get_category_display_name', 
+        'get_meal_type_display_name', 
+        'get_tags_display_short',
         'author', 
         'prep_time', 
         'cook_time', 
@@ -15,7 +16,7 @@ class RecipeAdmin(admin.ModelAdmin):
         'created_at'
     ]
     list_filter = [
-        'category', 
+        'meal_type', 
         'author', 
         'created_at',
         'prep_time',
@@ -25,6 +26,7 @@ class RecipeAdmin(admin.ModelAdmin):
         'title', 
         'description', 
         'ingredients', 
+        'recipe_tags',
         'author__username'
     ]
     ordering = ['-created_at']
@@ -32,7 +34,10 @@ class RecipeAdmin(admin.ModelAdmin):
     
     fieldsets = (
         ('Basic Information', {
-            'fields': ('title', 'description', 'image', 'category')
+            'fields': ('title', 'description', 'image')
+        }),
+        ('Categories', {
+            'fields': ('meal_type', 'recipe_tags')
         }),
         ('Recipe Details', {
             'fields': ('ingredients', 'instructions', 'prep_time', 'cook_time', 'servings')
@@ -42,6 +47,16 @@ class RecipeAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         })
     )
+    
+    def get_tags_display_short(self, obj):
+        """Show first few tags for list display"""
+        tags = obj.get_recipe_tags_display()
+        if not tags:
+            return "No tags"
+        if len(tags) > 2:
+            return f"{', '.join(tags[:2])} (+{len(tags)-2} more)"
+        return ', '.join(tags)
+    get_tags_display_short.short_description = 'Tags'
 
 
 @admin.register(Comment)

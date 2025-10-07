@@ -17,77 +17,101 @@
             </h2>
             
             <!-- Enhanced Search and Filter Form -->
-            <div class="search-filter-section bg-light rounded p-4 mb-4">
-                <form method="GET" class="row g-3">
-                    <!-- Text Search -->
-                    <div class="col-md-4">
-                        <label for="search-query" class="form-label">Search Recipes</label>
-                        <input type="text" class="form-control" id="search-query" name="q" 
-                               value="{{ current_query }}" placeholder="Search recipes, ingredients...">
+            <div class="search-filter-section bg-light rounded p-3 mb-3">
+                <form method="GET">
+                    <!-- Search Bar Row (Top) -->
+                    <div class="row mb-2">
+                        <div class="col-12">
+                            <label for="search-query" class="form-label fw-bold mb-1" style="font-size: 0.9rem;">Search Recipes</label>
+                            <input type="text" class="form-control form-control-sm" id="search-query" name="q" 
+                                   value="{{ current_query }}" placeholder="Search recipes, ingredients, instructions...">
+                        </div>
                     </div>
                     
-                    <!-- Category Filter -->
-                    <div class="col-md-3">
-                        <label for="category-filter" class="form-label">Category</label>
-                        <select class="form-select" id="category-filter" name="category">
-                            <option value="">All Categories</option>
-                            {% for category_key, category_name in category_choices %}
-                                <option value="{{ category_key }}" 
-                                    {% if current_category == category_key %}selected{% endif %}>
-                                    {{ category_name }}
-                                </option>
-                            {% endfor %}
-                        </select>
+                    <!-- Filter Dropdowns Row (Middle) -->
+                    <div class="row mb-2 g-2">
+                        <!-- Meal Type Filter -->
+                        <div class="col-md-3">
+                            <label for="meal-type-filter" class="form-label mb-1" style="font-size: 0.85rem;">Meal Type</label>
+                            <select class="form-select form-select-sm" id="meal-type-filter" name="category">
+                                <option value="">All Meal Types</option>
+                                {% for category_key, category_name in category_choices %}
+                                    <option value="{{ category_key }}" 
+                                        {% if current_category == category_key %}selected{% endif %}>
+                                        {{ category_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <!-- Recipe Tags Single-Select -->
+                        <div class="col-md-3">
+                            <label for="recipe-tags-filter" class="form-label mb-1" style="font-size: 0.85rem;">Recipe Tags</label>
+                            <select class="form-select form-select-sm" id="recipe-tags-filter" name="tags">
+                                <option value="">All Tags</option>
+                                {% for tag_key, tag_name in recipe_tag_choices %}
+                                    <option value="{{ tag_key }}" 
+                                        {% if tag_key == current_tag %}selected{% endif %}>
+                                        {{ tag_name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <!-- Max Prep Time -->
+                        <div class="col-md-3">
+                            <label for="prep-time" class="form-label mb-1" style="font-size: 0.85rem;">Max Prep Time (min)</label>
+                            <input type="number" class="form-control form-control-sm" id="prep-time" name="max_prep_time" 
+                                   value="{{ current_max_prep_time }}" min="0" placeholder="Any">
+                        </div>
+                        
+                        <!-- Max Cook Time -->
+                        <div class="col-md-3">
+                            <label for="cook-time" class="form-label mb-1" style="font-size: 0.85rem;">Max Cook Time (min)</label>
+                            <input type="number" class="form-control form-control-sm" id="cook-time" name="max_cook_time" 
+                                   value="{{ current_max_cook_time }}" min="0" placeholder="Any">
+                        </div>
                     </div>
                     
-                    <!-- Max Prep Time -->
-                    <div class="col-md-2">
-                        <label for="prep-time" class="form-label">Max Prep (min)</label>
-                        <input type="number" class="form-control" id="prep-time" name="max_prep_time" 
-                               value="{{ current_max_prep_time }}" min="0" placeholder="Any">
-                    </div>
-                    
-                    <!-- Max Cook Time -->
-                    <div class="col-md-2">
-                        <label for="cook-time" class="form-label">Max Cook (min)</label>
-                        <input type="number" class="form-control" id="cook-time" name="max_cook_time" 
-                               value="{{ current_max_cook_time }}" min="0" placeholder="Any">
-                    </div>
-                    
-                    <!-- Search Button -->
-                    <div class="col-md-1 d-flex align-items-end">
-                        <button type="submit" class="btn btn-primary w-100">
-                            <i class="fas fa-search"></i>
-                        </button>
+                    <!-- Search Button Row (Bottom) -->
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-sm px-4">
+                                <i class="fas fa-search me-1"></i>Search
+                            </button>
+                            <a href="{% url 'recipes_list' %}" class="btn btn-outline-secondary btn-sm px-3 ms-2">
+                                <i class="fas fa-times me-1"></i>Clear
+                            </a>
+                        </div>
                     </div>
                 </form>
                 
                 <!-- Sort and Results Info -->
-                <div class="row mt-3 align-items-center">
+                <div class="row mt-2 align-items-center">
                     <div class="col-md-6">
                         <!-- Sort Options -->
-                        <div class="d-flex gap-2 align-items-center">
-                            <label class="form-label mb-0 me-2">Sort by:</label>
+                        <div class="d-flex gap-1 align-items-center">
+                            <label class="form-label mb-0 me-2" style="font-size: 0.9rem;">Sort by:</label>
                             <a href="?q={{ current_query }}&category={{ current_category }}&max_prep_time={{ current_max_prep_time }}&max_cook_time={{ current_max_cook_time }}&sort=newest" 
-                               class="btn btn-sm {% if current_sort == 'newest' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+                               class="btn btn-sm {% if current_sort == 'newest' %}btn-primary{% else %}btn-outline-secondary{% endif %}" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">
                                 Newest
                             </a>
                             <a href="?q={{ current_query }}&category={{ current_category }}&max_prep_time={{ current_max_prep_time }}&max_cook_time={{ current_max_cook_time }}&sort=alphabetical" 
-                               class="btn btn-sm {% if current_sort == 'alphabetical' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+                               class="btn btn-sm {% if current_sort == 'alphabetical' %}btn-primary{% else %}btn-outline-secondary{% endif %}" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">
                                 A-Z
                             </a>
                             <a href="?q={{ current_query }}&category={{ current_category }}&max_prep_time={{ current_max_prep_time }}&max_cook_time={{ current_max_cook_time }}&sort=prep_time" 
-                               class="btn btn-sm {% if current_sort == 'prep_time' %}btn-primary{% else %}btn-outline-secondary{% endif %}">
+                               class="btn btn-sm {% if current_sort == 'prep_time' %}btn-primary{% else %}btn-outline-secondary{% endif %}" style="font-size: 0.8rem; padding: 0.25rem 0.75rem;">
                                 Prep Time
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6 text-md-end">
                         <!-- Results Info -->
-                        <div class="text-muted">
+                        <div class="text-muted" style="font-size: 0.9rem;">
                             {% if has_filters %}
                                 Showing {{ total_recipes }} of {{ total_all_recipes }} recipes
-                                <a href="?" class="btn btn-sm btn-outline-secondary ms-2">Clear Filters</a>
+                                <a href="?" class="btn btn-sm btn-outline-secondary ms-2" style="font-size: 0.75rem; padding: 0.2rem 0.5rem;">Clear Filters</a>
                             {% else %}
                                 Showing all {{ total_recipes }} recipes
                             {% endif %}
@@ -314,4 +338,34 @@
     {% endif %}
     
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Optional: Auto-submit form when filters change
+    function maybeAutoSubmit() {
+        // Uncomment the next line if you want auto-submit functionality
+        // document.querySelector('form').submit();
+    }
+    
+    // Add event listeners to filter inputs for auto-submit (optional)
+    const mealTypeFilter = document.getElementById('meal-type-filter');
+    const tagsFilter = document.getElementById('recipe-tags-filter');
+    
+    if (mealTypeFilter) {
+        mealTypeFilter.addEventListener('change', maybeAutoSubmit);
+    }
+    if (tagsFilter) {
+        tagsFilter.addEventListener('change', maybeAutoSubmit);
+    }
+});
+</script>
+
+<style>
+/* Search filter section styling */
+.search-filter-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 1px solid #dee2e6;
+}
+</style>
+
 {% endblock %}

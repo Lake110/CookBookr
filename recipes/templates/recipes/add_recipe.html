@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-{% load widget_tweaks %}
+{% load static %}
 
-{% block title %}Add Recipe - CookBookr{% endblock %}
+{% block title %}Add New Recipe{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
+<div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0">
+                    <h2 class="card-title mb-0">
                         <i class="fas fa-plus-circle me-2"></i>Add New Recipe
-                    </h3>
+                    </h2>
                 </div>
                 <div class="card-body">
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
                         {% csrf_token %}
                         
                         <div class="mb-3">
@@ -39,6 +39,43 @@
                                     {{ form.description.errors }}
                                 </div>
                             {% endif %}
+                        </div>
+
+                        <!-- Categories Section -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <h5 class="text-muted mb-3">Categories</h5>
+                                
+                                <!-- Meal Type and Recipe Tags in same row -->
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="{{ form.meal_type.id_for_label }}" class="form-label">
+                                            Meal Type <span class="text-danger">*</span>
+                                        </label>
+                                        {{ form.meal_type }}
+                                        {% if form.meal_type.errors %}
+                                            <div class="text-danger small mt-1">
+                                                {{ form.meal_type.errors }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <div class="col-md-6 mb-3">
+                                        <label for="{{ form.recipe_tags.id_for_label }}" class="form-label">
+                                            Recipe Tags
+                                        </label>
+                                        {{ form.recipe_tags }}
+                                        <small class="form-text text-muted">
+                                            Select a tag that best describes your recipe (optional)
+                                        </small>
+                                        {% if form.recipe_tags.errors %}
+                                            <div class="text-danger small mt-1">
+                                                {{ form.recipe_tags.errors }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mb-3">
@@ -121,4 +158,6 @@
         </div>
     </div>
 </div>
+
+
 {% endblock %}

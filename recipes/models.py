@@ -4,42 +4,76 @@ from cloudinary.models import CloudinaryField
 
 
 class Recipe(models.Model):
-    # Predefined category choices
-    CATEGORY_CHOICES = [
-        # Meal Types
+    # Primary meal type choices
+    MEAL_TYPE_CHOICES = [
         ('breakfast', 'Breakfast'),
         ('lunch', 'Lunch'), 
         ('dinner', 'Dinner'),
         ('snacks', 'Snacks & Appetizers'),
         ('dessert', 'Desserts'),
         ('beverages', 'Beverages'),
-        
+    ]
+    
+    # Recipe tag choices for multiple selection
+    RECIPE_TAG_CHOICES = [
         # Cuisine Types
         ('italian', 'Italian'),
         ('mexican', 'Mexican'),
         ('asian', 'Asian'),
+        ('chinese', 'Chinese'),
         ('indian', 'Indian'),
         ('american', 'American'),
         ('mediterranean', 'Mediterranean'),
+        ('french', 'French'),
+        ('thai', 'Thai'),
+        ('japanese', 'Japanese'),
         
-        # Dietary & Specific
+        # Dietary Preferences
         ('vegetarian', 'Vegetarian'),
         ('vegan', 'Vegan'),
         ('gluten_free', 'Gluten-Free'),
+        ('dairy_free', 'Dairy-Free'),
         ('keto', 'Keto/Low-Carb'),
+        ('paleo', 'Paleo'),
         ('healthy', 'Healthy & Light'),
+        ('low_sodium', 'Low Sodium'),
         
-        # Popular Dish Types
-        ('pizza', 'Pizza'),
-        ('burger', 'Burgers'),
+        # Cooking Methods
+        ('grilled', 'Grilled'),
+        ('baked', 'Baked'),
+        ('fried', 'Fried'),
+        ('steamed', 'Steamed'),
+        ('slow_cooked', 'Slow Cooked'),
+        ('no_cook', 'No Cooking Required'),
+        
+        # Dish Types
+        ('soup', 'Soup'),
+        ('salad', 'Salad'),
         ('pasta', 'Pasta'),
-        ('soup', 'Soups & Stews'),
-        ('salad', 'Salads'),
-        ('chicken', 'Chicken Dishes'),
+        ('pizza', 'Pizza'),
+        ('burger', 'Burger'),
+        ('sandwich', 'Sandwich'),
+        ('casserole', 'Casserole'),
+        ('stir_fry', 'Stir Fry'),
+        
+        # Protein Types
+        ('chicken', 'Chicken'),
+        ('beef', 'Beef'),
+        ('pork', 'Pork'),
         ('seafood', 'Seafood'),
-        ('beef', 'Beef Dishes'),
-        ('pork', 'Pork Dishes'),
-        ('baking', 'Baking & Bread'),
+        ('fish', 'Fish'),
+        ('lamb', 'Lamb'),
+        ('turkey', 'Turkey'),
+        
+        # Cooking Time/Difficulty
+        ('quick', 'Quick (Under 30 min)'),
+        ('easy', 'Easy to Make'),
+        ('budget_friendly', 'Budget-Friendly'),
+        ('one_pot', 'One Pot/Pan'),
+        ('meal_prep', 'Meal Prep Friendly'),
+        ('comfort_food', 'Comfort Food'),
+        ('spicy', 'Spicy'),
+        ('kid_friendly', 'Kid-Friendly'),
     ]
 
     title = models.CharField(max_length=200)
@@ -57,11 +91,19 @@ class Recipe(models.Model):
     cook_time = models.IntegerField(help_text="Cooking time in minutes")
     servings = models.IntegerField(default=1)
     
-    category = models.CharField(
+    # Primary meal type (single selection)
+    meal_type = models.CharField(
         max_length=50,
-        choices=CATEGORY_CHOICES,
+        choices=MEAL_TYPE_CHOICES,
         default='dinner',
-        help_text="Select the most appropriate category for this recipe"
+        help_text="Select the primary meal type for this recipe"
+    )
+    
+    # Recipe tags (multiple selection stored as comma-separated string)
+    recipe_tags = models.CharField(
+        max_length=500,
+        blank=True,
+        help_text="Multiple tags describing this recipe (cuisine, dietary, etc.)"
     )
     
     author = models.ForeignKey(
@@ -79,48 +121,91 @@ class Recipe(models.Model):
     def get_total_time(self):
         return self.prep_time + self.cook_time
     
-    def get_category_display_name(self):
-        """Return the human-readable category name"""
-        return dict(self.CATEGORY_CHOICES).get(self.category, self.category)
+    def get_meal_type_display_name(self):
+        """Return the human-readable meal type name"""
+        return dict(self.MEAL_TYPE_CHOICES).get(self.meal_type, self.meal_type)
+    
+    def get_recipe_tags_list(self):
+        """Return recipe tags as a list"""
+        if self.recipe_tags:
+            return [tag.strip() for tag in self.recipe_tags.split(',')]
+        return []
+    
+    def get_recipe_tags_display(self):
+        """Return formatted recipe tags for display"""
+        tags = self.get_recipe_tags_list()
+        tag_dict = dict(self.RECIPE_TAG_CHOICES)
+        return [tag_dict.get(tag, tag) for tag in tags]
+    
+    def set_recipe_tags(self, tag_list):
+        """Set recipe tags from a list"""
+        if tag_list:
+            self.recipe_tags = ','.join(tag_list)
+        else:
+            self.recipe_tags = ''
     
     @classmethod
-    def get_categories_by_type(cls):
-        """Return categories organized by type for better UI"""
+    def get_tags_by_type(cls):
+        """Return recipe tags organized by type for better UI"""
         return {
-            'Meal Types': [
-                ('breakfast', 'Breakfast'),
-                ('lunch', 'Lunch'),
-                ('dinner', 'Dinner'),
-                ('snacks', 'Snacks & Appetizers'),
-                ('dessert', 'Desserts'),
-                ('beverages', 'Beverages'),
-            ],
             'Cuisine': [
                 ('italian', 'Italian'),
                 ('mexican', 'Mexican'),
                 ('asian', 'Asian'),
+                ('chinese', 'Chinese'),
                 ('indian', 'Indian'),
                 ('american', 'American'),
                 ('mediterranean', 'Mediterranean'),
+                ('french', 'French'),
+                ('thai', 'Thai'),
+                ('japanese', 'Japanese'),
             ],
             'Dietary': [
                 ('vegetarian', 'Vegetarian'),
                 ('vegan', 'Vegan'),
                 ('gluten_free', 'Gluten-Free'),
+                ('dairy_free', 'Dairy-Free'),
                 ('keto', 'Keto/Low-Carb'),
+                ('paleo', 'Paleo'),
                 ('healthy', 'Healthy & Light'),
+                ('low_sodium', 'Low Sodium'),
             ],
-            'Popular Dishes': [
-                ('pizza', 'Pizza'),
-                ('burger', 'Burgers'),
+            'Cooking Methods': [
+                ('grilled', 'Grilled'),
+                ('baked', 'Baked'),
+                ('fried', 'Fried'),
+                ('steamed', 'Steamed'),
+                ('slow_cooked', 'Slow Cooked'),
+                ('no_cook', 'No Cooking Required'),
+            ],
+            'Dish Types': [
+                ('soup', 'Soup'),
+                ('salad', 'Salad'),
                 ('pasta', 'Pasta'),
-                ('soup', 'Soups & Stews'),
-                ('salad', 'Salads'),
-                ('chicken', 'Chicken Dishes'),
+                ('pizza', 'Pizza'),
+                ('burger', 'Burger'),
+                ('sandwich', 'Sandwich'),
+                ('casserole', 'Casserole'),
+                ('stir_fry', 'Stir Fry'),
+            ],
+            'Protein': [
+                ('chicken', 'Chicken'),
+                ('beef', 'Beef'),
+                ('pork', 'Pork'),
                 ('seafood', 'Seafood'),
-                ('beef', 'Beef Dishes'),
-                ('pork', 'Pork Dishes'),
-                ('baking', 'Baking & Bread'),
+                ('fish', 'Fish'),
+                ('lamb', 'Lamb'),
+                ('turkey', 'Turkey'),
+            ],
+            'Features': [
+                ('quick', 'Quick (Under 30 min)'),
+                ('easy', 'Easy to Make'),
+                ('budget_friendly', 'Budget-Friendly'),
+                ('one_pot', 'One Pot/Pan'),
+                ('meal_prep', 'Meal Prep Friendly'),
+                ('comfort_food', 'Comfort Food'),
+                ('spicy', 'Spicy'),
+                ('kid_friendly', 'Kid-Friendly'),
             ]
         }
 

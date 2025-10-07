@@ -7,13 +7,24 @@ from .models import Recipe, Comment
 class RecipeForm(forms.ModelForm):
     """Enhanced form for creating and editing recipes with organized category selection"""
     
+    # Custom field for single tag selection
+    recipe_tags = forms.ChoiceField(
+        choices=[('', 'Select a tag (optional)')] + Recipe.RECIPE_TAG_CHOICES,
+        widget=forms.Select(attrs={
+            'class': 'form-select'
+        }),
+        required=False,
+        label='Recipe Tags'
+    )
+    
     class Meta:
         model = Recipe
         fields = [
             'title', 
             'description', 
             'image', 
-            'category',
+            'meal_type',
+            'recipe_tags',
             'ingredients', 
             'instructions', 
             'prep_time', 
@@ -31,7 +42,7 @@ class RecipeForm(forms.ModelForm):
                 'rows': 3,
                 'placeholder': 'Brief description of your recipe...'
             }),
-            'category': forms.Select(attrs={
+            'meal_type': forms.Select(attrs={
                 'class': 'form-select'
             }),
             'ingredients': forms.Textarea(attrs={
@@ -70,25 +81,17 @@ class RecipeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # Create organized category choices
-        organized_choices = [('', 'Select a category...')]
-        
-        categories_by_type = Recipe.get_categories_by_type()
-        
-        for category_type, choices in categories_by_type.items():
-            organized_choices.append((category_type, choices))
-        
-        # Update the category field with organized choices
-        self.fields['category'].choices = organized_choices
-        
-        # Add help text for better UX
-        self.fields['category'].help_text = "Choose the category that best describes your recipe"
+        # If editing an existing recipe, populate the selected tag (first one only)
+        if self.instance and self.instance.pk:
+            selected_tags = self.instance.get_recipe_tags_list()
+            if selected_tags:
+                self.fields['recipe_tags'].initial = selected_tags[0]
         
         # Make certain fields required with custom error messages
         self.fields['title'].required = True
         self.fields['ingredients'].required = True
         self.fields['instructions'].required = True
-        self.fields['category'].required = True
+        self.fields['meal_type'].required = True
     
     def clean_title(self):
         """Validate recipe title"""
@@ -128,6 +131,21 @@ class RecipeForm(forms.ModelForm):
                 )
         
         return cleaned_data
+    
+    def save(self, commit=True):
+        """Custom save method to handle recipe tags"""
+        recipe = super().save(commit=False)
+        
+        # Handle single recipe tag
+        selected_tag = self.cleaned_data.get('recipe_tags', '')
+        if selected_tag:
+            recipe.set_recipe_tags([selected_tag])
+        else:
+            recipe.set_recipe_tags([])
+        
+        if commit:
+            recipe.save()
+        return recipe
 
 
 class CommentForm(forms.ModelForm):
@@ -171,12 +189,20 @@ class RecipeSearchForm(forms.Form):
         label='Search'
     )
     
-    category = forms.ChoiceField(
+    meal_type = forms.ChoiceField(
         required=False,
         widget=forms.Select(attrs={
             'class': 'form-select'
         }),
-        label='Category'
+        label='Meal Type'
+    )
+    
+    tags = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple(attrs={
+            'class': 'form-check-input'
+        }),
+        label='Recipe Tags'
     )
     
     max_prep_time = forms.IntegerField(
@@ -202,8 +228,11 @@ class RecipeSearchForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # Set up category choices for search
-        category_choices = [('', 'All Categories')]
-        category_choices.extend(Recipe.CATEGORY_CHOICES)
-        self.fields['category'].choices = category_choices
+        # Set up meal type choices for search
+        meal_type_choices = [('', 'All Meal Types')]
+        meal_type_choices.extend(Recipe.MEAL_TYPE_CHOICES)
+        self.fields['meal_type'].choices = meal_type_choices
+        
+        # Set up tag choices for search
+        self.fields['tags'].choices = Recipe.RECIPE_TAG_CHOICES
 

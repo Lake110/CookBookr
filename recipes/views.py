@@ -51,9 +51,14 @@ class RecipeListView(ListView):
                 Q(instructions__icontains=query)
             )
         
-        # Apply category filter
+        # Apply meal type filter
         if category and category != 'all':
-            queryset = queryset.filter(category=category)
+            queryset = queryset.filter(meal_type=category)
+        
+        # Apply tags filter (single selection)
+        tag = self.request.GET.get('tags', '').strip()
+        if tag:
+            queryset = queryset.filter(recipe_tags__icontains=tag)
         
         # Apply prep time filter
         if max_prep_time:
@@ -90,13 +95,15 @@ class RecipeListView(ListView):
         # Get current search parameters
         context['current_query'] = self.request.GET.get('q', '')
         context['current_category'] = self.request.GET.get('category', '')
+        context['current_tag'] = self.request.GET.get('tags', '')
         context['current_max_prep_time'] = self.request.GET.get('max_prep_time', '')
         context['current_max_cook_time'] = self.request.GET.get('max_cook_time', '')
         context['current_sort'] = self.request.GET.get('sort', 'newest')
         
-        # Add category choices for the filter dropdown
-        context['category_choices'] = Recipe.CATEGORY_CHOICES
-        context['categories_by_type'] = Recipe.get_categories_by_type()
+        # Add choices for the filter dropdowns
+        context['category_choices'] = Recipe.MEAL_TYPE_CHOICES
+        context['recipe_tag_choices'] = Recipe.RECIPE_TAG_CHOICES
+        context['tags_by_type'] = Recipe.get_tags_by_type()
         
         # Calculate total results
         context['total_recipes'] = self.get_queryset().count()
@@ -106,6 +113,7 @@ class RecipeListView(ListView):
         context['has_filters'] = any([
             context['current_query'],
             context['current_category'],
+            context['current_tag'],
             context['current_max_prep_time'],
             context['current_max_cook_time'],
         ])
