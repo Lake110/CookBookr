@@ -7,11 +7,12 @@ from .models import Recipe, Comment
 class RecipeForm(forms.ModelForm):
     """Enhanced form for creating and editing recipes with organized category selection"""
     
-    # Custom field for single tag selection
-    recipe_tags = forms.ChoiceField(
-        choices=[('', 'Select a tag (optional)')] + Recipe.RECIPE_TAG_CHOICES,
-        widget=forms.Select(attrs={
-            'class': 'form-select'
+    # Custom field for multiple tag selection with dropdown
+    recipe_tags = forms.MultipleChoiceField(
+        choices=Recipe.RECIPE_TAG_CHOICES,
+        widget=forms.SelectMultiple(attrs={
+            'class': 'form-select d-none',  # Hidden, we'll use custom dropdown
+            'id': 'recipe-tags-select'
         }),
         required=False,
         label='Recipe Tags'
@@ -81,11 +82,17 @@ class RecipeForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        # If editing an existing recipe, populate the selected tag (first one only)
+        # Ensure the recipe_tags field has the correct ID for JavaScript
+        self.fields['recipe_tags'].widget.attrs.update({
+            'id': 'recipe-tags-select',
+            'class': 'form-select d-none'
+        })
+        
+        # If editing an existing recipe, populate all selected tags
         if self.instance and self.instance.pk:
             selected_tags = self.instance.get_recipe_tags_list()
             if selected_tags:
-                self.fields['recipe_tags'].initial = selected_tags[0]
+                self.fields['recipe_tags'].initial = selected_tags
         
         # Make certain fields required with custom error messages
         self.fields['title'].required = True
@@ -136,10 +143,10 @@ class RecipeForm(forms.ModelForm):
         """Custom save method to handle recipe tags"""
         recipe = super().save(commit=False)
         
-        # Handle single recipe tag
-        selected_tag = self.cleaned_data.get('recipe_tags', '')
-        if selected_tag:
-            recipe.set_recipe_tags([selected_tag])
+        # Handle multiple recipe tags
+        selected_tags = self.cleaned_data.get('recipe_tags', [])
+        if selected_tags:
+            recipe.set_recipe_tags(selected_tags)
         else:
             recipe.set_recipe_tags([])
         

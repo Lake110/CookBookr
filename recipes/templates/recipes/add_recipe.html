@@ -4,6 +4,7 @@
 {% block title %}Add New Recipe{% endblock %}
 
 {% block content %}
+
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -61,12 +62,28 @@
                                     </div>
                                     
                                     <div class="col-md-6 mb-3">
-                                        <label for="{{ form.recipe_tags.id_for_label }}" class="form-label">
+                                        <label class="form-label">
                                             Recipe Tags
                                         </label>
-                                        {{ form.recipe_tags }}
+                                        
+                                        <!-- Custom Tag Selector -->
+                                        <div class="tag-selector-container">
+                                            <select class="form-select" id="tag-dropdown">
+                                                <option value="">Select a tag to add...</option>
+                                                {% for tag_key, tag_name in form.recipe_tags.field.choices %}
+                                                    <option value="{{ tag_key }}">{{ tag_name }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            
+                                            <!-- Selected Tags Display -->
+                                            <div class="selected-tags mt-2" id="selected-tags"></div>
+                                            
+                                            <!-- Hidden form field -->
+                                            {{ form.recipe_tags }}
+                                        </div>
+                                        
                                         <small class="form-text text-muted">
-                                            Select a tag that best describes your recipe (optional)
+                                            Select tags from the dropdown - they'll appear as removable badges below
                                         </small>
                                         {% if form.recipe_tags.errors %}
                                             <div class="text-danger small mt-1">
@@ -158,6 +175,7 @@
         </div>
     </div>
 </div>
+
 
 
 {% endblock %}

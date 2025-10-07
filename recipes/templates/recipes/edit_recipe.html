@@ -65,19 +65,26 @@
                             <!-- Recipe Tags -->
                             <div class="mb-3">
                                 <label class="form-label">{{ form.recipe_tags.label }}</label>
-                                <small class="text-muted d-block mb-2">{{ form.recipe_tags.help_text }}</small>
-                                <div class="row">
-                                    {% for choice in form.recipe_tags %}
-                                        <div class="col-sm-6 col-md-4 col-lg-3">
-                                            <div class="form-check mb-2">
-                                                {{ choice.tag }}
-                                                <label class="form-check-label" for="{{ choice.id_for_label }}">
-                                                    {{ choice.choice_label }}
-                                                </label>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
+                                
+                                <!-- Custom Tag Selector -->
+                                <div class="tag-selector-container">
+                                    <select class="form-select" id="tag-dropdown">
+                                        <option value="">Select a tag to add...</option>
+                                        {% for tag_key, tag_name in form.recipe_tags.field.choices %}
+                                            <option value="{{ tag_key }}">{{ tag_name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    
+                                    <!-- Selected Tags Display -->
+                                    <div class="selected-tags mt-2" id="selected-tags"></div>
+                                    
+                                    <!-- Hidden form field -->
+                                    {{ form.recipe_tags }}
                                 </div>
+                                
+                                <small class="form-text text-muted">
+                                    Select tags from the dropdown - they'll appear as removable badges below
+                                </small>
                                 {% if form.recipe_tags.errors %}
                                     <div class="text-danger small mt-1">
                                         {% for error in form.recipe_tags.errors %}
@@ -208,12 +215,4 @@
     </div>
 </div>
 
-<style>
-.form-check {
-    padding-left: 1.5em;
-}
-.form-check-input {
-    margin-left: -1.5em;
-}
-</style>
 {% endblock %}
