@@ -93,6 +93,8 @@ class RecipeForm(forms.ModelForm):
             selected_tags = self.instance.get_recipe_tags_list()
             if selected_tags:
                 self.fields['recipe_tags'].initial = selected_tags
+        elif 'initial' in kwargs and 'recipe_tags' in kwargs['initial']:
+            self.fields['recipe_tags'].initial = kwargs['initial']['recipe_tags']
         
         # Make certain fields required with custom error messages
         self.fields['title'].required = True
@@ -126,11 +128,9 @@ class RecipeForm(forms.ModelForm):
     def clean_image(self):
         """Validate image file size"""
         image = self.cleaned_data.get('image')
-        if image:
-            max_size = 2 * 1024 * 1024  # 2MB
-            if image.size > max_size:
-                raise forms.ValidationError(
-                    "Image file is too large (max 2MB). Please upload a smaller image.")
+        if hasattr(image, 'size'):
+            if image.size > MAX_SIZE:
+                raise forms.ValidationError("Image file too large.")
         return image
     
     def clean(self):

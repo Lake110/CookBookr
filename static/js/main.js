@@ -130,6 +130,10 @@ function initializeTagSelector() {
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize tag selector on recipe forms
     initializeTagSelector();
-    
+    // After initializing, render badges for any pre-selected tags
+    renderSelectedTags();
     // Add any other initialization functions here as needed
 });
+
+// Import global notification utility
+// Use window.showNotification for pop-up alerts in recipe form actions

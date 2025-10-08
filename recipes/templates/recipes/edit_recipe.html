@@ -64,9 +64,7 @@
                             
                             <!-- Recipe Tags -->
                             <div class="mb-3">
-                                <label class="form-label">{{ form.recipe_tags.label }}</label>
-                                
-                                <!-- Custom Tag Selector -->
+                                <label class="form-label">Recipe Tags</label>
                                 <div class="tag-selector-container">
                                     <select class="form-select" id="tag-dropdown">
                                         <option value="">Select a tag to add...</option>
@@ -74,14 +72,9 @@
                                             <option value="{{ tag_key }}">{{ tag_name }}</option>
                                         {% endfor %}
                                     </select>
-                                    
-                                    <!-- Selected Tags Display -->
                                     <div class="selected-tags mt-2" id="selected-tags"></div>
-                                    
-                                    <!-- Hidden form field -->
                                     {{ form.recipe_tags }}
                                 </div>
-                                
                                 <small class="form-text text-muted">
                                     Select tags from the dropdown - they'll appear as removable badges below
                                 </small>

@@ -263,7 +263,7 @@ def recipe_edit(request, recipe_id):
     
     return render(request, 'recipes/edit_recipe.html', {
         'form': form,
-        'recipe': recipe
+        'recipe': recipe,
     })
 
 @login_required

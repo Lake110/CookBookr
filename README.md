@@ -235,7 +235,7 @@ Visual design wireframes for CookBookr across devices:
 - **Bootstrap 5** responsive design framework
 - **Crispy Forms** for enhanced form styling
 - **FontAwesome icons** for consistent UI elements
-- **Toast notifications** for user feedback
+- **Django messages** for user feedback (displayed as Bootstrap alerts)
 - **Form validation** with helpful error messages
 - **Mobile-first responsive design**
 
