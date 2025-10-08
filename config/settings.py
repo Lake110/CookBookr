@@ -46,7 +46,7 @@ if not SECRET_KEY:
     print("WARNING: Using fallback SECRET_KEY - this is not secure!")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
