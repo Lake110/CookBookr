@@ -123,6 +123,16 @@ class RecipeForm(forms.ModelForm):
             raise forms.ValidationError("Cooking time cannot be negative.")
         return cook_time
     
+    def clean_image(self):
+        """Validate image file size"""
+        image = self.cleaned_data.get('image')
+        if image:
+            max_size = 2 * 1024 * 1024  # 2MB
+            if image.size > max_size:
+                raise forms.ValidationError(
+                    "Image file is too large (max 2MB). Please upload a smaller image.")
+        return image
+    
     def clean(self):
         """Cross-field validation"""
         cleaned_data = super().clean()

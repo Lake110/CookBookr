@@ -135,7 +135,13 @@ def add_recipe(request):
             recipe = form.save(commit=False)
             recipe.author = request.user
             recipe.save()
+            messages.success(request, 'Recipe and image submitted successfully!')
             return redirect('recipe_detail', recipe.id)
+        else:
+            if 'image' in form.errors:
+                messages.error(request, form.errors['image'][0])
+            else:
+                messages.error(request, 'Please correct the errors below.')
     else:
         form = RecipeForm()
     return render(request, 'recipes/add_recipe.html', {'form': form})
@@ -232,7 +238,6 @@ def recipe_edit(request, recipe_id):
     This view handles both GET requests (show the edit form) and 
     POST requests (process the form submission)
     """
-    # Get the recipe or return 404 if it doesn't exist
     recipe = get_object_or_404(Recipe, id=recipe_id)
     
     # Security check: only the author can edit their recipe
@@ -248,7 +253,10 @@ def recipe_edit(request, recipe_id):
             messages.success(request, f'Recipe "{recipe.title}" updated successfully!')
             return redirect('recipe_detail', recipe_id=recipe_id)
         else:
-            messages.error(request, 'Please correct the errors below.')
+            if 'image' in form.errors:
+                messages.error(request, form.errors['image'][0])
+            else:
+                messages.error(request, 'Please correct the errors below.')
     else:
         # User wants to see the edit form (GET request)
         form = RecipeForm(instance=recipe)
