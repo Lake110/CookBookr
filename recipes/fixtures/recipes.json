@@ -1,0 +1,496 @@
+[
+    {
+        "model": "recipes.recipe",
+        "pk": 1,
+        "fields": {
+            "title": "Classic Spaghetti Carbonara",
+            "description": "A traditional Italian pasta dish with eggs, cheese, pancetta, and black pepper. Simple ingredients create an incredibly rich and creamy sauce.",
+            "prep_time": 10,
+            "cook_time": 15,
+            "servings": 4,
+            "ingredients": "400g spaghetti\n200g pancetta or guanciale, diced\n4 large eggs\n100g Pecorino Romano cheese, grated\n100g Parmigiano-Reggiano cheese, grated\nFreshly ground black pepper\nSalt for pasta water",
+            "instructions": "1. Bring a large pot of salted water to boil and cook spaghetti according to package directions.\n2. While pasta cooks, heat a large pan over medium heat and cook pancetta until crispy, about 5-7 minutes.\n3. In a bowl, whisk together eggs, both cheeses, and plenty of black pepper.\n4. Reserve 1 cup of pasta cooking water before draining.\n5. Add hot drained pasta to the pan with pancetta.\n6. Remove from heat and quickly toss with egg mixture, adding pasta water gradually until creamy.\n7. Serve immediately with extra cheese and black pepper.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/spaghetti-carbonara-1200_azn3jy.jpg",
+            "author": 1,
+            "created_at": "2025-01-01T12:00:00Z",
+            "updated_at": "2025-01-01T12:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "italian,pasta,quick,comfort_food,pork"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 2,
+        "fields": {
+            "title": "Thai Green Curry",
+            "description": "Aromatic and spicy Thai curry with tender chicken, vegetables, and fragrant herbs in rich coconut milk.",
+            "prep_time": 20,
+            "cook_time": 25,
+            "servings": 6,
+            "ingredients": "500g chicken thigh, cut into pieces\n400ml coconut milk\n3 tbsp green curry paste\n2 Thai eggplants, quartered\n1 red bell pepper, sliced\n100g green beans, trimmed\n4 kaffir lime leaves\n2 tbsp fish sauce\n1 tbsp palm sugar\n1/4 cup Thai basil leaves\nJasmine rice for serving",
+            "instructions": "1. Heat 1/2 cup of the thickest coconut milk in a wok over medium-high heat.\n2. Stir in curry paste and cook until fragrant, about 2 minutes.\n3. Add chicken and cook until no longer pink, about 5 minutes.\n4. Pour in remaining coconut milk, bring to a simmer.\n5. Add eggplant, bell pepper, and green beans. Simmer 10 minutes.\n6. Stir in fish sauce, palm sugar, and lime leaves.\n7. Taste and adjust seasoning. Garnish with Thai basil.\n8. Serve hot over jasmine rice.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502252/Thai-green-curry-bb9f6ae_poh9dn.jpg",
+            "author": 1,
+            "created_at": "2025-01-02T14:30:00Z",
+            "updated_at": "2025-01-02T14:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "thai,asian,chicken,spicy,healthy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 3,
+        "fields": {
+            "title": "Perfect Chocolate Chip Cookies",
+            "description": "Crispy edges, chewy centers, and loaded with chocolate chips. The ultimate homemade cookie recipe.",
+            "prep_time": 15,
+            "cook_time": 12,
+            "servings": 24,
+            "ingredients": "225g butter, softened\n150g brown sugar\n100g caster sugar\n2 large eggs\n1 tsp vanilla extract\n300g plain flour\n1 tsp baking soda\n1 tsp salt\n300g chocolate chips\n100g chopped walnuts (optional)",
+            "instructions": "1. Preheat oven to 180°C (160°C fan). Line baking sheets with parchment paper.\n2. Cream butter and both sugars until light and fluffy, about 3 minutes.\n3. Beat in eggs one at a time, then vanilla extract.\n4. In separate bowl, whisk flour, baking soda, and salt.\n5. Gradually mix dry ingredients into wet ingredients until just combined.\n6. Fold in chocolate chips and walnuts if using.\n7. Drop rounded tablespoons of dough onto prepared baking sheets, spacing 2 inches apart.\n8. Bake 10-12 minutes until edges are golden but centers still soft.\n9. Cool on baking sheet 5 minutes before transferring to wire rack.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/master_cookie_dough_22386_16x9_wssvlo.jpg",
+            "author": 1,
+            "created_at": "2025-01-03T10:15:00Z",
+            "updated_at": "2025-01-03T10:15:00Z",
+            "meal_type": "dessert",
+            "recipe_tags": "american,baked,easy,kid_friendly,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 4,
+        "fields": {
+            "title": "Beef Tacos with Homemade Salsa",
+            "description": "Juicy seasoned ground beef tacos topped with fresh homemade salsa, perfect for a quick weeknight dinner.",
+            "prep_time": 20,
+            "cook_time": 15,
+            "servings": 4,
+            "ingredients": "500g ground beef\n1 onion, diced\n2 cloves garlic, minced\n1 tsp cumin\n1 tsp chili powder\n1/2 tsp paprika\nSalt and pepper\n8 taco shells\n4 tomatoes, diced\n1/2 red onion, finely diced\n1 jalapeño, seeded and minced\n1/4 cup cilantro, chopped\nJuice of 2 limes\nShredded lettuce\nGrated cheese\nSour cream",
+            "instructions": "1. For salsa: combine diced tomatoes, red onion, jalapeño, cilantro, and lime juice. Season with salt and set aside.\n2. Heat large skillet over medium-high heat. Cook ground beef, breaking it up with spoon, until browned.\n3. Add diced onion and garlic, cook until softened, about 3 minutes.\n4. Stir in cumin, chili powder, paprika, salt, and pepper. Cook 2 more minutes.\n5. Warm taco shells according to package directions.\n6. Fill shells with beef mixture.\n7. Top with fresh salsa, lettuce, cheese, and sour cream.\n8. Serve immediately with lime wedges.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/simple-chili-beef-tacos-with-fresh-tomato-salsa-recipe_hero_px2dph.webp",
+            "author": 1,
+            "created_at": "2025-01-04T18:00:00Z",
+            "updated_at": "2025-01-04T18:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mexican,beef,quick,easy,spicy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 5,
+        "fields": {
+            "title": "Mediterranean Quinoa Salad",
+            "description": "Fresh and vibrant quinoa salad with cucumbers, tomatoes, olives, and feta cheese in a lemon herb dressing.",
+            "prep_time": 15,
+            "cook_time": 15,
+            "servings": 6,
+            "ingredients": "200g quinoa\n400ml vegetable stock\n1 cucumber, diced\n300g cherry tomatoes, halved\n1/2 red onion, thinly sliced\n100g Kalamata olives, pitted\n150g feta cheese, crumbled\n1/4 cup fresh parsley, chopped\n2 tbsp fresh mint, chopped\n3 tbsp olive oil\nJuice of 2 lemons\n1 tsp dried oregano\nSalt and pepper to taste",
+            "instructions": "1. Rinse quinoa under cold water until water runs clear.\n2. Bring vegetable stock to boil, add quinoa, reduce heat and simmer covered for 15 minutes.\n3. Remove from heat and let stand 5 minutes, then fluff with fork and cool completely.\n4. In large bowl, combine cooled quinoa, cucumber, tomatoes, red onion, and olives.\n5. In small bowl, whisk olive oil, lemon juice, oregano, salt, and pepper.\n6. Pour dressing over salad and toss to combine.\n7. Gently fold in feta cheese, parsley, and mint.\n8. Refrigerate at least 30 minutes before serving.\n9. Taste and adjust seasoning before serving.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/169583-mediterranean-quinoa-salad-VAT-003-4x3-1-b4584933a15842c7a860315dbfa98199_ay8xyb.jpg",
+            "author": 1,
+            "created_at": "2025-01-05T13:20:00Z",
+            "updated_at": "2025-01-05T13:20:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "mediterranean,salad,vegetarian,healthy,meal_prep"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 6,
+        "fields": {
+            "title": "Japanese Chicken Teriyaki",
+            "description": "Tender chicken thighs glazed with sweet and savory homemade teriyaki sauce, served over steamed rice.",
+            "prep_time": 10,
+            "cook_time": 20,
+            "servings": 4,
+            "ingredients": "8 chicken thighs, skin-on\n1/4 cup soy sauce\n2 tbsp mirin\n2 tbsp sake (or dry white wine)\n3 tbsp sugar\n1 tbsp vegetable oil\n2 green onions, sliced\n1 tbsp sesame seeds\nSteamed rice for serving\nSteamed broccoli for serving",
+            "instructions": "1. Pat chicken thighs dry and season with salt and pepper.\n2. Heat vegetable oil in large skillet over medium-high heat.\n3. Cook chicken skin-side down until golden and crispy, about 8 minutes.\n4. Flip chicken and cook another 5 minutes until cooked through.\n5. In small bowl, whisk together soy sauce, mirin, sake, and sugar.\n6. Pour sauce over chicken in skillet.\n7. Reduce heat to medium and simmer until sauce thickens and glazes chicken, about 3-4 minutes.\n8. Remove from heat and sprinkle with green onions and sesame seeds.\n9. Serve over steamed rice with steamed broccoli.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/k_Photo_Recipes_2024-05-chicken-teriyaki-190_chicken-teriyaki-190-171-horizontal_sl2vzq.jpg",
+            "author": 1,
+            "created_at": "2025-01-06T19:30:00Z",
+            "updated_at": "2025-01-06T19:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "japanese,asian,chicken,quick,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 7,
+        "fields": {
+            "title": "Classic French Onion Soup",
+            "description": "Rich, caramelized onion soup topped with melted Gruyère cheese and crusty bread. A comforting French bistro classic.",
+            "prep_time": 15,
+            "cook_time": 60,
+            "servings": 4,
+            "ingredients": "6 large yellow onions, thinly sliced\n4 tbsp butter\n2 tbsp olive oil\n1 tsp sugar\n1 tsp salt\n3 tbsp plain flour\n125ml dry white wine\n1.5L beef stock\n2 bay leaves\n1/2 tsp fresh thyme\n4 thick slices French bread\n200g Gruyère cheese, grated\nFreshly ground black pepper",
+            "instructions": "1. Heat butter and olive oil in large heavy-bottomed pot over medium heat.\n2. Add sliced onions, sugar, and salt. Cook, stirring occasionally, for 45-60 minutes until deep golden brown.\n3. Sprinkle flour over onions and cook, stirring, for 2 minutes.\n4. Add wine and scrape up any browned bits from bottom of pot.\n5. Add beef stock, bay leaves, and thyme. Bring to boil, then simmer 20 minutes.\n6. Season with salt and pepper. Remove bay leaves.\n7. Preheat grill. Toast bread slices until golden.\n8. Ladle soup into oven-proof bowls, top each with toast and generous amount of cheese.\n9. Grill until cheese is bubbly and golden. Serve immediately.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/french_onion_soup_with_02884_16x9_cdbdoi.jpg",
+            "author": 1,
+            "created_at": "2025-01-07T16:45:00Z",
+            "updated_at": "2025-01-07T16:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "french,soup,comfort_food,slow_cooked"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 8,
+        "fields": {
+            "title": "Indian Butter Chicken",
+            "description": "Creamy, mildly spiced tomato-based curry with tender chicken pieces. A popular Indian restaurant favorite made at home.",
+            "prep_time": 30,
+            "cook_time": 30,
+            "servings": 6,
+            "ingredients": "1kg chicken breast, cut into chunks\n200ml Greek yogurt\n1 tbsp lemon juice\n2 tsp garam masala\n1 tsp cumin\n1 tsp cayenne pepper\n4 cloves garlic, minced\n1 inch ginger, grated\n2 tbsp butter\n1 onion, diced\n400g canned tomatoes\n200ml heavy cream\n1 tsp paprika\n1/2 tsp turmeric\nFresh cilantro\nBasmati rice for serving\nNaan bread for serving",
+            "instructions": "1. Marinate chicken in yogurt, lemon juice, 1 tsp garam masala, cumin, cayenne, half the garlic, and ginger for 30 minutes.\n2. Heat butter in large pan over medium-high heat. Cook marinated chicken until done, about 8 minutes. Set aside.\n3. In same pan, sauté onion until softened, about 5 minutes.\n4. Add remaining garlic and ginger, cook 1 minute.\n5. Add canned tomatoes, remaining garam masala, paprika, and turmeric. Simmer 15 minutes.\n6. Blend sauce until smooth, return to pan.\n7. Stir in cream and cooked chicken. Simmer 5 minutes.\n8. Season with salt and pepper. Garnish with cilantro.\n9. Serve with basmati rice and naan bread.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/AR-141169-Easy-Indian-Butter-Chicken-DDMFS-4x3-beauty-588ff54d1e0f4a0788906e851e27d540_jng31u.jpg",
+            "author": 1,
+            "created_at": "2025-01-08T20:00:00Z",
+            "updated_at": "2025-01-08T20:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "indian,chicken,comfort_food,spicy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 9,
+        "fields": {
+            "title": "Homemade Margherita Pizza",
+            "description": "Classic Italian pizza with homemade dough, fresh tomato sauce, mozzarella, and basil. Simple perfection.",
+            "prep_time": 120,
+            "cook_time": 15,
+            "servings": 4,
+            "ingredients": "For dough:\n500g strong bread flour\n325ml warm water\n7g instant yeast\n2 tsp salt\n2 tbsp olive oil\n\nFor toppings:\n400g canned San Marzano tomatoes\n2 cloves garlic, minced\n1 tsp dried oregano\n300g fresh mozzarella, torn\nFresh basil leaves\nExtra virgin olive oil\nSea salt and black pepper",
+            "instructions": "1. Mix flour, yeast, and salt in large bowl. Add water and olive oil, mix until rough dough forms.\n2. Knead on floured surface for 10 minutes until smooth and elastic.\n3. Place in oiled bowl, cover, and rise 1-2 hours until doubled.\n4. For sauce: crush tomatoes by hand, mix with garlic, oregano, salt, and pepper.\n5. Preheat oven to 250°C (230°C fan) with pizza stone or baking sheet inside.\n6. Divide dough into 4 portions. Roll each very thin on floured surface.\n7. Transfer to hot pizza stone, spread thin layer of sauce, add torn mozzarella.\n8. Bake 10-12 minutes until crust is golden and cheese bubbly.\n9. Remove from oven, immediately top with fresh basil and drizzle with olive oil.\n10. Slice and serve hot.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/pizza_xoia78.jpg",
+            "author": 1,
+            "created_at": "2025-01-09T15:30:00Z",
+            "updated_at": "2025-01-09T15:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "italian,pizza,baked,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 10,
+        "fields": {
+            "title": "New York Style Cheesecake",
+            "description": "Rich, dense, and creamy cheesecake with a graham cracker crust. The ultimate American dessert classic.",
+            "prep_time": 30,
+            "cook_time": 60,
+            "servings": 12,
+            "ingredients": "For crust:\n200g graham crackers, crushed\n80g butter, melted\n50g sugar\n\nFor filling:\n900g cream cheese, room temperature\n200g caster sugar\n3 large eggs\n240ml sour cream\n2 tsp vanilla extract\n1 tbsp plain flour\nPinch of salt\n\nFor topping:\n240ml sour cream\n2 tbsp sugar\n1 tsp vanilla extract\nFresh berries for serving",
+            "instructions": "1. Preheat oven to 160°C (140°C fan). Grease 23cm springform pan.\n2. Mix crushed graham crackers, melted butter, and sugar. Press into bottom of pan.\n3. Beat cream cheese until smooth and fluffy, about 3 minutes.\n4. Gradually add sugar, beating until combined.\n5. Beat in eggs one at a time, then sour cream, vanilla, flour, and salt.\n6. Pour over crust and smooth top.\n7. Bake 50-60 minutes until center is almost set but still slightly jiggly.\n8. For topping: mix sour cream, sugar, and vanilla. Spread over hot cheesecake.\n9. Return to oven for 5 minutes.\n10. Cool completely, then refrigerate at least 4 hours or overnight.\n11. Run knife around edge before removing from pan. Serve with fresh berries.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502250/MSL-865202-new-york-cheesecake-hero-horiz-0723-84e3c796119d408581d1ef4d02d801cd_jqpzq9.jpg",
+            "author": 1,
+            "created_at": "2025-01-10T11:00:00Z",
+            "updated_at": "2025-01-10T11:00:00Z",
+            "meal_type": "dessert",
+            "recipe_tags": "mediterranean,vegetarian,no_cook,healthy,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 11,
+        "fields": {
+            "title": "Korean Bibimbap",
+            "description": "Colorful Korean rice bowl with seasoned vegetables, marinated beef, and spicy gochujang sauce topped with a fried egg.",
+            "prep_time": 45,
+            "cook_time": 30,
+            "servings": 4,
+            "ingredients": "400g short-grain rice\n300g beef sirloin, thinly sliced\n2 carrots, julienned\n2 zucchini, julienned\n200g bean sprouts\n200g spinach\n200g shiitake mushrooms, sliced\n4 eggs\n4 tbsp gochujang paste\n3 tbsp soy sauce\n2 tbsp sesame oil\n2 tbsp rice vinegar\n2 tbsp vegetable oil\n4 cloves garlic, minced\n1 tbsp brown sugar\nSesame seeds for garnish",
+            "instructions": "1. Cook rice according to package directions and keep warm.\n2. Marinate beef in 2 tbsp soy sauce, 1 tbsp sesame oil, and half the garlic for 20 minutes.\n3. Blanch spinach in boiling water for 1 minute, squeeze dry, season with sesame oil and salt.\n4. Blanch bean sprouts for 2 minutes, drain and season with sesame oil and salt.\n5. Sauté carrots, zucchini, and mushrooms separately until tender, season each with salt.\n6. Cook marinated beef in hot pan until browned, about 3 minutes.\n7. Fry eggs sunny-side up.\n8. Mix gochujang, remaining soy sauce, sesame oil, vinegar, remaining garlic, and brown sugar for sauce.\n9. Divide rice among bowls, arrange vegetables and beef on top.\n10. Top each with fried egg, drizzle with sauce, sprinkle with sesame seeds.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/1200px-Dolsot-bibimbap_hs0kyb.jpg",
+            "author": 2,
+            "created_at": "2025-01-15T14:20:00Z",
+            "updated_at": "2025-01-15T14:20:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,salad,healthy,budget_friendly,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 12,
+        "fields": {
+            "title": "Mexican Street Corn Salad",
+            "description": "Fresh corn salad inspired by Mexican elote, with lime, chili powder, cotija cheese, and cilantro.",
+            "prep_time": 15,
+            "cook_time": 10,
+            "servings": 6,
+            "ingredients": "6 ears corn, husked\n1/2 cup mayonnaise\n1/2 cup Mexican crema or sour cream\n1/2 cup cotija cheese, crumbled\n1/4 cup cilantro, chopped\n2 limes, juiced\n1 tsp chili powder\n1/2 tsp smoked paprika\n1/4 tsp cayenne pepper\n1 jalapeño, seeded and minced\nSalt and black pepper to taste",
+            "instructions": "1. Grill corn over medium-high heat, turning occasionally, until charred in spots, about 8-10 minutes.\n2. Let cool slightly, then cut kernels off cobs into large bowl.\n3. In small bowl, whisk together mayonnaise, crema, lime juice, chili powder, paprika, and cayenne.\n4. Add dressing to corn and toss to combine.\n5. Stir in cotija cheese, cilantro, and jalapeño.\n6. Season with salt and pepper to taste.\n7. Chill for at least 30 minutes before serving.\n8. Garnish with additional cotija cheese and cilantro if desired.\n9. Serve as side dish or with tortilla chips.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502247/mexican-street-corn-salad-10-1200_aokyia.jpg",
+            "author": 3,
+            "created_at": "2025-01-18T16:45:00Z",
+            "updated_at": "2025-01-18T16:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "mexican,vegetarian,salad,healthy,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 13,
+        "fields": {
+            "title": "Moroccan Lamb Tagine",
+            "description": "Aromatic slow-cooked lamb stew with apricots, almonds, and warming spices. A North African comfort dish.",
+            "prep_time": 25,
+            "cook_time": 120,
+            "servings": 6,
+            "ingredients": "1.5kg lamb shoulder, cut into chunks\n2 onions, sliced\n4 cloves garlic, minced\n2 tsp ground ginger\n2 tsp ground cinnamon\n1 tsp ground cumin\n1 tsp ground coriander\n1/2 tsp saffron threads\n400g canned tomatoes\n500ml lamb or chicken stock\n200g dried apricots\n100g blanched almonds\n2 tbsp honey\n1/4 cup fresh cilantro\n1/4 cup fresh mint\nCouscous for serving\nSalt and pepper to taste",
+            "instructions": "1. Season lamb chunks with salt and pepper.\n2. Heat oil in large tagine or heavy pot over medium-high heat.\n3. Brown lamb pieces on all sides, working in batches. Remove and set aside.\n4. In same pot, sauté onions until softened, about 5 minutes.\n5. Add garlic and spices, cook until fragrant, about 1 minute.\n6. Return lamb to pot, add tomatoes and stock.\n7. Bring to boil, then reduce heat and simmer covered for 1.5 hours.\n8. Add apricots and simmer 30 minutes more until lamb is very tender.\n9. Stir in almonds and honey, cook 5 minutes.\n10. Garnish with fresh herbs and serve over couscous.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502247/moroccanlambtagine_6696_16x9.jpg_l4qvie.webp",
+            "author": 4,
+            "created_at": "2025-01-22T19:30:00Z",
+            "updated_at": "2025-01-22T19:30:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mediterranean,lamb,slow_cooked,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 14,
+        "fields": {
+            "title": "Brazilian Feijoada",
+            "description": "Brazil's national dish - a hearty black bean stew with various cuts of pork and beef, served with rice and orange slices.",
+            "prep_time": 30,
+            "cook_time": 180,
+            "servings": 8,
+            "ingredients": "500g dried black beans, soaked overnight\n300g pork shoulder, cubed\n300g beef chuck, cubed\n200g Portuguese chorizo, sliced\n200g bacon, chopped\n100g pork ribs\n2 onions, diced\n6 cloves garlic, minced\n2 bay leaves\n1 tsp ground cumin\n1 orange, sliced\n2 tbsp olive oil\nWhite rice for serving\nCollard greens for serving\nFarofa (toasted cassava flour) for serving\nSalt and pepper to taste",
+            "instructions": "1. Drain and rinse soaked beans. Place in large pot with fresh water, bring to boil.\n2. Reduce heat and simmer beans for 1 hour until tender but not mushy.\n3. In large skillet, cook bacon until crispy. Remove and set aside.\n4. In bacon fat, brown pork and beef chunks on all sides.\n5. Add onions to skillet and cook until softened, about 5 minutes.\n6. Add garlic, cumin, and bay leaves, cook 1 minute.\n7. Add meat mixture to beans along with chorizo and pork ribs.\n8. Simmer for 2 hours, stirring occasionally and adding water if needed.\n9. Remove some beans, mash, and stir back in to thicken.\n10. Season with salt and pepper. Serve with rice, collard greens, farofa, and orange slices.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/Brazilian-Feijoada-Black-Bean-Stew.450_crmsy1.jpg",
+            "author": 5,
+            "created_at": "2025-01-25T13:15:00Z",
+            "updated_at": "2025-01-25T13:15:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,beef,comfort_food,slow_cooked,one_pot"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 15,
+        "fields": {
+            "title": "Greek Moussaka",
+            "description": "Layered casserole with eggplant, spiced meat sauce, and creamy béchamel. A Greek taverna classic.",
+            "prep_time": 45,
+            "cook_time": 90,
+            "servings": 8,
+            "ingredients": "3 large eggplants, sliced lengthwise\n500g ground lamb\n1 onion, diced\n3 cloves garlic, minced\n400g canned tomatoes\n2 tbsp tomato paste\n1/2 cup red wine\n1 tsp dried oregano\n1/2 tsp ground cinnamon\n1/4 cup parsley, chopped\n\nFor béchamel:\n60g butter\n60g plain flour\n600ml milk\n100g Parmesan cheese, grated\n2 egg yolks\nPinch of nutmeg\nOlive oil for frying\nSalt and pepper to taste",
+            "instructions": "1. Slice eggplants, salt generously, and let drain 30 minutes. Rinse and pat dry.\n2. Fry eggplant slices in olive oil until golden. Drain on paper towels.\n3. Cook ground lamb until browned, breaking up with spoon.\n4. Add onion and garlic, cook until softened.\n5. Add tomatoes, tomato paste, wine, oregano, cinnamon, salt, and pepper.\n6. Simmer 20 minutes until thickened. Stir in parsley.\n7. For béchamel: melt butter, whisk in flour, cook 2 minutes.\n8. Gradually whisk in milk until smooth. Simmer until thickened.\n9. Remove from heat, whisk in cheese, egg yolks, and nutmeg.\n10. Layer half eggplant, all meat sauce, remaining eggplant, then béchamel.\n11. Bake at 180°C for 45 minutes until golden. Rest 15 minutes before serving.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759503013/Eggplant-Moussaka-square-min_ezf9dc.jpg",
+            "author": 6,
+            "created_at": "2025-01-28T17:00:00Z",
+            "updated_at": "2025-01-28T17:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "mediterranean,lamb,baked,casserole,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 16,
+        "fields": {
+            "title": "Vietnamese Pho Bo",
+            "description": "Fragrant Vietnamese beef noodle soup with aromatic broth, rice noodles, and fresh herbs.",
+            "prep_time": 30,
+            "cook_time": 240,
+            "servings": 6,
+            "ingredients": "For broth:\n2kg beef bones\n500g beef chuck roast\n1 onion, halved\n1 piece ginger (5cm), halved\n6 star anise\n4 cloves\n1 cinnamon stick\n1 tsp coriander seeds\n3 tbsp fish sauce\n2 tbsp sugar\n1 tsp salt\n\nFor serving:\n400g rice noodles\n300g raw beef sirloin, thinly sliced\nBean sprouts\nThai basil\nCilantro\nMint leaves\nLime wedges\nSliced jalapeños\nHoisin sauce\nSriracha sauce",
+            "instructions": "1. Char onion and ginger over open flame until blackened in spots.\n2. Toast spices in dry pan until fragrant, about 2 minutes.\n3. Place bones and chuck roast in large pot, cover with water.\n4. Bring to boil, skim foam, add charred vegetables and toasted spices.\n5. Simmer gently for 3-4 hours, skimming occasionally.\n6. Remove meat and bones, strain broth through fine mesh.\n7. Season broth with fish sauce, sugar, and salt.\n8. Shred the cooked beef chuck.\n9. Cook rice noodles according to package directions.\n10. Place noodles in bowls, top with raw beef slices and shredded beef.\n11. Ladle hot broth over top to cook raw beef.\n12. Serve with herbs, lime, jalapeños, and sauces on the side.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/Beef-Pho-Vietnamese-Pho-Bo-Best-Recipe-750_l6lnho.jpg",
+            "author": 7,
+            "created_at": "2025-02-02T12:30:00Z",
+            "updated_at": "2025-02-02T12:30:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "asian,soup,beef,healthy,slow_cooked"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 17,
+        "fields": {
+            "title": "Spanish Paella Valenciana",
+            "description": "Traditional Spanish rice dish with chicken, rabbit, beans, and saffron. Cooked in a wide, shallow pan.",
+            "prep_time": 20,
+            "cook_time": 45,
+            "servings": 8,
+            "ingredients": "400g bomba rice (or Arborio)\n1 whole chicken, cut into pieces\n300g rabbit, cut into pieces (optional)\n200g green beans, trimmed\n200g lima beans\n2 red peppers, cut into strips\n4 tomatoes, grated\n1 tsp sweet paprika\n1/2 tsp saffron threads\n6 cups chicken stock\n4 sprigs fresh rosemary\n1/4 cup olive oil\n4 cloves garlic, minced\n1 lemon, cut into wedges\nSalt and pepper to taste",
+            "instructions": "1. Heat olive oil in 17-inch paella pan over medium-high heat.\n2. Season chicken and rabbit with salt and pepper, brown on all sides.\n3. Remove meat, add green beans and lima beans to pan.\n4. Cook vegetables until slightly softened, about 5 minutes.\n5. Add grated tomato, paprika, and garlic, cook 2 minutes.\n6. Return meat to pan, add hot stock infused with saffron.\n7. Bring to boil, then reduce heat and simmer 10 minutes.\n8. Add rice, stirring to distribute evenly.\n9. Add red pepper strips and rosemary sprigs.\n10. Cook without stirring for 20 minutes until rice is tender.\n11. Let rest 5 minutes, garnish with lemon wedges before serving.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/fresh-paella-in-pan-on-wooden-table-556668991-5843564b5f9b5851e5745d5a_h2tups.jpg",
+            "author": 8,
+            "created_at": "2025-02-05T15:45:00Z",
+            "updated_at": "2025-02-05T15:45:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "spanish,chicken,comfort_food,one_pot"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 18,
+        "fields": {
+            "title": "Russian Beef Stroganoff",
+            "description": "Tender beef strips in rich, creamy mushroom sauce served over egg noodles. A Russian comfort food classic.",
+            "prep_time": 15,
+            "cook_time": 25,
+            "servings": 4,
+            "ingredients": "600g beef sirloin, cut into strips\n300g mushrooms, sliced\n1 onion, diced\n3 cloves garlic, minced\n2 tbsp plain flour\n400ml beef stock\n200ml sour cream\n2 tbsp Dijon mustard\n2 tbsp butter\n2 tbsp vegetable oil\n1 tbsp Worcestershire sauce\n1/4 cup fresh dill, chopped\n400g egg noodles\nSalt and pepper to taste",
+            "instructions": "1. Cook egg noodles according to package directions, drain and keep warm.\n2. Season beef strips with salt and pepper.\n3. Heat oil in large skillet over high heat, sear beef strips until browned, about 2 minutes.\n4. Remove beef and set aside.\n5. In same pan, melt butter and sauté mushrooms until golden.\n6. Add onion and cook until softened, about 3 minutes.\n7. Add garlic and flour, cook 1 minute stirring constantly.\n8. Gradually add beef stock, whisking to prevent lumps.\n9. Bring to simmer and cook until thickened, about 5 minutes.\n10. Stir in sour cream, mustard, and Worcestershire sauce.\n11. Return beef to pan, heat through, and stir in dill.\n12. Serve immediately over egg noodles.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502251/Russian-Beef-Stroganoff-Recipe-Retro-Classic-from-Russian-Nobles-Copyright-2021-Terence-Carter-Grantourismo_ndxd8x.jpg",
+            "author": 9,
+            "created_at": "2025-02-08T18:20:00Z",
+            "updated_at": "2025-02-08T18:20:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,beef,comfort_food,quick,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 19,
+        "fields": {
+            "title": "Lebanese Hummus",
+            "description": "Silky smooth chickpea dip with tahini, lemon, and garlic. Served with olive oil drizzle and warm pita bread.",
+            "prep_time": 15,
+            "cook_time": 0,
+            "servings": 6,
+            "ingredients": "400g canned chickpeas, drained (reserve liquid)\n1/4 cup fresh lemon juice\n1/4 cup tahini\n1 small garlic clove, minced\n2 tbsp extra virgin olive oil, plus more for serving\n1/2 tsp ground cumin\nSalt to taste\n2-3 tbsp water as needed\nDash of paprika for serving\nChopped parsley for garnish\nWarm pita bread for serving",
+            "instructions": "1. Rinse and drain chickpeas, remove any loose skins for smoother texture.\n2. In food processor, combine tahini and lemon juice, process 1 minute until creamy.\n3. Add olive oil, minced garlic, cumin, and 1/2 teaspoon salt.\n4. Process for 30 seconds, scrape sides, then process 30 seconds more.\n5. Add half the chickpeas and process 1 minute.\n6. Add remaining chickpeas and process until smooth, 1-2 minutes.\n7. With processor running, slowly add 2-3 tablespoons water until desired consistency.\n8. Taste and adjust salt, lemon juice, or garlic as needed.\n9. Transfer to serving bowl, use back of spoon to create shallow well.\n10. Drizzle with olive oil, sprinkle with paprika and parsley.\n11. Serve with warm pita bread, vegetables, or crackers.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502245/authentic-homemade-hummus-22_gvhnu5.jpg",
+            "author": 10,
+            "created_at": "2025-02-12T11:10:00Z",
+            "updated_at": "2025-02-12T11:10:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "mediterranean,vegetarian,no_cook,healthy,easy"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 20,
+        "fields": {
+            "title": "British Fish and Chips",
+            "description": "Crispy beer-battered fish with chunky chips and mushy peas. A British pub classic done right at home.",
+            "prep_time": 30,
+            "cook_time": 30,
+            "servings": 4,
+            "ingredients": "For fish:\n4 cod or haddock fillets (150g each)\n150g plain flour\n200ml cold beer\n1 tsp baking powder\n1/2 tsp salt\n\nFor chips:\n1kg Maris Piper potatoes\nVegetable oil for deep frying\n\nFor mushy peas:\n300g frozen peas\n2 tbsp butter\n1 tbsp mint, chopped\nSalt and pepper\n\nMalt vinegar and tartar sauce for serving",
+            "instructions": "1. Cut potatoes into thick chips, soak in cold water 30 minutes.\n2. For batter: whisk flour, baking powder, and salt. Gradually whisk in cold beer until smooth.\n3. Heat oil to 160°C. Drain and dry chips thoroughly.\n4. Fry chips for 4-5 minutes (first fry), drain on paper towels.\n5. Increase oil temperature to 180°C.\n6. Dust fish fillets with flour, dip in batter, letting excess drip off.\n7. Carefully lower fish into hot oil, fry 4-5 minutes until golden and crispy.\n8. Meanwhile, fry chips again for 2-3 minutes until golden and crispy.\n9. For mushy peas: cook peas according to package, drain and mash with butter and mint.\n10. Season fish and chips with salt immediately after frying.\n11. Serve hot with mushy peas, malt vinegar, and tartar sauce.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759502246/fish_and_chips_zhnjo7.jpg",
+            "author": 11,
+            "created_at": "2025-02-15T20:00:00Z",
+            "updated_at": "2025-02-15T20:00:00Z",
+            "meal_type": "dinner",
+            "recipe_tags": "american,fish,fried,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 21,
+        "fields": {
+            "title": "Fluffy Buttermilk Pancakes",
+            "description": "Light, fluffy pancakes with a golden exterior and tender interior. Perfect weekend breakfast treat.",
+            "prep_time": 10,
+            "cook_time": 15,
+            "servings": 4,
+            "ingredients": "2 cups all-purpose flour\n2 tbsp sugar\n2 tsp baking powder\n1 tsp salt\n2 large eggs\n1 3/4 cups buttermilk\n1/4 cup melted butter\n1 tsp vanilla extract\nButter for cooking\nMaple syrup for serving\nFresh berries for serving",
+            "instructions": "1. In large bowl, whisk together flour, sugar, baking powder, and salt.\n2. In separate bowl, beat eggs, then whisk in buttermilk, melted butter, and vanilla.\n3. Pour wet ingredients into dry ingredients and stir until just combined - don't overmix.\n4. Heat griddle or large skillet over medium heat and lightly butter.\n5. Pour 1/4 cup batter for each pancake onto hot griddle.\n6. Cook until bubbles form on surface and edges look set, about 2-3 minutes.\n7. Flip and cook until golden brown on other side, 1-2 minutes more.\n8. Serve immediately with maple syrup and fresh berries.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/buttermilk-pancakes-h.jpg_b4wybt.webp",
+            "author": 1,
+            "created_at": "2025-02-20T08:00:00Z",
+            "updated_at": "2025-02-20T08:00:00Z",
+            "meal_type": "breakfast",
+            "recipe_tags": "american,quick,easy,kid_friendly,comfort_food"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 22,
+        "fields": {
+            "title": "Overnight Oats with Berries",
+            "description": "Healthy, no-cook breakfast that's ready when you wake up. Creamy oats with fresh berries and honey.",
+            "prep_time": 5,
+            "cook_time": 0,
+            "servings": 1,
+            "ingredients": "1/2 cup rolled oats\n1/2 cup milk of choice\n1 tbsp chia seeds\n1 tbsp honey or maple syrup\n1/4 tsp vanilla extract\nPinch of salt\n1/4 cup mixed berries\n2 tbsp chopped nuts\n1 tbsp coconut flakes (optional)",
+            "instructions": "1. In a jar or container, combine oats, milk, chia seeds, honey, vanilla, and salt.\n2. Stir well to combine all ingredients.\n3. Cover and refrigerate overnight or at least 4 hours.\n4. In the morning, stir the oats and add more liquid if desired consistency.\n5. Top with fresh berries, chopped nuts, and coconut flakes.\n6. Enjoy cold or warm in microwave for 30 seconds if preferred.\n7. Can be made 2-3 days ahead for meal prep.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/Berry-Overnight-Oats-Recipe_d3pp3q.webp",
+            "author": 2,
+            "created_at": "2025-02-21T07:30:00Z",
+            "updated_at": "2025-02-21T07:30:00Z",
+            "meal_type": "breakfast",
+            "recipe_tags": "healthy,no_cook,meal_prep,vegetarian,quick"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 23,
+        "fields": {
+            "title": "Classic Caesar Salad",
+            "description": "Crisp romaine lettuce with homemade Caesar dressing, parmesan cheese, and crunchy croutons.",
+            "prep_time": 15,
+            "cook_time": 10,
+            "servings": 4,
+            "ingredients": "2 large heads romaine lettuce, chopped\n1 cup homemade croutons\n1/2 cup fresh parmesan cheese, grated\n\nFor dressing:\n3 garlic cloves, minced\n2 anchovy fillets, minced\n1 egg yolk\n2 tbsp lemon juice\n1 tsp Dijon mustard\n1/2 cup olive oil\n1/4 cup parmesan cheese, grated\nSalt and black pepper to taste",
+            "instructions": "1. For croutons: cube day-old bread, toss with olive oil and seasonings, bake at 200°C for 8-10 minutes.\n2. For dressing: in small bowl, mash garlic and anchovies into paste.\n3. Whisk in egg yolk, lemon juice, and Dijon mustard.\n4. Slowly drizzle in olive oil while whisking constantly until emulsified.\n5. Stir in grated parmesan and season with salt and pepper.\n6. In large bowl, toss chopped romaine with dressing until well coated.\n7. Top with croutons and additional parmesan cheese.\n8. Serve immediately while lettuce is crisp.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/classic-caesar-salad-recipe_zill8s.jpg",
+            "author": 3,
+            "created_at": "2025-02-22T12:15:00Z",
+            "updated_at": "2025-02-22T12:15:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,salad,classic,vegetarian,quick"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 24,
+        "fields": {
+            "title": "Grilled Cheese & Tomato Soup",
+            "description": "The perfect comfort food combo - crispy grilled cheese sandwich with creamy homemade tomato soup.",
+            "prep_time": 10,
+            "cook_time": 25,
+            "servings": 4,
+            "ingredients": "For grilled cheese:\n8 slices bread\n8 slices sharp cheddar cheese\n4 tbsp butter\n\nFor tomato soup:\n2 tbsp olive oil\n1 onion, diced\n3 cloves garlic, minced\n800g canned tomatoes\n2 cups vegetable broth\n1/4 cup heavy cream\n1 tsp sugar\n1 tsp dried basil\nSalt and pepper to taste\nFresh basil for garnish",
+            "instructions": "1. For soup: heat olive oil in large pot, sauté onion until softened, about 5 minutes.\n2. Add garlic and cook 1 minute more.\n3. Add canned tomatoes, broth, sugar, and basil. Bring to boil.\n4. Simmer 15 minutes, then blend until smooth.\n5. Stir in cream and season with salt and pepper.\n6. For sandwiches: butter bread slices on one side.\n7. Place cheese between bread, buttered sides out.\n8. Cook in skillet over medium heat until golden and cheese melts, 3-4 minutes per side.\n9. Serve hot sandwiches with warm soup, garnished with fresh basil.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/veggie-grilled-cheese-tomato-soup-8d8143fc0c1b48d8b3ac6456b89be11f_ir5kse.jpg",
+            "author": 4,
+            "created_at": "2025-02-23T12:45:00Z",
+            "updated_at": "2025-02-23T12:45:00Z",
+            "meal_type": "lunch",
+            "recipe_tags": "american,comfort_food,vegetarian,quick,classic"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 25,
+        "fields": {
+            "title": "No-Bake Energy Balls",
+            "description": "Healthy, portable snacks packed with oats, dates, and nuts. Perfect for on-the-go energy boost.",
+            "prep_time": 15,
+            "cook_time": 0,
+            "servings": 12,
+            "ingredients": "1 cup rolled oats\n1/2 cup pitted dates, chopped\n1/2 cup almond butter\n1/4 cup honey\n1/4 cup mini chocolate chips\n1/4 cup shredded coconut\n2 tbsp chia seeds\n1 tsp vanilla extract\n1/4 tsp salt\nCoconut flakes for rolling (optional)",
+            "instructions": "1. In large bowl, combine oats, chopped dates, and chia seeds.\n2. Add almond butter, honey, and vanilla extract.\n3. Mix until well combined and mixture holds together when pressed.\n4. Fold in chocolate chips and shredded coconut.\n5. If mixture is too dry, add more almond butter or honey.\n6. If too wet, add more oats.\n7. Roll mixture into 1-inch balls using your hands.\n8. Optional: roll balls in coconut flakes for extra coating.\n9. Place on parchment-lined tray and refrigerate 30 minutes to firm up.\n10. Store in refrigerator for up to 1 week.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/AR-239969-no-bake-energy-bites-Beauty-4x3-f64cb80523be4d2280df2d442d160dce_o5b7xt.jpg",
+            "author": 5,
+            "created_at": "2025-02-24T15:20:00Z",
+            "updated_at": "2025-02-24T15:20:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "healthy,no_bake,vegetarian,meal_prep,kid_friendly"
+        }
+    },
+    {
+        "model": "recipes.recipe",
+        "pk": 26,
+        "fields": {
+            "title": "Spinach Artichoke Dip",
+            "description": "Creamy, cheesy hot dip loaded with spinach and artichokes. Perfect party appetizer served with chips or bread.",
+            "prep_time": 15,
+            "cook_time": 25,
+            "servings": 8,
+            "ingredients": "300g frozen spinach, thawed and drained\n400g canned artichoke hearts, drained and chopped\n225g cream cheese, softened\n1/2 cup mayonnaise\n1/2 cup sour cream\n3 cloves garlic, minced\n1 cup mozzarella cheese, shredded\n1/2 cup parmesan cheese, grated\nSalt and pepper to taste\nTortilla chips or crusty bread for serving",
+            "instructions": "1. Preheat oven to 190°C (170°C fan).\n2. Squeeze excess water from thawed spinach using clean kitchen towel.\n3. In large bowl, mix cream cheese, mayonnaise, and sour cream until smooth.\n4. Stir in minced garlic, salt, and pepper.\n5. Fold in drained spinach, chopped artichokes, and half the mozzarella.\n6. Transfer mixture to greased baking dish.\n7. Top with remaining mozzarella and all the parmesan cheese.\n8. Bake 20-25 minutes until hot and bubbly with golden top.\n9. Let cool 5 minutes before serving.\n10. Serve warm with tortilla chips, crackers, or sliced baguette.",
+            "image": "https://res.cloudinary.com/dwkobvao2/image/upload/v1759848352/Spinach_Artichoke_Dip_ducxbe.jpg",
+            "author": 6,
+            "created_at": "2025-02-25T16:30:00Z",
+            "updated_at": "2025-02-25T16:30:00Z",
+            "meal_type": "snacks",
+            "recipe_tags": "american,vegetarian,party_food,baked,comfort_food"
+        }
+    }
+]

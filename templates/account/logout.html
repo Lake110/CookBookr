@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans "Sign Out" %} - CookBookr{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="text-center mb-4">{% trans "Sign Out" %}</h3>
+
+          <div class="text-center mb-4">
+            <p>{% blocktrans %}
+              Are you sure you want to sign out of your CookBookr account?
+            {% endblocktrans %}</p>
+            
+            <p class="text-muted">
+              <i class="fas fa-info-circle me-1"></i>
+              You'll need to sign in again to access your recipes and create new ones.
+            </p>
+          </div>
+
+          <form class="logout" method="post" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+            {% endif %}
+            
+            <div class="d-grid gap-2">
+              <button class="btn btn-danger" type="submit">
+                <i class="fas fa-sign-out-alt me-1"></i>
+                {% trans 'Yes, Sign Out' %}
+              </button>
+              <a class="btn btn-secondary" href="{% url 'home' %}">
+                <i class="fas fa-arrow-left me-1"></i>
+                {% trans 'Cancel' %}
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

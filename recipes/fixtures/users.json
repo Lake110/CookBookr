@@ -1,0 +1,167 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "Mlake",
+            "first_name": "Michael",
+            "last_name": "Lake",
+            "email": "Mlake@cookbookr.com",
+            "is_staff": true,
+            "is_active": true,
+            "is_superuser": true,
+            "date_joined": "2025-01-01T00:00:00Z",
+            "password": "pbkdf2_sha256$600000$XMQe2y9Qx2vcIUorSmtexF$QrxmEsi9fVRfUaZDc1DsSPPNgy5u5Tm+OEfojDteStU="
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "maria_chef",
+            "first_name": "Maria",
+            "last_name": "Rodriguez",
+            "email": "maria@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-10T10:00:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "chef_antonio",
+            "first_name": "Antonio",
+            "last_name": "Silva",
+            "email": "antonio@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-12T14:30:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "fatima_kitchen",
+            "first_name": "Fatima",
+            "last_name": "Hassan",
+            "email": "fatima@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-15T16:45:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "carlos_brazil",
+            "first_name": "Carlos",
+            "last_name": "Mendes",
+            "email": "carlos@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-18T09:20:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "username": "elena_greek",
+            "first_name": "Elena",
+            "last_name": "Papadopoulos",
+            "email": "elena@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-20T11:15:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "username": "nguyen_pho",
+            "first_name": "Linh",
+            "last_name": "Nguyen",
+            "email": "linh@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-25T13:40:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "username": "pablo_paella",
+            "first_name": "Pablo",
+            "last_name": "Garcia",
+            "email": "pablo@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-01-28T17:25:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "username": "dimitri_russian",
+            "first_name": "Dimitri",
+            "last_name": "Volkov",
+            "email": "dimitri@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-02-01T08:10:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "username": "layla_lebanon",
+            "first_name": "Layla",
+            "last_name": "Khoury",
+            "email": "layla@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-02-05T12:55:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 11,
+        "fields": {
+            "username": "james_british",
+            "first_name": "James",
+            "last_name": "Thompson",
+            "email": "james@cookbookr.com",
+            "is_staff": false,
+            "is_active": true,
+            "is_superuser": false,
+            "date_joined": "2025-02-10T15:30:00Z",
+            "password": "pbkdf2_sha256$600000$dummy$dummy"
+        }
+    }
+]

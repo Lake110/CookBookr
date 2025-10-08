@@ -1,0 +1,564 @@
+/* ============================================================================
+   CookBookr - Enhanced styles with animations, responsive design, and accessibility features
+   ============================================================================ */
+
+/* ============================================================================
+   CSS VARIABLES - STREAMLINED DEFINITIONS
+   ============================================================================ */
+:root {
+    /* Brand Color Palette */
+    --cerulean: #437390;
+    --dark-cyan: #295657;
+    --eggplant: #754B6E;
+    --burnt-sienna: #AA6056;
+    --brass: #C39D4D;
+    --olive: #D7C974;
+    --cream: #FAF3E0;
+    --charcoal: #1C1C1C;
+    --Linen: #FFF5E1;
+    --white: #ffffff;
+    
+    /* Semantic Colors */
+    --primary: var(--dark-cyan);
+    --accent: var(--cerulean);
+    --secondary: var(--olive);
+    --neutral: var(--cream);
+    --cta: var(--burnt-sienna);
+    --highlight: var(--brass);
+    
+    /* Text & Backgrounds */
+    --text-primary: var(--charcoal);
+    --text-light: var(--Linen);
+    --text-muted: #6c757d;
+    --text-dark: #2c3e50;
+    --bg-primary: var(--neutral);
+    --bg-section: var(--eggplant);
+    --bg-secondary: var(--secondary);
+    
+    /* Gradients */
+    --hero-gradient: linear-gradient(45deg, var(--cta) 0%, var(--accent) 100%);
+    --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    
+    /* Transitions */
+    --transition: all 0.2s ease-in-out;
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    --primary-shadow: 0 4px 12px rgba(41, 86, 87, 0.3);
+    
+    /* Border Radius */
+    --radius: 6px;
+    --radius-lg: 12px;
+    
+    /* Status colors */
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    
+    /* Gray scale */
+    --gray-100: #f8f9fa;
+    --gray-200: #e9ecef;
+    --gray-300: #dee2e6;
+    --gray-500: #6c757d;
+    
+    /* Focus and interaction */
+    --focus-ring: rgba(67, 115, 144, 0.25);
+}
+
+/* ============================================================================
+   BASE LAYOUT & TYPOGRAPHY
+   ============================================================================ */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* ============================================================================
+   HERO SECTION
+   ============================================================================ */
+.hero-section {
+    background: var(--hero-gradient);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    color: var(--text-light);
+}
+
+/* ============================================================================
+   CARD COMPONENTS
+   ============================================================================ */
+.card {
+    border: none;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translate3d(0, -2px, 0);
+    box-shadow: var(--shadow-md);
+}
+
+.card-header {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    border-bottom: none;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+}
+
+.card-header.bg-primary {
+    background: var(--primary-gradient);
+    color: var(--text-light);
+}
+
+.card-header.bg-info {
+    background: var(--accent);
+    color: var(--text-light);
+}
+
+.card-header.bg-success {
+    background: var(--secondary);
+    color: var(--text-primary);
+}
+
+.card-header.bg-warning {
+    background: var(--cta);
+    color: var(--text-light);
+}
+
+.stats-section .card {
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.stats-section .card:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================================================================
+   RECIPE CARDS & GRID
+   ============================================================================ */
+.recipe-card-square {
+    max-width: 280px;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-card-square:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--cookbookr-shadow-heavy) !important;
+}
+
+.recipe-card-image {
+    height: 200px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(135deg, var(--gray-100) 0%, var(--gray-200) 100%);
+    border: 1px solid var(--gray-300);
+}
+
+.recipe-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    display: block;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 20px 0;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    height: fit-content;
+}
+
+.recipe-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.recipe-card-content {
+    padding: 20px;
+}
+
+.recipe-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: #2d3748;
+}
+
+.recipe-card p {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 16px 0;
+}
+
+.recipe-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #a0aec0;
+    margin-bottom: 16px;
+}
+
+.recipe-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Home page rectangular recipe cards */
+.recipe-card-rectangular .recipe-image {
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 8px 0 0 8px;
+    display: block;
+}
+
+.recipe-card-image-rect {
+    overflow: hidden;
+    border-radius: 8px 0 0 8px;
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Force consistent card heights */
+.recipe-card-rectangular .card {
+    height: 200px !important;
+}
+
+/* Ensure card images are consistent */
+.recipe-card-rectangular {
+    height: 200px;
+}
+
+.recipe-card-rectangular .row {
+    height: 100%;
+}
+
+.recipe-card-rectangular .col-5,
+.recipe-card-rectangular .col-7 {
+    height: 100%;
+}
+
+.recipe-card-rectangular .card-body {
+    padding: 1rem;
+}
+
+/* Recipe meta styling in cards */
+.recipe-card-rectangular .bg-light {
+    background-color: var(--gray-100) !important;
+}
+
+/* Button styling in recipe cards */
+.recipe-card-rectangular .btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    font-size: 0.875rem;
+}
+
+.recipe-card-rectangular .btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Handle broken images gracefully */
+.recipe-card-rectangular .recipe-image {
+    background: var(--gray-200);
+}
+
+.recipe-card-rectangular .recipe-image[alt]:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gray-200);
+    display: none;
+}
+
+.recipe-card-rectangular .recipe-image[alt][src=""]:after,
+.recipe-card-rectangular .recipe-image[alt]:not([src]):after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    content: "🍳";
+    font-size: 3rem;
+}
+
+/* ============================================================================
+   TAG SELECTOR STYLES
+   ============================================================================ */
+
+/* Tag selector styling */
+.tag-selector-container {
+    position: relative;
+}
+
+.selected-tags {
+    min-height: 2rem;
+    padding: 0.5rem;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: flex-start;
+}
+
+.selected-tags:empty::before {
+    content: "No tags selected";
+    color: #6c757d;
+    font-style: italic;
+}
+
+.tag-badge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #0d6efd;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    gap: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.tag-badge:hover {
+    background-color: #0b5ed7;
+}
+
+.tag-remove {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.tag-remove:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tag-remove:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 1px;
+}
+
+/* ============================================================================
+   ANIMATIONS & KEYFRAMES
+   ============================================================================ */
+.fade-in {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 20px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================================================
+   FORMS & INPUT ELEMENTS
+   ============================================================================ */
+.form-control {
+    border: 1px solid var(--gray-300);
+    border-radius: var(--radius);
+    padding: 0.75rem;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.2rem var(--focus-ring);
+    outline: none;
+}
+
+.form-control:hover:not(:focus) {
+    border-color: var(--gray-500);
+}
+
+.form-control[type="file"] {
+    border: 2px dashed var(--gray-300);
+    background: var(--gray-100);
+    padding: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.form-control[type="file"]:hover {
+    border-color: var(--primary);
+    background: var(--gray-200);
+}
+
+.django-form-control {
+    background-color: var(--white);
+}
+
+/* ============================================================================
+   BUTTONS & INTERACTIVE ELEMENTS
+   ============================================================================ */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    color: var(--text-light);
+    transition: var(--transition);
+    border-radius: var(--radius);
+    font-weight: 500;
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    transform: translate3d(0, -1px, 0);
+    box-shadow: var(--primary-shadow);
+    color: var(--text-light);
+}
+
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem var(--focus-ring);
+    outline: none;
+}
+
+.btn-cta {
+    background-color: var(--cta);
+    border-color: var(--cta);
+    color: var(--text-light);
+    border-radius: var(--radius);
+}
+
+.btn-cta:hover {
+    background-color: var(--burnt-sienna);
+    border-color: var(--burnt-sienna);
+    transform: translateY(-1px);
+}
+
+/* ============================================================================
+    Icons
+   ============================================================================ */
+.fas {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    color: var(--brass);
+}
+
+.navbar-nav {
+    color: var(--brass);
+}
+
+#social-icons {
+    color: var(--brass);
+}
+
+#social-icons a:hover {
+    color: var(--burnt-sienna);
+}
+
+footer #social-icons a:hover {
+    color: var(--olive);
+}
+
+footer a:hover {
+    color: var(--olive) !important;
+}
+
+/* Simple footer styling - all text and icons brass */
+footer,
+footer * {
+    color: var(--brass) !important;
+}
+
+/* Override Bootstrap's text-muted class in footer */
+footer .text-muted {
+    color: var(--brass) !important;
+}
+
+footer .footer-header {
+    color: var(--cream) !important;
+}
+
+/* ============================================================================
+   ACCESSIBILITY IMPROVEMENTS
+   ============================================================================ */
+.btn:focus-visible,
+.form-control:focus-visible,
+.card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .card {
+        border: 2px solid var(--gray-500);
+    }
+    
+    .btn {
+        border: 2px solid currentColor;
+    }
+}
