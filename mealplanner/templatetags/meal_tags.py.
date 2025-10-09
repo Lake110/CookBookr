@@ -1,0 +1,9 @@
+from django import template
+from mealplanner.models import MealSlot
+
+register = template.Library()
+
+@register.filter
+def get_slot(slots, day_meal):
+    day, meal_type = day_meal.split('|')
+    return slots.filter(day=day, meal_type=meal_type).first()

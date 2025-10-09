@@ -422,3 +422,7 @@ def categories_list(request):
     }
     
     return render(request, 'recipes/categories_list.html', context)
+
+def search_results(request):
+    # Placeholder implementation
+    return render(request, 'recipes/search_results.html')

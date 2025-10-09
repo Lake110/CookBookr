@@ -24,4 +24,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', views.home, name='home'),
     path('recipes/', include('recipes.urls')),
+    path('mealplanner/', include('mealplanner.urls')),
 ]
