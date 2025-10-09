@@ -77,7 +77,7 @@ Typography choices emphasize readability and modern design:
 
 ### Epic: User Authentication & Account Management
 
-#### User Story 1: Register and Log In
+#### User Story 1: Register and Log In *(must-have)*
 **As a site user, I can register and log in so that I can share my own recipes.**
 
 **Acceptance Criteria:**
@@ -85,9 +85,9 @@ Typography choices emphasize readability and modern design:
 - **AC2:** Users can log in with correct credentials
 - **AC3:** Users receive appropriate error messages for invalid credentials
 
-**Status:** ✅ **Completed** - Implemented using Django Allauth
+**Status:** ✅ **Completed**
 
-#### User Story 2: User Profile Management
+#### User Story 2: User Profile Management *(must-have)*
 **As a logged-in user, I can view my profile and see my recipes so that I can manage my content.**
 
 **Acceptance Criteria:**
@@ -99,7 +99,7 @@ Typography choices emphasize readability and modern design:
 
 ### Epic: Recipe Management
 
-#### User Story 3: Create a Recipe
+#### User Story 3: Create a Recipe *(must-have)*
 **As a logged-in user, I can create a recipe so that I can share it with others.**
 
 **Acceptance Criteria:**
@@ -109,7 +109,7 @@ Typography choices emphasize readability and modern design:
 
 **Status:** ✅ **Completed**
 
-#### User Story 4: View Recipes
+#### User Story 4: View Recipes *(must-have)*
 **As a site visitor, I can view recipes so that I can try cooking them.**
 
 **Acceptance Criteria:**
@@ -119,7 +119,7 @@ Typography choices emphasize readability and modern design:
 
 **Status:** ✅ **Completed**
 
-#### User Story 5: Edit/Delete My Recipes
+#### User Story 5: Edit/Delete My Recipes *(must-have)*
 **As a recipe author, I can edit or delete my own recipes so that I can keep them up to date.**
 
 **Acceptance Criteria:**
@@ -131,7 +131,7 @@ Typography choices emphasize readability and modern design:
 
 ### Epic: Community Interaction
 
-#### User Story 6: Comment on Recipes
+#### User Story 6: Comment on Recipes *(must-have)*
 **As a logged-in user, I can comment on recipes so that I can give feedback or ask questions.**
 
 **Acceptance Criteria:**
@@ -141,7 +141,7 @@ Typography choices emphasize readability and modern design:
 
 **Status:** ✅ **Completed**
 
-#### User Story 7: Manage My Comments
+#### User Story 7: Manage My Comments *(must-have)*
 **As a comment author, I can edit or delete my own comments so that I can control what I post.**
 
 **Acceptance Criteria:**
@@ -150,6 +150,60 @@ Typography choices emphasize readability and modern design:
 - **AC3:** Only comment authors can modify their comments
 
 **Status:** ✅ **Completed**
+
+---
+
+### Epic: Meal Planning & Shopping
+
+#### User Story 8: Add recipes to a weekly meal plan *(should-have)*
+**As a site user, I can add recipes to a weekly meal plan so that I can plan my meals ahead.**
+
+**Acceptance Criteria:**
+- **AC1:** Given I am logged in, when I click "Add to Meal Plan" on a recipe and select a date/meal type, then the recipe is added to my plan.
+- **AC2:** Given I have added recipes, when I view my plan, then I see them assigned to the correct day and meal type.
+
+**Status:** 🚧 **Planned**
+
+#### User Story 9: View calendar-like meal plan *(should-have)*
+**As a site user, I can view a calendar-style plan so that I can track what I will cook.**
+
+**Acceptance Criteria:**
+- **AC1:** Given I have recipes in my meal plan, when I view the plan page, then I see a weekly calendar layout with meals assigned.
+- **AC2:** Given no recipes are in my meal plan, when I view the calendar, then I see an empty weekly view.
+
+**Status:** 🚧 **Planned**
+
+#### User Story 10: Generate shopping list *(could-have)*
+**As a site user, I can generate a shopping list from my weekly meal plan so that I know what ingredients to buy.**
+
+**Acceptance Criteria:**
+- **AC1:** Given I have recipes in my plan, when I click "Generate Shopping List," then all recipe ingredients are compiled into a list.
+- **AC2:** Given I update my meal plan, when I regenerate the list, then the shopping list reflects the changes.
+
+**Status:** 🚧 **Planned**
+
+#### User Story 11: Download shopping list *(could-have)*
+**As a site user, I can download my shopping list so that I can use it while shopping.**
+
+**Status:** 🚧 **Planned**
+
+#### User Story 12: View nutrition info *(could-have)*
+**As a site user, I can view nutrition info for recipes so that I can track my diet.**
+
+**Acceptance Criteria:**
+- **AC1:** Given a recipe has nutrition data, when I open its detail page, then calories, protein, carbs, and fat are displayed.
+- **AC2:** Given a recipe does not have nutrition data, when I view it, then I see a message saying "Nutrition information not available."
+
+**Status:** 🚧 **Planned**
+
+#### User Story 13: Import recipes from an external API *(could-have)*
+**As a site user, I can import recipes from an external API so that I have more variety in my meal plan.**
+
+**Acceptance Criteria:**
+- **AC1:** Given I search for recipes, when the API responds, then I see a list of external recipes.
+- **AC2:** Given I view an imported recipe, when I click "Add to Meal Plan," then it is saved in my plan like a local recipe.
+
+**Status:** 🚧 **Planned**
 
 ---
 
@@ -223,6 +277,7 @@ Visual design wireframes for CookBookr across devices:
 - **Delete recipes** with confirmation prompts
 - **Recipe detail views** with formatted display
 - **Author attribution** and timestamp tracking
+- **Tag-Based Filtering**: Use tags like "30-minute meals", "family-friendly", "budget-friendly" to find suitable recipes (now implemented)
 
 #### 💬 **Comment System**
 - **Add comments** to recipes (authenticated users only)
@@ -252,7 +307,6 @@ Visual design wireframes for CookBookr across devices:
 - **Weekly Meal Calendar**: Interactive calendar interface for planning 7 days of meals
 - **Drag & Drop Planning**: Easily drag recipes onto specific days and meal times (breakfast, lunch, dinner)
 - **Category-Based Planning**: Filter recipes by categories (vegetarian, quick meals, comfort food, etc.) for targeted meal selection
-- **Tag-Based Filtering**: Use tags like "30-minute meals", "family-friendly", "budget-friendly" to find suitable recipes
 - **Nutritional Balance**: Visual indicators to help balance meals across the week
 - **Shopping List Generation**: Automatically compile ingredients from planned meals into a shopping list
 - **Meal Prep Suggestions**: Identify recipes that can be prepared in advance
@@ -326,10 +380,10 @@ A collapsible sidebar would appear on the right side of the homepage, providing 
 This integrated approach transforms the homepage from a simple recipe browser into a comprehensive meal planning dashboard, encouraging daily engagement and making meal planning a central part of the user experience rather than a separate feature.
 
 #### 🔍 **Search & Discovery**
-- Recipe search functionality
-- Category filtering and tags
-- Advanced search with multiple criteria
-- Recipe recommendations
+- Recipe search functionality (implemented)
+- Category filtering and tags (implemented)
+- Advanced search with multiple criteria (implemented)
+- Recipe recommendations (planned)
 
 #### ⭐ **Social Features**
 - Recipe rating system
