@@ -502,7 +502,7 @@ Lighthouse audits were performed to evaluate performance, accessibility, best pr
 - SEO: 100/100
 ![Lighthouse Home](<docs/Readme/images/Screenshot 2025-10-10 at 10.18.49.png>)![Lighthouse Add Recipe](<docs/Readme/images/Screenshot 2025-10-10 at 10.27.07.png>)![Lighthouse All Recipes](<docs/Readme/images/Screenshot 2025-10-10 at 10.32.22.png>)
 **Improvements Made:**
-- Image optimization and lazy loading
+- Image optimisation and lazy loading
 - Improved server response times
 - Enhanced accessibility attributes and roles
 - SEO meta tags and structured data implementation
@@ -518,11 +518,11 @@ All custom CSS, HTML, and JavaScript files were tested for standards compliance:
   **Result:** Congratulations! No Error Found.  
   This document validates as CSS level 3 + SVG.  
   ![W3C Jigsaw CSS Validator](<docs/Readme/images/Screenshot 2025-10-10 at 15.12.46.png>)
-
 - **HTML Validation:**  
   All HTML templates were tested using the [W3C Markup Validation Service](https://validator.w3.org/).  
   **Result:** Passed with no errors (see screenshot below).
-  ![W3C Markup HTML Validation Service](<Screenshot 2025-10-10 at 15.37.15.png>)
+  ![W3C Markup HTML Validation Service](<docs/Readme/images/Screenshot 2025-10-10 at 16.04.48.png>)
+
 
 - **JavaScript Validation:**  
   All custom JavaScript files (`comments.js`, `main.js`, `notifications.js`) were tested using the [PieHost JS Validator](https://piehost.com/tools/js-vaidator).  
