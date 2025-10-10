@@ -404,6 +404,24 @@ This integrated approach transforms the homepage from a simple recipe browser in
 - Recipe import from URLs
 - Nutritional information display
 
+#### 🔔 **Real-Time Notifications (Planned)**
+Real-time notifications will be implemented using Django Channels and WebSockets. This will enable features such as live recipe updates, collaborative meal planning, and instant comment notifications. The planned approach includes:
+- Integrating Django Channels for asynchronous communication
+- Using WebSockets to push updates to users without page reloads
+- Displaying notifications for new comments, recipe edits, and shared meal plans
+- Ensuring accessibility and cross-browser compatibility
+
+This enhancement will improve user engagement and support collaborative features in future releases.
+
+#### 🧪 JavaScript Test Procedures (Planned)
+Automated testing for JavaScript functionality will be added using Jest and Cypress. Planned procedures include:
+- Unit tests for custom JS modules (e.g., comment editing, modal interactions)
+- End-to-end tests for user flows (e.g., adding/editing comments, notifications)
+- Integration with CI/CD for continuous test coverage
+- Accessibility checks for interactive components
+
+These tests will ensure reliability and maintainability of frontend features as the project evolves.
+
 ---
 
 ## Technologies Used
@@ -515,6 +533,10 @@ AI tools were strategically integrated throughout the development process to enh
 - Add file size validation for uploads
 - Improve static file handling in production
 - Add search and filtering capabilities
+
+## Known Bugs
+
+- The "Share Recipe" link/button on the recipe information card does not currently work. Clicking it does not trigger any sharing functionality or modal. This will be addressed in a future update.
 
 ---
 
