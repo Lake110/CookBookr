@@ -509,6 +509,32 @@ Lighthouse audits were performed to evaluate performance, accessibility, best pr
 
 ---
 
+### Validation Testing
+
+All custom CSS, HTML, and JavaScript files were tested for standards compliance:
+
+- **CSS Validation:**  
+  The main stylesheet (`style.css`) was tested using the [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/).  
+  **Result:** Congratulations! No Error Found.  
+  This document validates as CSS level 3 + SVG.  
+  ![W3C Jigsaw CSS Validator](<docs/Readme/images/Screenshot 2025-10-10 at 15.12.46.png>)
+
+- **HTML Validation:**  
+  All HTML templates were tested using the [W3C Markup Validation Service](https://validator.w3.org/).  
+  **Result:** Passed with no errors (see screenshot below).
+  ![W3C Markup HTML Validation Service](<Screenshot 2025-10-10 at 15.37.15.png>)
+
+- **JavaScript Validation:**  
+  All custom JavaScript files (`comments.js`, `main.js`, `notifications.js`) were tested using the [PieHost JS Validator](https://piehost.com/tools/js-vaidator).  
+  **Result:** No errors found in any file (see screenshots below).
+  ![PieHost JS Validator - comments.js](<docs/Readme/images/Screenshot 2025-10-10 at 15.35.09.png>)
+  ![PieHost JS Validator - main.js](<docs/Readme/images/Screenshot 2025-10-10 at 15.35.33.png>)
+  ![PieHost JS Validator - notifications.js](<docs/Readme/images/Screenshot 2025-10-10 at 15.40.41.png>)
+
+These results confirm that CookBookr's front-end code is clean, well-structured, and compliant with web standards, ensuring a robust and accessible user experience.
+
+---
+
 ## Deployment
 
 Follow these steps to deploy CookBookr to Heroku:
