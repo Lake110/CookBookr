@@ -400,8 +400,9 @@ Project planning and progress tracking was managed using a Kanban board.
 ### ERD Diagram
 
 - MVP ERD: User, Recipe, Comment models and relationships
+![MVP ERD](<docs/Readme/images/Screenshot 2025-09-24 at 15.34.05 copy.png>)
 - Future ERD: Planned database expansion
-
+![Mealplan addition](<docs/Readme/images/Screenshot 2025-09-25 at 14.23.04.png>)
 *Screenshots of ERD diagrams included.*
 
 ---
@@ -412,7 +413,7 @@ Project planning and progress tracking was managed using a Kanban board.
 
 - Python 3.12
 - Django 4.2+
-- PostgreSQL (Heroku), SQLite (dev)
+- PostgreSQL, SQLite
 - Django ORM, Allauth
 
 ### Frontend
@@ -500,7 +501,9 @@ Lighthouse audits were performed to evaluate performance, accessibility, best pr
 - Accessibility: 93-95/100
 - Best Practices: 96/100
 - SEO: 100/100
+
 ![Lighthouse Home](<docs/Readme/images/Screenshot 2025-10-10 at 10.18.49.png>)![Lighthouse Add Recipe](<docs/Readme/images/Screenshot 2025-10-10 at 10.27.07.png>)![Lighthouse All Recipes](<docs/Readme/images/Screenshot 2025-10-10 at 10.32.22.png>)
+
 **Improvements Made:**
 - Image optimisation and lazy loading
 - Improved server response times
@@ -647,6 +650,7 @@ If you need to update the app, just commit your changes and push to Heroku again
 - Django documentation and tutorials
 - Bootstrap documentation and examples
 - Heroku Dev Center articles
+- Code Institute Docs
 
 ### Acknowledgements
 
