@@ -553,7 +553,7 @@ footer .footer-header {
     }
 }
 
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
     .card {
         border: 2px solid var(--gray-500);
     }
