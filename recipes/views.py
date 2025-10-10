@@ -7,7 +7,7 @@ from django.views.generic import ListView
 from django.urls import reverse
 from django.db.models import Q
 from django.core.paginator import Paginator
-from .models import Recipe, Comment
+from .models import Recipe, Comment, Notification
 from .forms import RecipeForm, CommentForm
 
 def home(request):

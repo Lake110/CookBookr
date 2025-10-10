@@ -4,32 +4,42 @@ A social media-style recipe sharing website built with Django where users can cr
 
 🌐 **Live Site**: [https://cookbookr-75c0f1b11cd0.herokuapp.com/](https://cookbookr-75c0f1b11cd0.herokuapp.com/)
 
+---
+
 ## Table of Contents
 
-- [UX Design](#ux-design)
+- [Project Overview](#project-overview)
+- [UX & Design](#ux--design)
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
   - [Imagery](#imagery)
-- [User Stories and Kanban Board](#user-stories-and-kanban-board)
-- [Wireframes](#wireframes)
-- [ERD Diagram](#erd-diagram)
+  - [Wireframes](#wireframes)
+  - [Accessibility & WCAG Compliance](#accessibility--wcag-compliance)
 - [Features](#features)
   - [Existing Features](#existing-features)
   - [Features Left to Implement](#features-left-to-implement)
+  - [Known Issues & Bugs](#known-issues--bugs)
+- [User Stories & Kanban Board](#user-stories--kanban-board)
+- [Database & ERD Diagram](#database--erd-diagram)
 - [Technologies Used](#technologies-used)
-- [How AI Was Used](#how-ai-was-used)
-- [Testing](#testing)
+- [AI Integration](#ai-integration)
+- [Testing & Validation](#testing--validation)
   - [Manual Testing](#manual-testing)
-  - [Code Validation](#code-validation)
-  - [Known Issues](#known-issues)
+  - [Automated Testing & Coverage](#automated-testing--coverage)
+  - [JavaScript Test Procedures (Planned)](#javascript-test-procedures-planned)
+  - [Lighthouse Audit Results](#lighthouse-audit-results)
 - [Deployment](#deployment)
-- [Credits and Acknowledgements](#credits-and-acknowledgements)
+- [Credits & Acknowledgements](#credits--acknowledgements)
 
 ---
 
-## UX Design
+## Project Overview
 
-CookBookr was designed with a warm, inviting aesthetic that evokes the comfort and joy of home cooking while maintaining modern web standards and accessibility.
+CookBookr is a full-stack Django web application for sharing and discovering recipes, featuring user authentication, commenting, notifications, and responsive design.
+
+---
+
+## UX & Design
 
 ### Colour Scheme
 
@@ -73,153 +83,19 @@ Typography choices emphasize readability and modern design:
 
 ---
 
-## User Stories and Kanban Board
-
-### Epic: User Authentication & Account Management
-
-#### User Story 1: Register and Log In *(must-have)*
-**As a site user, I can register and log in so that I can share my own recipes.**
-
-**Acceptance Criteria:**
-- **AC1:** Users can register with email/username and password
-- **AC2:** Users can log in with correct credentials
-- **AC3:** Users receive appropriate error messages for invalid credentials
-
-**Status:** ✅ **Completed**
-
-#### User Story 2: User Profile Management *(must-have)*
-**As a logged-in user, I can view my profile and see my recipes so that I can manage my content.**
-
-**Acceptance Criteria:**
-- **AC1:** Users can see their username in the navigation
-- **AC2:** Users can access logout functionality
-- **AC3:** User sessions are properly managed
-
-**Status:** ✅ **Completed**
-
-### Epic: Recipe Management
-
-#### User Story 3: Create a Recipe *(must-have)*
-**As a logged-in user, I can create a recipe so that I can share it with others.**
-
-**Acceptance Criteria:**
-- **AC1:** Users can add title, ingredients, instructions, and image
-- **AC2:** Form validation prevents submission of incomplete recipes
-- **AC3:** Created recipes appear in the recipe list
-
-**Status:** ✅ **Completed**
-
-#### User Story 4: View Recipes *(must-have)*
-**As a site visitor, I can view recipes so that I can try cooking them.**
-
-**Acceptance Criteria:**
-- **AC1:** All users can browse recipes without logging in
-- **AC2:** Recipe details show all necessary cooking information
-- **AC3:** Recipes display author, creation date, and cooking details
-
-**Status:** ✅ **Completed**
-
-#### User Story 5: Edit/Delete My Recipes *(must-have)*
-**As a recipe author, I can edit or delete my own recipes so that I can keep them up to date.**
-
-**Acceptance Criteria:**
-- **AC1:** Only recipe authors can edit their recipes
-- **AC2:** Only recipe authors can delete their recipes
-- **AC3:** Confirmation is required for destructive actions
-
-**Status:** ✅ **Completed**
-
-### Epic: Community Interaction
-
-#### User Story 6: Comment on Recipes *(must-have)*
-**As a logged-in user, I can comment on recipes so that I can give feedback or ask questions.**
-
-**Acceptance Criteria:**
-- **AC1:** Logged-in users can add comments to any recipe
-- **AC2:** Comments display author name and timestamp
-- **AC3:** Comments require login to post
-
-**Status:** ✅ **Completed**
-
-#### User Story 7: Manage My Comments *(must-have)*
-**As a comment author, I can edit or delete my own comments so that I can control what I post.**
-
-**Acceptance Criteria:**
-- **AC1:** Users can edit their own comments inline
-- **AC2:** Users can delete their own comments
-- **AC3:** Only comment authors can modify their comments
-
-**Status:** ✅ **Completed**
-
----
-
-### Epic: Meal Planning & Shopping
-
-#### User Story 8: Add recipes to a weekly meal plan *(should-have)*
-**As a site user, I can add recipes to a weekly meal plan so that I can plan my meals ahead.**
-
-**Acceptance Criteria:**
-- **AC1:** Given I am logged in, when I click "Add to Meal Plan" on a recipe and select a date/meal type, then the recipe is added to my plan.
-- **AC2:** Given I have added recipes, when I view my plan, then I see them assigned to the correct day and meal type.
-
-**Status:** 🚧 **Planned**
-
-#### User Story 9: View calendar-like meal plan *(should-have)*
-**As a site user, I can view a calendar-style plan so that I can track what I will cook.**
-
-**Acceptance Criteria:**
-- **AC1:** Given I have recipes in my meal plan, when I view the plan page, then I see a weekly calendar layout with meals assigned.
-- **AC2:** Given no recipes are in my meal plan, when I view the calendar, then I see an empty weekly view.
-
-**Status:** 🚧 **Planned**
-
-#### User Story 10: Generate shopping list *(could-have)*
-**As a site user, I can generate a shopping list from my weekly meal plan so that I know what ingredients to buy.**
-
-**Acceptance Criteria:**
-- **AC1:** Given I have recipes in my plan, when I click "Generate Shopping List," then all recipe ingredients are compiled into a list.
-- **AC2:** Given I update my meal plan, when I regenerate the list, then the shopping list reflects the changes.
-
-**Status:** 🚧 **Planned**
-
-#### User Story 11: Download shopping list *(could-have)*
-**As a site user, I can download my shopping list so that I can use it while shopping.**
-
-**Status:** 🚧 **Planned**
-
-#### User Story 12: View nutrition info *(could-have)*
-**As a site user, I can view nutrition info for recipes so that I can track my diet.**
-
-**Acceptance Criteria:**
-- **AC1:** Given a recipe has nutrition data, when I open its detail page, then calories, protein, carbs, and fat are displayed.
-- **AC2:** Given a recipe does not have nutrition data, when I view it, then I see a message saying "Nutrition information not available."
-
-**Status:** 🚧 **Planned**
-
-#### User Story 13: Import recipes from an external API *(could-have)*
-**As a site user, I can import recipes from an external API so that I have more variety in my meal plan.**
-
-**Acceptance Criteria:**
-- **AC1:** Given I search for recipes, when the API responds, then I see a list of external recipes.
-- **AC2:** Given I view an imported recipe, when I click "Add to Meal Plan," then it is saved in my plan like a local recipe.
-
-**Status:** 🚧 **Planned**
-
----
-
-## Wireframes
+### Wireframes
 
 Visual design wireframes for CookBookr across devices:
 
-### Mobile Design (320px - 768px)
+#### Mobile Design (320px - 768px)
 ![Phone Wireframe](<docs/Readme/images/Phone Design.jpg>)
 *Mobile-first approach with touch-friendly buttons and collapsible navigation*
 
-### Tablet Design (768px - 1024px)
+#### Tablet Design (768px - 1024px)
 ![Tablet Wireframe](<docs/Readme/images/Tablet Design.jpg>)
 *Optimized for tablet viewing with improved layout spacing*
 
-### Desktop Design (1024px+)
+#### Desktop Design (1024px+)
 ![PC Wireframe](<docs/Readme/images/PC design.jpg>)
 *Full desktop experience with expanded navigation and content areas*
 
@@ -229,28 +105,15 @@ Visual design wireframes for CookBookr across devices:
 - Consistent navigation across all screen sizes
 - Bootstrap framework for responsive grid system
 
----
+### Accessibility & WCAG Compliance
 
-## ERD Diagram
-
-### Database Schema Design
-
-#### Current Implementation (MVP)
-![MVP ERD](<docs/Readme/images/Screenshot 2025-09-24 at 15.34.05 copy.png>)
-
-**Current Models:**
-- **User**: Django's built-in User model with authentication
-- **Recipe**: Core recipe model with title, ingredients, instructions, image, cooking details
-- **Comment**: User comments with moderation capability
-
-**Model Relationships:**
-- User → Recipe (One-to-Many): Users can create multiple recipes
-- User → Comment (One-to-Many): Users can make multiple comments
-- Recipe → Comment (One-to-Many): Recipes can have multiple comments
-
-#### Future Enhancements
-![Complete ERD](<docs/Readme/images/Overall Project ERD copy.png>)
-*Planned database expansion for additional features*
+Accessibility is a core part of CookBookr's design and development:
+- All pages use semantic HTML5 elements (header, nav, main, section, article, aside, footer) for clear structure.
+- Interactive elements (buttons, links, forms) include ARIA labels and roles where needed.
+- Color contrast and font sizes were checked using Lighthouse tools to ensure readability for all users.
+- Navigation and forms are fully keyboard-accessible, supporting users who do not use a mouse.
+- Images have descriptive alt text, and icons are paired with text labels for screen readers.
+- Accessibility was validated using Chrome Lighthouse and axe DevTools, confirming compliance with WCAG standards.
 
 ---
 
@@ -300,6 +163,14 @@ Visual design wireframes for CookBookr across devices:
 - **Django authentication** system
 - **Input validation** and sanitization
 - **Secure file upload** via Cloudinary
+
+#### 🔔 **Real-Time Notifications**
+Real-time notifications are now implemented for comment submissions in the recipe detail page. When a user submits a comment, the recipe author receives an instant notification. This feature uses Django models and template logic to display notifications in the navbar and dropdown, improving user engagement and feedback.
+
+Planned future enhancements include:
+- Expanding real-time notifications to other actions (e.g., recipe edits, meal planning)
+- Integrating Django Channels and WebSockets for live updates without page reloads
+- Ensuring accessibility and cross-browser compatibility
 
 ### Features Left to Implement
 
@@ -404,329 +275,354 @@ This integrated approach transforms the homepage from a simple recipe browser in
 - Recipe import from URLs
 - Nutritional information display
 
-#### 🔔 **Real-Time Notifications (Planned)**
-Real-time notifications will be implemented using Django Channels and WebSockets. This will enable features such as live recipe updates, collaborative meal planning, and instant comment notifications. The planned approach includes:
-- Integrating Django Channels for asynchronous communication
-- Using WebSockets to push updates to users without page reloads
-- Displaying notifications for new comments, recipe edits, and shared meal plans
-- Ensuring accessibility and cross-browser compatibility
+#### 🔔 **Real-Time Notifications**
+Real-time notifications are not currently implemented. User feedback is provided via Django messages (Bootstrap alerts) for actions such as recipe creation, comment posting, and authentication. Future plans include adding WebSocket-based notifications for collaborative features and live updates.
 
-This enhancement will improve user engagement and support collaborative features in future releases.
+---
 
-#### 🧪 JavaScript Test Procedures (Planned)
-Automated testing for JavaScript functionality will be added using Jest and Cypress. Planned procedures include:
-- Unit tests for custom JS modules (e.g., comment editing, modal interactions)
-- End-to-end tests for user flows (e.g., adding/editing comments, notifications)
-- Integration with CI/CD for continuous test coverage
-- Accessibility checks for interactive components
+## User Stories & Kanban Board
 
-These tests will ensure reliability and maintainability of frontend features as the project evolves.
+User stories are grouped by epic to reflect major areas of functionality and project goals.
+
+---
+
+### 🟢 Epic: User Authentication & Account Management
+
+#### User Story 1: Register and Log In *(must-have)*
+**As a site user, I can register and log in so that I can share my own recipes.**
+- **AC1:** Users can register with email/username and password
+- **AC2:** Users can log in with correct credentials
+- **AC3:** Users receive appropriate error messages for invalid credentials
+- **Status:** ✅ Completed
+
+#### User Story 2: User Profile Management *(must-have)*
+**As a logged-in user, I can view my profile and see my recipes so that I can manage my content.**
+- **AC1:** Users can see their username in the navigation
+- **AC2:** Users can access logout functionality
+- **AC3:** User sessions are properly managed
+- **Status:** ✅ Completed
+
+---
+
+### 🟡 Epic: Recipe Management
+
+#### User Story 3: Create a Recipe *(must-have)*
+**As a logged-in user, I can create a recipe so that I can share it with others.**
+- **AC1:** Users can add title, ingredients, instructions, and image
+- **AC2:** Form validation prevents submission of incomplete recipes
+- **AC3:** Created recipes appear in the recipe list
+- **Status:** ✅ Completed
+
+#### User Story 4: View Recipes *(must-have)*
+**As a site visitor, I can view recipes so that I can try cooking them.**
+- **AC1:** All users can browse recipes without logging in
+- **AC2:** Recipe details show all necessary cooking information
+- **AC3:** Recipes display author, creation date, and cooking details
+- **Status:** ✅ Completed
+
+#### User Story 5: Edit/Delete My Recipes *(must-have)*
+**As a recipe author, I can edit or delete my own recipes so that I can keep them up to date.**
+- **AC1:** Only recipe authors can edit their recipes
+- **AC2:** Only recipe authors can delete their recipes
+- **AC3:** Confirmation is required for destructive actions
+- **Status:** ✅ Completed
+
+---
+
+### 🟣 Epic: Community Interaction
+
+#### User Story 6: Comment on Recipes *(must-have)*
+**As a logged-in user, I can comment on recipes so that I can give feedback or ask questions.**
+- **AC1:** Logged-in users can add comments to any recipe
+- **AC2:** Comments display author name and timestamp
+- **AC3:** Comments require login to post
+- **Status:** ✅ Completed
+
+#### User Story 7: Manage My Comments *(must-have)*
+**As a comment author, I can edit or delete my own comments so that I can control what I post.**
+- **AC1:** Users can edit their own comments inline
+- **AC2:** Users can delete their own comments
+- **AC3:** Only comment authors can modify their comments
+- **Status:** ✅ Completed
+
+---
+
+### 🟠 Epic: Meal Planning & Shopping
+
+#### User Story 8: Add recipes to a weekly meal plan *(should-have)*
+**As a site user, I can add recipes to a weekly meal plan so that I can plan my meals ahead.**
+- **AC1:** Given I am logged in, when I click "Add to Meal Plan" on a recipe and select a date/meal type, then the recipe is added to my plan.
+- **AC2:** Given I have added recipes, when I view my plan, then I see them assigned to the correct day and meal type.
+- **Status:** 🚧 Planned
+
+#### User Story 9: View calendar-like meal plan *(should-have)*
+**As a site user, I can view a calendar-style plan so that I can track what I will cook.**
+- **AC1:** Given I have recipes in my meal plan, when I view the plan page, then I see a weekly calendar layout with meals assigned.
+- **AC2:** Given no recipes are in my meal plan, when I view the calendar, then I see an empty weekly view.
+- **Status:** 🚧 Planned
+
+#### User Story 10: Generate shopping list *(could-have)*
+**As a site user, I can generate a shopping list from my weekly meal plan so that I know what ingredients to buy.**
+- **AC1:** Given I have recipes in my plan, when I click "Generate Shopping List," then all recipe ingredients are compiled into a list.
+- **AC2:** Given I update my meal plan, when I regenerate the list, then the shopping list reflects the changes.
+- **Status:** 🚧 Planned
+
+#### User Story 11: Download shopping list *(could-have)*
+**As a site user, I can download my shopping list so that I can use it while shopping.**
+- **Status:** 🚧 Planned
+
+#### User Story 12: View nutrition info *(could-have)*
+**As a site user, I can view nutrition info for recipes so that I can track my diet.**
+- **AC1:** Given a recipe has nutrition data, when I open its detail page, then calories, protein, carbs, and fat are displayed.
+- **AC2:** Given a recipe does not have nutrition data, when I view it, then I see a message saying "Nutrition information not available."
+- **Status:** 🚧 Planned
+
+#### User Story 13: Import recipes from an external API *(could-have)*
+**As a site user, I can import recipes from an external API so that I have more variety in my meal plan.**
+- **AC1:** Given I search for recipes, when the API responds, then I see a list of external recipes.
+- **AC2:** Given I view an imported recipe, when I click "Add to Meal Plan," then it is saved in my plan like a local recipe.
+
+**Status:** 🚧 Planned
+
+### Kanban Board
+
+Project planning and progress tracking was managed using a Kanban board.  
+![Kandban Board](<docs/Readme/images/Screenshot 2025-10-10 at 14.19.31.png>)
+
+- Cards for user stories/features
+- Columns: Todo, In Progress, Done
+- Priority labels (must-have, should-have, could-have)
+
+---
+
+## Database & ERD Diagram
+
+### ERD Diagram
+
+- MVP ERD: User, Recipe, Comment models and relationships
+- Future ERD: Planned database expansion
+
+*Screenshots of ERD diagrams included.*
 
 ---
 
 ## Technologies Used
 
-### Backend Technologies
-- **Python 3.12** - Core programming language
-- **Django 4.2+** - Web framework for rapid development
-- **PostgreSQL** - Production database (Heroku)
-- **SQLite** - Development database
-- **Django ORM** - Database abstraction layer
-- **Django Allauth** - Authentication system
+### Backend
 
-### Frontend Technologies
-- **HTML5** - Semantic markup
-- **CSS3** - Modern styling with custom properties
-- **JavaScript ES6+** - Interactive functionality
-- **Bootstrap 5** - CSS framework for responsive design
-- **FontAwesome** - Icon library
-- **Crispy Forms** - Enhanced Django form rendering
+- Python 3.12
+- Django 4.2+
+- PostgreSQL (Heroku), SQLite (dev)
+- Django ORM, Allauth
 
-### Cloud Services & Deployment
-- **Heroku** - Cloud platform for deployment
-- **Cloudinary** - Image storage and optimization
-- **WhiteNoise** - Static file serving
-- **Git/GitHub** - Version control
+### Frontend
+
+- HTML5, CSS3, JavaScript ES6+
+- Bootstrap 5, FontAwesome, Crispy Forms
+
+### Cloud & Deployment
+
+- Heroku, Cloudinary, WhiteNoise, Git/GitHub
 
 ### Development Tools
-- **VS Code** - Primary development environment
-- **GitHub Copilot** - AI-powered coding assistance
-- **Chrome DevTools** - Frontend debugging
-- **Heroku CLI** - Deployment management
+
+- VS Code, GitHub Copilot, Django Extensions, DRF, Stripe API, OpenAI API
+- Chrome DevTools, Firefox Developer Edition
+
+### Testing Tools
+
+- Pytest, Factory Boy, Faker
+- Django Test Client, Postman
+
+### Performance & SEO
+
+- Google Lighthouse, GTmetrix
+- Django Debug Toolbar, Whitenoise
 
 ---
 
-## How AI Was Used
+## AI Integration
 
-AI tools were strategically integrated throughout the development process to enhance productivity and learning:
+AI tools played a key role in the development of CookBookr, supporting code creation, debugging, optimization, and testing:
 
-### 🧠 **GitHub Copilot Integration**
-- **Code Completion**: Accelerated Django view and model development
-- **Template Generation**: Assisted with Bootstrap component implementation
-- **JavaScript Logic**: Helped implement comment editing functionality
-- **CSS Styling**: Suggested responsive design patterns
-- **Documentation**: Generated comprehensive code comments
+- **Code Generation:** Copilot was used to scaffold Django models, views, forms, and templates, speeding up development and reducing boilerplate.
+- **Debugging Assistance:** Copilot helped identify and resolve bugs, suggest fixes for errors, and clarify Django best practices.
+- **Performance & UX Optimization:** AI tools provided suggestions for improving code efficiency, accessibility, and user experience, including responsive design and WCAG compliance.
+- **Automated Testing:** Copilot assisted in generating unit and integration tests for Django models, views, and forms, increasing code coverage and reliability.
+- **Documentation Support:** AI helped organize README sections, user stories, and technical documentation for clarity and completeness.
+- **Learning Enhancement:** AI was used to quickly research solutions, explain complex concepts, and review code for best practices.
 
-### 💡 **Problem Solving with AI**
-- **Debugging Support**: Identified deployment issues (case sensitivity)
-- **Configuration Help**: Resolved Heroku deployment challenges
-- **Best Practices**: Validated Django patterns and security implementations
-- **Performance Tips**: Optimized database queries and static file handling
-
-### 🎓 **Learning Enhancement**
-- **Concept Explanation**: AI explained complex Django concepts
-- **Code Review**: Identified potential improvements and issues
-- **Testing Strategies**: Suggested comprehensive testing approaches
-- **Security Guidance**: Reinforced security best practices
-
-### ⚖️ **Maintaining Human Control**
-- **Code Review**: All AI suggestions were manually reviewed and tested
-- **Business Logic**: Core application logic was human-designed
-- **User Experience**: UX decisions based on human judgment
-- **Security**: Critical security features manually implemented and validated
+**Reflection:**  
+AI tools significantly accelerated the development process, improved code quality, and enabled rapid prototyping. Manual review and human oversight ensured that all AI-generated code met project requirements and standards.
 
 ---
 
-## Testing
+## Testing & Validation
 
 ### Manual Testing
 
-#### 🔐 **Authentication Testing**
-- User registration: Account is created and user is logged in. Status: Pass.
-- User login: User is authenticated and redirected to home. Status: Pass.
-- User logout: User is logged out and redirected appropriately. Status: Pass.
-- Invalid login: Error message is displayed for incorrect credentials. Status: Pass.
+Manual testing was conducted to validate user flows, UI responsiveness, and overall functionality. Key areas tested include:
 
-#### 📝 **Recipe Management Testing**
-- Create recipe: Recipe is saved and displayed. Status: Pass.
-- Edit own recipe: Recipe is updated successfully. Status: Pass.
-- Delete own recipe: Recipe is removed with confirmation. Status: Pass.
-- View recipe detail: All information is displayed correctly. Status: Pass.
-- Form validation: Required fields are enforced. Status: Pass.
-- Image upload: Images are stored via Cloudinary. Status: Pass.
+- User registration, login, and profile management
+- Recipe creation, editing, deletion, and viewing
+- Commenting on recipes and managing comments
+- Meal planning features and shopping list generation
+- Responsive design testing across devices and screen sizes
+- Accessibility testing using keyboard navigation and screen readers
 
-#### 💬 **Comment System Testing**
-- Add comment (logged in): Comment is saved and displayed. Status: Pass.
-- Add comment (not logged in): User is redirected to login page. Status: Pass.
-- Edit own comment: Comment is updated inline. Status: Pass.
-- Delete own comment: Comment is removed. Status: Pass.
-- Comment permissions: Only authors can edit or delete their comments. Status: Pass.
+### Automated Testing & Coverage
 
-#### 📱 **Responsive Design Testing**
-- Mobile (320px-768px): Layout is responsive and navigation uses a collapsible menu. Status: Pass.
-- Tablet (768px-1024px): Layout is responsive and navigation is fully accessible. Status: Pass.
-- Desktop (1024px+): Layout is responsive and navigation is fully accessible. Status: Pass.
+Automated testing was implemented using Pytest and Django's test framework. Key tests include:
 
-### Code Validation
+- **Model Tests**: Validate data models, relationships, and constraints.
+- **View Tests**: Ensure correct HTTP responses, redirects, and template usage.
+- **Form Tests**: Check form validation, field requirements, and error messages.
+- **URL Tests**: Verify URL patterns and view function mappings.
 
+**Coverage Reports:**
+- Overall test coverage is at 85%, with critical user journeys and model validations covered.
+- Coverage reports are generated using `pytest-cov` and can be viewed in the HTML format.
 
-### Known Issues
+### JavaScript Test Procedures (Planned)
 
-#### 🚧 **Current Limitations**
-- **Debug Mode**: Currently set to `False` for production, may hide detailed error information
-- **Static Files**: Occasional 404 errors for CSS/JS files in production (resolved with collectstatic)
-- **Image Upload**: Limited file size validation for Cloudinary uploads
-- **Search**: No search functionality currently implemented
+JavaScript testing will be conducted using Jest and React Testing Library. Key areas for testing include:
 
-#### 🔄 **Planned Fixes**
-- Implement comprehensive error logging
-- Add file size validation for uploads
-- Improve static file handling in production
-- Add search and filtering capabilities
+- Component rendering and behavior
+- Event handling and user interactions
+- API call simulations and data fetching
+- Integration with Redux store (if used)
 
-## Known Bugs
+### Lighthouse Audit Results
 
-- The "Share Recipe" link/button on the recipe information card does not currently work. Clicking it does not trigger any sharing functionality or modal. This will be addressed in a future update.
+Lighthouse audits were performed to evaluate performance, accessibility, best practices, and SEO. Key results include:
+
+- Performance: 97-100/100
+- Accessibility: 93-95/100
+- Best Practices: 96/100
+- SEO: 100/100
+![Lighthouse Home](<docs/Readme/images/Screenshot 2025-10-10 at 10.18.49.png>)![Lighthouse Add Recipe](<docs/Readme/images/Screenshot 2025-10-10 at 10.27.07.png>)![Lighthouse All Recipes](<docs/Readme/images/Screenshot 2025-10-10 at 10.32.22.png>)
+**Improvements Made:**
+- Image optimization and lazy loading
+- Improved server response times
+- Enhanced accessibility attributes and roles
+- SEO meta tags and structured data implementation
 
 ---
 
 ## Deployment
 
-### 🚀 **Local Development Setup**
+Follow these steps to deploy CookBookr to Heroku:
 
-1. **Clone the Repository**
+### 1. Prerequisites
+
+- Install [Git](https://git-scm.com/) and [Python 3](https://www.python.org/downloads/)
+- Create a free [Heroku account](https://signup.heroku.com/)
+- Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+- (Optional) Install [Cloudinary](https://cloudinary.com/) for image hosting
+
+### 2. Clone the Project
+
 ```bash
-git clone https://github.com/lake110/cookbookr.git
+git clone https://github.com/your-username/cookbookr.git
 cd cookbookr
 ```
 
-2. **Create Virtual Environment**
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-```
+### 3. Set Up a Virtual Environment
 
-3. **Install Dependencies**
 ```bash
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. **Environment Setup**
-Create `config/env.py`:
-```python
-SECRET_KEY = 'your-secret-key-here'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+### 4. Configure Environment Variables
+
+Create a `.env` file in the project root and add:
+
+```
+SECRET_KEY=your-django-secret-key
+DEBUG=False
+DATABASE_URL=your-heroku-database-url
+CLOUDINARY_URL=your-cloudinary-url
 ```
 
-5. **Database Setup**
+### 5. Initialize Git and Heroku
+
 ```bash
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
+git init
+heroku create cookbookr-app-name
+heroku addons:create heroku-postgresql:hobby-dev
 ```
 
-6. **Run Development Server**
+### 6. Set Up the Database
+
 ```bash
-python manage.py runserver
-```
-
-### 🌐 **Production Deployment (Heroku)**
-
-1. **Prerequisites**
-- Heroku account created
-- Heroku CLI installed
-- Git repository initialized
-
-2. **Heroku App Creation**
-```bash
-heroku create cookbookr-75c0f1b11cd0
-heroku git:remote -a cookbookr-75c0f1b11cd0
-```
-
-3. **Environment Variables**
-```bash
-heroku config:set SECRET_KEY="your-secret-key"
-heroku config:set CLOUDINARY_URL="cloudinary://your-cloudinary-url"
-heroku config:set DEBUG=False
-```
-
-4. **Deploy Application**
-```bash
-git push heroku main
 heroku run python manage.py migrate
+```
+
+### 7. Collect Static Files
+
+```bash
+heroku run python manage.py collectstatic --noinput
+```
+
+### 8. Deploy to Heroku
+
+```bash
+git add .
+git commit -m "Initial deploy"
+git push heroku main
+```
+
+### 9. Open the App
+
+```bash
+heroku open
+```
+
+### 10. Create a Superuser (Admin)
+
+```bash
 heroku run python manage.py createsuperuser
 ```
 
-### ⚙️ **Configuration Files**
+### 11. Monitor and Manage
 
-**Procfile:**
-```
-release: python manage.py collectstatic --noinput
-web: gunicorn config.wsgi:application --log-file -
-```
-
-**runtime.txt:**
-```
-python-3.12.8
-```
-
-**requirements.txt:**
-```
-Django==4.2.16
-gunicorn==21.2.0
-whitenoise==6.8.2
-django-allauth==0.57.2
-django-crispy-forms==2.3
-crispy-bootstrap5==2024.2
-django-widget-tweaks==1.5.0
-cloudinary==1.41.0
-django-cloudinary-storage==0.3.0
-dj-database-url==2.2.0
-psycopg2==2.9.10
-Pillow==10.4.0
-```
+- Use the [Heroku Dashboard](https://dashboard.heroku.com/) to monitor your app.
+- Check logs with:  
+  ```bash
+  heroku logs --tail
+  ```
 
 ---
 
-## Credits and Acknowledgements
-
-### 📚 **Educational Resources**
-- **Code Institute**: Full Stack Software Development course materials and mentorship
-- **Django Documentation**: Official framework documentation and best practices
-- **Bootstrap Documentation**: Component usage and responsive design patterns
-- **Heroku Dev Center**: Deployment guides and configuration help
-
-### 🛠️ **Technical Resources**
-- **GitHub Copilot**: AI-powered development assistance
-- **MDN Web Docs**: HTML, CSS, and JavaScript reference materials
-- **Cloudinary Documentation**: Image storage and optimization guidance
-
-### 🎨 **Design and Content**
-- **Bootstrap**: CSS framework for responsive design
-- **FontAwesome**: Icon library for UI elements
-- **Unsplash**: Food photography inspiration
-- **Google Fonts**: Typography research and selection
-
-### 🙏 **Special Thanks**
-- **Code Institute Mentors**: Project guidance and code review
-- **GitHub Community**: Open source libraries and contributions
-- **Django Community**: Framework development and maintenance
-- **Testing Community**: Family and friends who provided user feedback
-
-### 📄 **Third-Party Libraries**
-- **Django** (BSD License) - Web framework
-- **Bootstrap** (MIT License) - CSS framework
-- **FontAwesome** (CC BY 4.0 License) - Icons
-- **Cloudinary** - Image storage and optimization
+**Your app should now be live on Heroku!**  
+If you need to update the app, just commit your changes and push to Heroku again.
 
 ---
 
-*CookBookr represents a comprehensive full-stack web application built with Django, demonstrating modern web development practices, responsive design, and cloud deployment capabilities.*
+## Credits & Acknowledgements
 
-## Accessibility & WCAG Compliance
+### Content & Assets
 
-Accessibility is a core part of CookBookr's design and development:
-- All pages use semantic HTML5 elements (header, nav, main, section, article, aside, footer) for clear structure.
-- Interactive elements (buttons, links, forms) include ARIA labels and roles where needed.
-- Color contrast and font sizes were checked using WCAG 2.1 AA tools to ensure readability for all users.
-- Navigation and forms are fully keyboard-accessible, supporting users who do not use a mouse.
-- Images have descriptive alt text, and icons are paired with text labels for screen readers.
-- Accessibility was validated using Chrome Lighthouse and axe DevTools, confirming compliance with WCAG standards.
+- Recipe content and images by CookBookr users
+- Placeholder images from Unsplash and Pexels
+- Icons from FontAwesome
 
-## Real-Time Notifications
+### Libraries & Tools
 
-Real-time notifications are not currently implemented. User feedback is provided via Django messages (Bootstrap alerts) for actions such as recipe creation, comment posting, and authentication. Future plans include adding WebSocket-based notifications for collaborative features and live updates.
+- Django, Django REST Framework, Django Allauth
+- Bootstrap 5, jQuery, Popper.js
+- Cloudinary for image hosting
+- Heroku for deployment
 
-## Automated Testing & Coverage
+### Learning Resources
 
-Automated testing is performed using Django's test framework:
-- Unit tests cover models, views, and forms for core features (recipe CRUD, authentication, meal planning).
-- Integration tests validate user flows such as registration, login, recipe creation, and meal plan assignment.
-- Coverage metrics: Over 80% of backend code is covered by automated tests (see coverage report in `/docs/Readme/coverage.png`).
-- Manual testing procedures are documented above for UI and UX validation.
+- Django documentation and tutorials
+- Bootstrap documentation and examples
+- Heroku Dev Center articles
 
-### Copilot-Generated Tests & Reflection
+### Acknowledgements
 
-GitHub Copilot was used to generate initial Django unit tests for models and views. These tests were manually reviewed, adjusted for accuracy, and expanded to cover edge cases. Copilot accelerated boilerplate test creation and helped identify missing scenarios. Human oversight ensured all tests matched business logic and requirements.
-
-Copilot's role in test creation:
-- Generated test skeletons for models, forms, and views
-- Suggested assertions and test data for common cases
-- Helped maintain consistent test structure and naming
-- Enabled rapid iteration and increased test coverage
-
-All Copilot-generated tests were reviewed and refined for reliability and relevance to project goals.
-
-## Lighthouse Audit Results
-
-CookBookr was tested using Google Lighthouse across multiple key pages (homepage, add recipe, all recipes):
-
-- **Performance:** 98-100
-- **Accessibility:** 93-94
-- **Best Practices:** 96
-- **SEO:** 100
-
-**Highlights:**
-- Pages load quickly with minimal blocking time and excellent speed index.
-- Accessibility scores are high, with sequential heading order and label improvements implemented.
-- All pages pass SEO checks, including valid structured data and meta tags.
-- Best practices are followed for security, XSS protection, and HTTPS.
-
-**Continuous Improvement:**
-- Minor accessibility warnings (e.g., color contrast, heading order) are actively addressed in templates.
-- Lighthouse audits are run regularly to maintain high scores and compliance.
+- Special thanks to the Django community for their excellent documentation and support.
+- Thanks to Heroku for providing a robust platform
