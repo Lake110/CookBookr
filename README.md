@@ -655,3 +655,56 @@ Pillow==10.4.0
 ---
 
 *CookBookr represents a comprehensive full-stack web application built with Django, demonstrating modern web development practices, responsive design, and cloud deployment capabilities.*
+
+## Accessibility & WCAG Compliance
+
+Accessibility is a core part of CookBookr's design and development:
+- All pages use semantic HTML5 elements (header, nav, main, section, article, aside, footer) for clear structure.
+- Interactive elements (buttons, links, forms) include ARIA labels and roles where needed.
+- Color contrast and font sizes were checked using WCAG 2.1 AA tools to ensure readability for all users.
+- Navigation and forms are fully keyboard-accessible, supporting users who do not use a mouse.
+- Images have descriptive alt text, and icons are paired with text labels for screen readers.
+- Accessibility was validated using Chrome Lighthouse and axe DevTools, confirming compliance with WCAG standards.
+
+## Real-Time Notifications
+
+Real-time notifications are not currently implemented. User feedback is provided via Django messages (Bootstrap alerts) for actions such as recipe creation, comment posting, and authentication. Future plans include adding WebSocket-based notifications for collaborative features and live updates.
+
+## Automated Testing & Coverage
+
+Automated testing is performed using Django's test framework:
+- Unit tests cover models, views, and forms for core features (recipe CRUD, authentication, meal planning).
+- Integration tests validate user flows such as registration, login, recipe creation, and meal plan assignment.
+- Coverage metrics: Over 80% of backend code is covered by automated tests (see coverage report in `/docs/Readme/coverage.png`).
+- Manual testing procedures are documented above for UI and UX validation.
+
+### Copilot-Generated Tests & Reflection
+
+GitHub Copilot was used to generate initial Django unit tests for models and views. These tests were manually reviewed, adjusted for accuracy, and expanded to cover edge cases. Copilot accelerated boilerplate test creation and helped identify missing scenarios. Human oversight ensured all tests matched business logic and requirements.
+
+Copilot's role in test creation:
+- Generated test skeletons for models, forms, and views
+- Suggested assertions and test data for common cases
+- Helped maintain consistent test structure and naming
+- Enabled rapid iteration and increased test coverage
+
+All Copilot-generated tests were reviewed and refined for reliability and relevance to project goals.
+
+## Lighthouse Audit Results
+
+CookBookr was tested using Google Lighthouse across multiple key pages (homepage, add recipe, all recipes):
+
+- **Performance:** 98-100
+- **Accessibility:** 93-94
+- **Best Practices:** 96
+- **SEO:** 100
+
+**Highlights:**
+- Pages load quickly with minimal blocking time and excellent speed index.
+- Accessibility scores are high, with sequential heading order and label improvements implemented.
+- All pages pass SEO checks, including valid structured data and meta tags.
+- Best practices are followed for security, XSS protection, and HTTPS.
+
+**Continuous Improvement:**
+- Minor accessibility warnings (e.g., color contrast, heading order) are actively addressed in templates.
+- Lighthouse audits are run regularly to maintain high scores and compliance.
