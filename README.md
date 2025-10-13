@@ -471,6 +471,42 @@ Manual testing was conducted to validate user flows, UI responsiveness, and over
 - Responsive design testing across devices and screen sizes
 - Accessibility testing using keyboard navigation and screen readers
 
+### Manual Testing Results
+
+| User Story | Expected Outcome | Actual Outcome | Pass/Fail |
+|------------|-----------------|---------------|-----------|
+| 1 | User can register with email/username and password | Registration form works, user is created and redirected to homepage | Pass |
+| 1 | User can log in with correct credentials | Login form authenticates user and redirects to homepage | Pass |
+| 1 | Invalid credentials show error message | Error message displayed for wrong password/username | Pass |
+| 2 | User sees their username in the navigation | Username is displayed in navbar after login | Pass |
+| 2 | User can access logout functionality | Logout button works, user is logged out and redirected | Pass |
+| 2 | User sessions are properly managed | Session persists across pages, expires on logout | Pass |
+| 3 | User can add title, ingredients, instructions, and image | Recipe creation form accepts all fields, image uploads to Cloudinary | Pass |
+| 3 | Form validation prevents incomplete recipes | Error shown if required fields are missing | Pass |
+| 3 | Created recipes appear in the recipe list | New recipes show up on homepage and all recipes page | Pass |
+| 4 | All users can browse recipes without logging in | Recipes visible to all users, login not required | Pass |
+| 4 | Recipe details show all necessary cooking information | Detail page displays title, ingredients, instructions, author, and image | Pass |
+| 4 | Recipes display author, creation date, and cooking details | Author and date shown, cooking time and servings displayed | Pass |
+| 5 | Only recipe authors can edit their recipes | Edit button only visible for recipe author | Pass |
+| 5 | Only recipe authors can delete their recipes | Delete button only visible for recipe author | Pass |
+| 5 | Confirmation required for destructive actions | Confirmation modal appears before deletion | Pass |
+| 6 | Logged-in users can add comments to any recipe | Comment form available for logged-in users, comment appears after submission | Pass |
+| 6 | Comments display author name and timestamp | Author and timestamp shown with each comment | Pass |
+| 6 | Comments require login to post | Comment form hidden for anonymous users | Pass |
+| 7 | Users can edit their own comments inline | Edit button available for own comments, inline editing works | Pass |
+| 7 | Users can delete their own comments | Delete button available for own comments, comment removed after confirmation | Pass |
+| 7 | Only comment authors can modify their comments | Edit/Delete buttons hidden for other users' comments | Pass |
+| 8 | User can add recipes to a weekly meal plan | Feature not yet implemented | Fail |
+| 9 | User sees weekly calendar layout with meals assigned | Feature not yet implemented | Fail |
+| 10 | Shopping list generated from meal plan | Feature not yet implemented | Fail |
+| 11 | User can download shopping list | Feature not yet implemented | Fail |
+| 12 | Nutrition info displayed for recipes | Feature not yet implemented | Fail |
+| 13 | User can import recipes from external API | Feature not yet implemented | Fail |
+
+*Note: User stories 8–13 have not yet been implemented. These features will be marked as "Pass" once development is complete and testing confirms they work as expected.*
+
+---
+
 ### Automated Testing & Coverage
 
 Automated testing was implemented using Pytest and Django's test framework. Key tests include:
@@ -501,9 +537,7 @@ Lighthouse audits were performed to evaluate performance, accessibility, best pr
 - Accessibility: 93-95/100
 - Best Practices: 96/100
 - SEO: 100/100
-
 ![Lighthouse Home](<docs/Readme/images/Screenshot 2025-10-10 at 10.18.49.png>)![Lighthouse Add Recipe](<docs/Readme/images/Screenshot 2025-10-10 at 10.27.07.png>)![Lighthouse All Recipes](<docs/Readme/images/Screenshot 2025-10-10 at 10.32.22.png>)
-
 **Improvements Made:**
 - Image optimisation and lazy loading
 - Improved server response times
