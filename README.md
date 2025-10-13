@@ -576,21 +576,21 @@ These results confirm that CookBookr's front-end code is clean, well-structured,
 
 Follow these steps to deploy CookBookr to Heroku:
 
-### 1. Prerequisites
+#### 1. Prerequisites
 
 - Install [Git](https://git-scm.com/) and [Python 3](https://www.python.org/downloads/)
 - Create a free [Heroku account](https://signup.heroku.com/)
 - Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
 - (Optional) Install [Cloudinary](https://cloudinary.com/) for image hosting
 
-### 2. Clone the Project
+#### 2. Clone the Project
 
 ```bash
 git clone https://github.com/your-username/cookbookr.git
 cd cookbookr
 ```
 
-### 3. Set Up a Virtual Environment
+#### 3. Set Up a Virtual Environment
 
 ```bash
 python3 -m venv venv
@@ -598,7 +598,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 4. Configure Environment Variables
+#### 4. Configure Environment Variables
 
 Create a `.env` file in the project root and add:
 
@@ -609,7 +609,17 @@ DATABASE_URL=your-heroku-database-url
 CLOUDINARY_URL=your-cloudinary-url
 ```
 
-### 5. Initialize Git and Heroku
+**Heroku Config Vars:**  
+When deploying to Heroku, set the following config vars in the Heroku dashboard (Settings > Config Vars):
+
+- `SECRET_KEY`
+- `DATABASE_URL`
+- `CLOUDINARY_URL`
+
+These are the **only permitted alterations** to the deployed Heroku environment after submission, as per Code Institute assessment criteria.  
+
+
+#### 5. Initialise Git and Heroku
 
 ```bash
 git init
@@ -617,19 +627,19 @@ heroku create cookbookr-app-name
 heroku addons:create heroku-postgresql:hobby-dev
 ```
 
-### 6. Set Up the Database
+#### 6. Set Up the Database
 
 ```bash
 heroku run python manage.py migrate
 ```
 
-### 7. Collect Static Files
+#### 7. Collect Static Files
 
 ```bash
 heroku run python manage.py collectstatic --noinput
 ```
 
-### 8. Deploy to Heroku
+#### 8. Deploy to Heroku
 
 ```bash
 git add .
@@ -637,19 +647,19 @@ git commit -m "Initial deploy"
 git push heroku main
 ```
 
-### 9. Open the App
+#### 9. Open the App
 
 ```bash
 heroku open
 ```
 
-### 10. Create a Superuser (Admin)
+#### 10. Create a Superuser (Admin)
 
 ```bash
 heroku run python manage.py createsuperuser
 ```
 
-### 11. Monitor and Manage
+#### 11. Monitor and Manage
 
 - Use the [Heroku Dashboard](https://dashboard.heroku.com/) to monitor your app.
 - Check logs with:  
@@ -659,8 +669,8 @@ heroku run python manage.py createsuperuser
 
 ---
 
-**Your app should now be live on Heroku!**  
-If you need to update the app, just commit your changes and push to Heroku again.
+**Important:**  
+- The only permitted changes to your deployed Heroku app after submission are the addition of the required config vars (`SECRET_KEY`, `DATABASE_URL`, `CLOUDINARY_URL`).  
 
 ---
 
