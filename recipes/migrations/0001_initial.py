@@ -16,37 +16,121 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Recipe',
+            name="Recipe",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200)),
-                ('description', models.TextField(blank=True)),
-                ('image', cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image')),
-                ('ingredients', models.TextField(help_text='List ingredients, one per line')),
-                ('instructions', models.TextField(help_text='Step-by-step cooking instructions')),
-                ('prep_time', models.IntegerField(help_text='Preparation time in minutes')),
-                ('cook_time', models.IntegerField(help_text='Cooking time in minutes')),
-                ('servings', models.IntegerField(default=1)),
-                ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='recipes', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField(blank=True)),
+                (
+                    "image",
+                    cloudinary.models.CloudinaryField(
+                        default="placeholder",
+                        max_length=255,
+                        verbose_name="image"
+                    ),
+                ),
+                (
+                    "ingredients",
+                    models.TextField(
+                        help_text=(
+                            "List ingredients, one per line"
+                        ),
+                    ),
+                ),
+                (
+                    "instructions",
+                    models.TextField(
+                        help_text=(
+                            "Step-by-step cooking instructions"
+                        ),
+                    ),
+                ),
+                (
+                    "prep_time",
+                    models.PositiveIntegerField(
+                        default=0,
+                        help_text="Preparation time in minutes."
+                    ),
+                ),
+                (
+                    "cook_time",
+                    models.PositiveIntegerField(
+                        default=0,
+                        help_text="Cooking time in minutes."
+                    ),
+                ),
+                ("servings", models.PositiveIntegerField(
+                    default=1,
+                    help_text='Number of servings this recipe yields.',
+                )),
+                ("created_at", models.DateTimeField(
+                  auto_now_add=True,
+                )),
+
+                ("updated_at", models.DateTimeField(
+                  auto_now=True,
+                )),
+
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="recipes",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-created_at'],
+                "ordering": ["-created_at"],
             },
         ),
         migrations.CreateModel(
-            name='Comment',
+            name="Comment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('body', models.TextField(help_text='Share your thoughts about this recipe', max_length=1000)),
-                ('created_on', models.DateTimeField(auto_now_add=True)),
-                ('approved', models.BooleanField(default=False)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('recipe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='recipes.recipe')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "body",
+                    models.TextField(
+                        help_text="Share your thoughts about this recipe",
+                        max_length=1000,
+                    ),
+                ),
+                ("created_on", models.DateTimeField(auto_now_add=True)),
+                ("approved", models.BooleanField(default=False)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "recipe",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="comments",
+                        to="recipes.recipe",
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-created_on'],
+                "ordering": ["-created_on"],
             },
         ),
     ]

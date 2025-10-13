@@ -570,6 +570,11 @@ All custom CSS, HTML, and JavaScript files were tested for standards compliance:
 
 These results confirm that CookBookr's front-end code is clean, well-structured, and compliant with web standards, ensuring a robust and accessible user experience.
 
+
+### Python Code Validation
+
+Python code was checked using flake8 to ensure PEP8 compliance and maintain code quality.
+
 ---
 
 ## Deployment
@@ -679,8 +684,8 @@ heroku run python manage.py createsuperuser
 ### Content & Assets
 
 - Recipe content and images by CookBookr users
-- Placeholder images from Unsplash and Pexels
-- Icons from FontAwesome
+- Placeholder images from [Unsplash](https://unsplash.com/) and [Pexels](https://pexels.com/), used under their respective free licences
+- Icons from [FontAwesome](https://fontawesome.com/)
 
 ### Libraries & Tools
 
@@ -700,3 +705,4 @@ heroku run python manage.py createsuperuser
 
 - Special thanks to the Django community for their excellent documentation and support.
 - Thanks to Heroku for providing a robust platform
+- Some code snippets adapted from Code Institute, Bootstrap and Django documentation

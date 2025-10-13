@@ -6,22 +6,41 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0002_recipe_category'),
+        ("recipes", "0002_recipe_category"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='recipe',
-            name='category',
+            model_name="recipe",
+            name="category",
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='meal_type',
-            field=models.CharField(choices=[('breakfast', 'Breakfast'), ('lunch', 'Lunch'), ('dinner', 'Dinner'), ('snacks', 'Snacks & Appetizers'), ('dessert', 'Desserts'), ('beverages', 'Beverages')], default='dinner', help_text='Select the primary meal type for this recipe', max_length=50),
+            model_name="recipe",
+            name="meal_type",
+            field=models.CharField(
+                choices=[
+                    ("breakfast", "Breakfast"),
+                    ("lunch", "Lunch"),
+                    ("dinner", "Dinner"),
+                    ("snacks", "Snacks & Appetizers"),
+                    ("dessert", "Dessert"),
+                    ("beverages", "Beverages"),
+                ],
+                default="dinner",
+                help_text="Select the primary meal type for this recipe",
+                max_length=30,
+            ),
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='recipe_tags',
-            field=models.CharField(blank=True, help_text='Multiple tags describing this recipe (cuisine, dietary, etc.)', max_length=500),
+            model_name="recipe",
+            name="recipe_tags",
+            field=models.CharField(
+                blank=True,
+                help_text=(
+                    "Multiple tags describing this recipe "
+                    "(cuisine, dietary, etc.)"
+                ),
+                max_length=500,
+            ),
         ),
     ]

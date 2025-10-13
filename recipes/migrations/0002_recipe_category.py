@@ -6,13 +6,48 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0001_initial'),
+        ("recipes", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='recipe',
-            name='category',
-            field=models.CharField(choices=[('breakfast', 'Breakfast'), ('lunch', 'Lunch'), ('dinner', 'Dinner'), ('snacks', 'Snacks & Appetizers'), ('dessert', 'Desserts'), ('beverages', 'Beverages'), ('italian', 'Italian'), ('mexican', 'Mexican'), ('asian', 'Asian'), ('indian', 'Indian'), ('american', 'American'), ('mediterranean', 'Mediterranean'), ('vegetarian', 'Vegetarian'), ('vegan', 'Vegan'), ('gluten_free', 'Gluten-Free'), ('keto', 'Keto/Low-Carb'), ('healthy', 'Healthy & Light'), ('pizza', 'Pizza'), ('burger', 'Burgers'), ('pasta', 'Pasta'), ('soup', 'Soups & Stews'), ('salad', 'Salads'), ('chicken', 'Chicken Dishes'), ('seafood', 'Seafood'), ('beef', 'Beef Dishes'), ('pork', 'Pork Dishes'), ('baking', 'Baking & Bread')], default='dinner', help_text='Select the most appropriate category for this recipe', max_length=50),
+            model_name="recipe",
+            name="category",
+            field=models.CharField(
+                choices=[
+                    ("breakfast", "Breakfast"),
+                    ("lunch", "Lunch"),
+                    ("dinner", "Dinner"),
+                    ("snacks", "Snacks & Appetizers"),
+                    ("dessert", "Desserts"),
+                    ("beverages", "Beverages"),
+                    ("italian", "Italian"),
+                    ("mexican", "Mexican"),
+                    ("asian", "Asian"),
+                    ("indian", "Indian"),
+                    ("american", "American"),
+                    ("mediterranean", "Mediterranean"),
+                    ("vegetarian", "Vegetarian"),
+                    ("vegan", "Vegan"),
+                    ("gluten_free", "Gluten-Free"),
+                    ("keto", "Keto/Low-Carb"),
+                    ("healthy", "Healthy & Light"),
+                    ("pizza", "Pizza"),
+                    ("burger", "Burgers"),
+                    ("pasta", "Pasta"),
+                    ("soup", "Soups & Stews"),
+                    ("salad", "Salads"),
+                    ("chicken", "Chicken Dishes"),
+                    ("seafood", "Seafood"),
+                    ("beef", "Beef Dishes"),
+                    ("pork", "Pork Dishes"),
+                    ("baking", "Baking & Bread"),
+                ],
+                default="dinner",
+                help_text=(
+                    "Select the most appropriate category for this recipe"
+                ),
+                max_length=50,
+            ),
         ),
     ]
